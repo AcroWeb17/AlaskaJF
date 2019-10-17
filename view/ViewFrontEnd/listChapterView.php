@@ -13,6 +13,14 @@
 		<!--En-tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>
+				<a class="button" id="adminComments" href="index.php?action=adminComments">Gestion des commentaires</a>
+				<a class="button" id="newChapter" href="index.php?action=newChapter">Nouveau Chapitre</a>
+			<?php
+				}
+			?>
 		</header>
 
 		<main>
@@ -23,7 +31,7 @@
 					{
 				?>
 						<div class="episodes">
-							<a class="lienChapitre" href="index.php?action=chapter&&numChapter=<?= htmlspecialchars($data['numChapter']); ?>">
+							<a class="lienChapitre" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">
 								<h2>
 									CHAPITRE
 									<?= htmlspecialchars($data['numChapter']); ?>
@@ -37,21 +45,15 @@
 								<p class="suiteEpisode">
 									<i class="fas fa-ellipsis-h"></i>
 								</p>
-
-								<?php
-									if (isset($_SESSION['auth'])) {
-								?>
-									<p class="edit" id="editChap">
-										Mise à jour
-									</p>
-									<p class="edit" id="deleteChap">
-										Supprimer
-									</p>
-								<?php
-									}
-								?>
-
 							</a>
+							<?php
+								if (isset($_SESSION['auth'])) {
+							?>
+									<a class="edit" id="editChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">Mise à jour</a>
+									<a class="edit" id="deleteChap" href="index.php?action=confirmDelete&id=<?= htmlspecialchars($data['id']); ?>">Supprimer</a>
+							<?php
+								}
+							?>
 						</div>
 				<?php
 					}	
@@ -61,8 +63,8 @@
 
 		<footer>
 			<?php include("public/footer.php");?>
-			<div class="retourAccueil button" id="accueilAlaska">
-				<a href=index.php> Accueil</a>
+			<div class="button" id="accueilAlaska">
+				<a href="index.php"> Accueil</a>
 			</div>
 		</footer>
 

@@ -12,53 +12,105 @@
 	<body>
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="retourAccueil button" id="accueilChapitre" href=index.php>Accueil</a>
-			<a class="retourAccueil button" id="retourListeChap" href=index.php?action=listChapter>Liste des chapitres</a>
-
+			<a class="button retourAccueil" href="index.php">Accueil</a>
+			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
 		<main>
-				<h2 id="numChapitre">
-				<!-- chapitre.num Ajout du numero du chapitre-->
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>
+					<form id="updateChapitre" action="index.php?action=updateChapter&id=<?= htmlspecialchars($chap['id']); ?>" method="post">
+						<label for="id">Identifiant du chapitre :</label>
+						<input id="id" name="id" disabled value=
+							"<?= htmlspecialchars($chap['id']) ?>"
+						/>
+						<label for="numChapter">Chapitre numéro :</label>
+						<input type="number" id="numChapter" name="numChapter" value=
+							"<?= htmlspecialchars($chap['numChapter']) ?>"
+						/>
+						<label for="title">Titre :</label>
+						<input type="text" id="title" name="title" value=
+							"<?= htmlspecialchars($chap['title']) ?>"
+						/>
+						<textarea id="texte" name="texte" rows="2" >
+							<?= nl2br(htmlspecialchars($chap['texte'])) ?>
+						</textarea>
+						<input type="submit" class="button" id="submitUpdate" value="Enregistrer"/>
+
+						<div >
+							<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['id']); ?>" class="button" id="deleteUpdate">Supprimer</a>
+						</div>
+					</form>
+			<?php
+				} else {
+			?>
+					<h2 id="numChapitre">
 						CHAPITRE
 						<?= htmlspecialchars($chap['numChapter']) ?>
 					</h2>
-					<h3 id=titreChapitre>
+					<h3 id="titreChapitre">
 						<!-- chapitre.titre Ajout du titre du chapitre-->
 						<?= htmlspecialchars($chap['title']) ?>
 					</h3>
 					<p class="contenuChapitre">
 						<!-- chapitre.texte Ajout du contenu du chapitre-->
 						<?= nl2br(htmlspecialchars($chap['texte'])) ?>
-							
 					</p>
-
-				<section id=commentaire>
+			<?php
+				} 
+			?>
+				<section id="commentaire">
 					<h3 id="commentTitle">Commentaires</h3>
-					<p class="commentAffiche">
-						<?= htmlspecialchars($comments['author']) ?>
-					</p>
-					<p class="commentAffiche">
-						<?= nl2br(htmlspecialchars($comments['comment'])) ?>
-					</p>
-					<form action="index.php?action=addComment&amp;id=<?= $chap['numChapter'] ?>" method="post">
-						<div>
-							<label for="author">Author</label><br/>
-							<input type="text" id="author" name="author"/>
-						</div>
-						<div>
-							<label for="comment">Commentaire</label><br/>
-							<textarea id="comment" name="comment"></textarea>
-						</div>
-						<div>
-							<input type="submit"/>
-						</div>
-					</form>
+					<?php
+						while($dataComment = $comments->fetch())
+						{
+					?>
+							<p class="commentAffiche">
+								<?= htmlspecialchars($dataComment['id']) ?>
+							</p>
+							<p class="commentAffiche">
+								<?= htmlspecialchars($dataComment['author']) ?>
+							</p>
+							<p class="commentAffiche">
+								<?= htmlspecialchars($dataComment['dateComment']) ?>
+							</p>
+							<p class="commentAffiche">
+								<?= nl2br(htmlspecialchars($dataComment['comment'])) ?>
+							</p>
+						<?php
+							if (isset($_SESSION['auth'])) {
+						?>
+								<div >
+									<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="button" id="deleteComment">Supprimer</a>
+								</div>
+						<?php
+							}
+						?>
+					<?php
+						}
+					?>
 				</section>
-
+				<form action="index.php?action=addComment&amp;id=<?= $chap['id'] ?>" method="post">
+					<div>
+						<label for="author">Author</label><br/>
+						<input type="text" id="author" name="author"/>
+					</div>
+					<div>
+						<label for="comment">Commentaire</label><br/>
+						<textarea id="comment" name="comment"></textarea>
+					</div>
+					<div>
+						<input type="submit"/>
+					</div>
+				</form>
 		</main>	
 
 		<footer>
 			<?php include("public/footer.php");?>
 		</footer>
+
+		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
+
 	</body>

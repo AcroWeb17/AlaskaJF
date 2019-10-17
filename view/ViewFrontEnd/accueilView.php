@@ -24,16 +24,19 @@
 		<main>
 			<section id="biographie">
 				<img id="logo" src="public/Illustrations/logo.png" alt="Logo" title="Logo"/>
-				<p id="textPresentation">Obore dolessis am alit eum zzrit incipisi.
-	Essendiam, sequam ing eliquam cortie te feu feugait, quisim illam, veliquam dit alit ip eugue dolortin vulputatinci tin henis autpat vel utatet nos et, sent iure ese dolesen dipsum dit aliquip ercincilla aut dolor ing ex essequat.
-	Nullums andrer irit alit dunt aut in utatum enim iure veniscil do odit vulla conse vel iriurem eriusci nismolo rercipit ese vel dip essim eugait nostrud delit lum dit irit elenibh ea facinci esed molorper sit velisl ea facilla ndreetum venibh er alit nulla facin ulla feum delisit vent lum velesent velenim ip eugiam et, commy nullamcons nisit ut autpat, 
-				</p>
+					<?php
+						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
+						$req = $db->query('SELECT id, content FROM biography');
+						while($donnees = $req->fetch())
+						{
+							echo '<p>'.htmlspecialchars($donnees['content']).'</p>';
+						}
+
+					?>
 				<?php
 					if (isset($_SESSION['auth'])){
 				?>	
-						<p class="edit" id="editPresentation">
-							Mise à jour
-						</p>
+					<a class="edit" id="editBiography" href="index.php?action=biography">Mise à jour</a>
 				<?php
 					}
 				?>
@@ -42,31 +45,31 @@
 			<section id="couverture">
 				<img src="public/Illustrations/couverture.png" alt="Couverture du nouveau livre" title="Nouveau livre"/>
 				<article id="resumeBook">
-					<p id="txtResume">
-						sendiam, sequam ing eliquam cortie te feu feugait, quisim illam, veliquam dit alit ip eugue dolortin vulputatinci tin henis autpat vel utatet nos et, sent iure ese dolesen dipsum dit aliquip ercincilla aut dolor ing ex essequat.
-						Nullums andrer irit alit dunt aut in utatum enim iure veniscil do odit vulla conse vel iriurem eriusci nismolo rercipit ese vel dip essim eugait nostrud delit lum dit irit elenibh ea facinci esed molorper sit velisl ea facilla ndreetum venibh er alit nulla facin ulla feum delisit vent lum velesent velenim ip eugiam et, commy nullamcons nisit ut autpat, sisim dunt venismod mincidunt duis ad magna corem eu feum volenisi eugue min velisi eu facidunt at. Orem ip eraessis nulput praesse te feuis nonummy nim zzrilissenit augue etum nummod tem dolore faccum dipis eugait velessi tie d 
-					</p>
+					<?php
+						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
+						$req = $db->query('SELECT id, content FROM summary');
+						while($donnees = $req->fetch())
+						{
+							echo '<p>'.htmlspecialchars($donnees['content']).'</p>';
+						}
+					?>
 					<div>
 						<a id="accesBlog" href="index.php?action=listChapter"><i class="fas fa-book-open"></i></a>
 					</div>
 					<?php
 						if (isset($_SESSION['auth'])){
-					?>		<p class="edit" id="editResume">
-								Mise à jour
-							</p>
+					?>		
+							<a class="edit" id="editResume" href="index.php?action=summary">Mise à jour</a>
 					<?php
 						}
 					?>
 				</article>
-
-					
-				
 			</section>
-
-
 		</main>
+
 		<footer>
 			<?php include("public/footer.php");?>
 		</footer>
+		
 	</body>
-	</html>
+</html>

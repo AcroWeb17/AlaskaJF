@@ -9,68 +9,47 @@ class Comments extends DataBase
 			$_dateComment;
 
 	//affichage d'un commentaire
-	public function getComment($chapterNum)
+	public function getComment($id)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT numChapter,author, comment FROM comments WHERE numChapter =?');
-		$req->execute(array($chapterNum));
-		$comment = $req->fetch();
+		$comments = $db->prepare('SELECT id, idChapter,author, comment,dateComment FROM comments WHERE idChapter=?');
+		$comments->execute(array($id));
+		return $comments;
+	}
 
-		return $comment;
+	//afficher la liste des commentaires
+	public function getListComments()
+	{
+		$db = $this->dbConnect();
+		//on récupère les derniers chapitres
+		$listComments = $db->query('SELECT id, idChapter,author, comment,dateComment FROM comments');
+		return $listComments;
+	}
+
+	public function getContentComment($id)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('SELECT id, idChapter,author, comment,dateComment FROM comments WHERE id=?');
+		$req->execute(array($id));
+		$comments=$req->fetch();
+		return $comments;
 	}
 
 	//ajout d'un commentaire en base
-	public function postComment($chapterNum, $author,$comment)
+	public function postComment($chapterId, $author,$comment)
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('INSERT INTO comments(numChapter, author, comment, dateComment) VALUES(?,?,?,NOW())');
-		$affectedLines = $comments->execute(array($chapterNum,$author,$comment));
-
+		$comments = $db->prepare('INSERT INTO comments(idChapter, author, comment, dateComment) VALUES(?,?,?,NOW())');
+		$affectedLines = $comments->execute(array($chapterId,$author,$comment));
 		return $affectedLines;
 	}
 
-
-	//getters
-	public function id() { return $this->_id; }
-	public function numChapter() { return $this->_numChapter; }
-	public function author() { return $this->_author; }
-	public function comment() { return $this->_comment; }
-	public function dateComment() { return $this->_dateComment; }
-
-	//setters	
-	public function setId($id)
+	//suppression d'un commentaire
+	public function suppComment($id, $idChapter, $authorComment, $txtComment)
 	{
-		$id = (int) $id;
-		if ($id>0)
-		{
-			$this ->_id = $id;
-		}
+		$db = $this->dbConnect();
+		$req = $db->prepare('DELETE FROM comments WHERE id = ?');
+		$comDelete = $req->execute(array($id));
+		return $comDelete;
 	}
-
-	public function setNumChapter($numChapter)
-	{
-		$numChapter = (int) $numChapter;
-		if ($numChapter>0) 
-		{
-			$this ->_numChapter = $numChapter;
-		}
-	}
-
-	public function setAuthor($author)
-	{
-		if (is_string($author))
-		{
-			$this->_author = $author;
-		}
-	}
-
-	public function setComment($comment)
-	{
-		if (is_string($comment))
-		{
-			$this->_comment = $comment;
-		}
-	}
-
-
 }

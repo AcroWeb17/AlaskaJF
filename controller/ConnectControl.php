@@ -4,19 +4,18 @@ use AlaskaJF\model\DataBase;
 
 class ConnectControl extends DataBase
 {
-	function connect()
+	public function connect()
 	{
-		require('login.php');
+		require('view/ViewFrontEnd/loginView.php');
 	}
 
-		function deconnect()
+	public function deconnect()
 	{
 		session_destroy();
-		header('Location: deconnect.php');
+		header('Location: view/ViewFrontEnd/deconnectView.php');
 	}
 
-
-	function interfaceAdmin()
+	public function interfaceAdmin()
 	{
 		if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['password'])){
 			$db = $this->dbConnect();
@@ -44,6 +43,4 @@ class ConnectControl extends DataBase
 			//	</div>)
 		}
 	}
-
-
 }

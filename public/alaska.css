@@ -26,7 +26,7 @@ body
 a
 {
 	text-decoration:none;
-	color:black;
+	color:white;
 }
 
 .button
@@ -37,6 +37,18 @@ a
 	font-size:1em;
 	padding:5px;
 	position:absolute;
+}
+
+.retourAccueil
+{
+	right:20px;
+	top:205px;
+}
+
+.retourListeChap
+{
+	right:20px;
+	top:245px;
 }
 
 /*Propriétés des titres*/
@@ -78,7 +90,6 @@ h4
 	right:175px;
 	top:240px;
 }
-}
 
 p
 {
@@ -86,11 +97,13 @@ p
 }
 
 /*Propriétés du bandeau*/
-
 #bandeau
 {
 	position: relative;
 	width:100%;
+	padding-top:21.95%;
+	background-image: url(Photos/photo8.jpg);
+	background-size: cover;
 }
 
 #bandeau::after
@@ -102,7 +115,7 @@ p
 	width:0;
 	height:0;
 	right:0;
-	bottom:3px;
+	bottom:0px;
 }
 
 #photo
@@ -183,7 +196,7 @@ p
 #editResume
 {
 	left:20px;
-	bottom:-3px;
+	bottom:10px;
 }
 
 /*Interface de connexion*/
@@ -248,9 +261,8 @@ p
 	top:103px;
 }
 
-
 /*Interface de déconnexion*/
-#decconectAccueil
+#deconnectAccueil
 {
 	right:41%;
 	top:40%;
@@ -327,6 +339,7 @@ p
 	overflow:hidden;
 	height:315px;
 	position:relative;
+	color:black;
 }
 
 .txtEpisodes::before
@@ -350,34 +363,34 @@ p
 	border-radius:5px;
 	padding:3px;
 	position:absolute;
-	bottom:0px;
+	bottom:8px;
 }
 
 #editChap
 {
 	width:90px;
+	left:15px;
 }
 
 #deleteChap
 {
 	width:80px;
-	left:110px;
+	left:120px;
 }
 
+#newChapter
+{
+	top:245px;
+	right:283px;
+}
+
+#adminComments
+{
+	top:245px;
+	right:40px;
+}
 
 /*Chapitre détaillé*/
-#accueilChapitre
-{
-	right:20px;
-	top:205px;
-}
-
-#retourListeChap
-{
-	right:20px;
-	top:245px;
-}
-
 #numChapitre
 {
 	margin:20px;
@@ -388,6 +401,72 @@ p
 	padding:20px;
 }
 
+/*Nouveau chapitre*/
+#submitNewChap
+{
+	background-color:#AC8646;
+	color:white;
+	border:1px solid #333;
+	font-size:1em;
+	padding:5px;
+}
+
+/*Modification d'un chapitre*/
+#updateChapitre
+{
+	position:relative;
+}
+
+#modifAccueil
+{
+	right:420px;
+}
+
+#modifListChap
+{
+	left:420px;
+}
+
+#submitUpdate
+{
+	left:30px;
+	bottom:-40px;
+}
+
+#deleteUpdate
+{
+	left:135px;
+	bottom:-40px;
+}
+
+/*Suppression d'un chapitre*/
+.deleteConfirm
+{
+	right:43.5%;
+}
+
+.deleteListChap
+{
+	left:420px;
+	top:400px;
+}
+
+.deleteAccueil
+{
+	right:420px;
+	top:400px;
+}
+
+/*Confirmation de la suppression d'un chapitre*/
+.deleteChapAccueil
+{
+	right:420px;
+}
+
+.deleteChapRetourList
+{
+	left:420px;
+}
 
 /*Propriétés du pied de page*/
 footer
@@ -437,7 +516,6 @@ footer::after
 	right:-860px;
 	bottom:15px;
 }
-
 
 #connexion a,
 #connexionErreur a,

@@ -13,84 +13,44 @@ class Chapter extends DataBase
 	{
 		$db = $this->dbConnect();
 		//on récupère les derniers chapitres
-		$listChapter = $db->query('SELECT numChapter, title, texte FROM episodes');
-
+		$listChapter = $db->query('SELECT id, numChapter, title, texte FROM episodes');
 		return $listChapter;
 	}
 
-
 	//afficher le détail d'un chapitre
-	public function getContentChapter($chapterNum)
+	public function getContentChapter($id)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT numChapter, title, texte FROM episodes WHERE numChapter = ?');
-		$req->execute(array($chapterNum));
+		$req = $db->prepare('SELECT id, numChapter, title, texte FROM episodes WHERE id =?');
+		$req->execute(array($id));
 		$contentChapter = $req->fetch();
-
 		return $contentChapter;
 	}
 
-
-
-	//hydratation
-	public function hydrate(array $data)
+	//ajoute un nouveau chapitre dans la base
+	public function postChapter($chapterNum, $titleChap, $txtChap)
 	{
-		foreach ($data as $key => $value)
-		{
-			$method = 'set'.ucfirst($key);
-			if(method_exists($this,$method))
-			{
-				$this->$method($value);
-			}
-		}
+		$db = $this->dbConnect();
+		$chap= $db->prepare('INSERT INTO episodes(numChapter, title, texte, dateCreate) VALUES(?,?,?,NOW())');
+		$newChapter = $chap->execute(array($chapterNum, $titleChap,$txtChap));
+		return $newChapter;
 	}
 
-	//getters
-	public function id() { return $this->_id; }
-	public function numChapter() { return $this->_numChapter; }
-	public function title() { return $this->_title;	}
-	public function texte()	{ return $this->_texte;	}
-	public function dateCreate() { return $this->_dateCreate; }
-
-
-	//setters
-	public function setId($id)
+	//modifie le contenu d'un chapitre
+	public function modifChapter($id, $chapterNum, $titleChap, $txtChap)
 	{
-		$id = (int) $id;
-		if ($id>0)
-		{
-			$this ->_id = $id;
-		}
+		$db = $this->dbConnect();
+		$req = $db->prepare('UPDATE episodes SET numChapter= "'.$chapterNum.'", title= "'.$titleChap.'", texte= "'.$txtChap.'" WHERE id = ?');
+		$chapMaj = $req->execute(array($id));
+		return $chapMaj;
 	}
 
-	public function setNumChapter($numChapter)
+	//suppression d'un chapitre
+	public function suppChapter($id, $chapterNum, $titleChap, $txtChap)
 	{
-		$numChapter = (int) $numChapter;
-		if ($numChapter>0) 
-		{
-			$this ->_numChapter = $numChapter;
-		}
+		$db = $this->dbConnect();
+		$req = $db->prepare('DELETE FROM episodes WHERE id = ?');
+		$chapDelete = $req->execute(array($id));
+		return $chapDelete;
 	}
-
-	public function setTitle($title)
-	{
-		if (is_string($title))
-		{
-			$this->_title = $title;
-		}
-	}
-
-	public function setTexte($texte)
-	{
-		if (is_string($texte))
-		{
-			$this->_texte = $texte;
-		}
-	}
-
-
-
-
-
-
 }
