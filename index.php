@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require('autoloader.php');
 Autoloader::register();
@@ -176,7 +177,24 @@ try {
 			$connectControl = new ConnectControl();
 			$admin = $connectControl->interfaceAdmin();
 		}
+
+		//modification du mot de passe
+		else if($_GET['action'] == 'newPassword'){
+			require ('view/ViewBackEnd/newPassword.php');
+		}
+
+		//validation du nouveau mot de passe
+		else if ($_GET['action'] == 'updateNewPassword'){
+			
+			$login = isset($_POST['login'])?htmlspecialchars($_POST['login']):NULL;
+			$password = isset($_POST['password'])?htmlspecialchars($_POST['password']):NULL;
+			$connectControl = new ConnectControl();
+			$admin = $connectControl->updatePassword($login, $password);
+		}
 	}
+
+
+
 
 	//affichage de la page d'accueil
 	else {

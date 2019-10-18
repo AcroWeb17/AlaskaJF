@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Accueil</title>
+		<title>Accueil - Billet simple pour l'Alaska</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/alaska.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -16,6 +16,8 @@
 				if (isset($_SESSION['auth'])){
 			?>	
 					<h4> Bienvenue Jean Forteroche </h4>
+					<!--changer le logo pour modifier le mot de passe -->
+					<a id="changeMdP" href="index.php?action=newPassword">Changer de mot de passe</a>
 			<?php
 				}
 			?>

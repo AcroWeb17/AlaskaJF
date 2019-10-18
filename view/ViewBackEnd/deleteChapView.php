@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Déconnexion</title>
+		<title>Suppression du chapitre <?= htmlspecialchars($chap['numChapter']); ?>  - Billet simple pour l'Alaska</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/Alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">

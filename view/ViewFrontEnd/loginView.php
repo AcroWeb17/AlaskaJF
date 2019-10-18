@@ -2,8 +2,8 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Accès à l'interface d'administration</title>
-		<link rel="shortcut icon" href="Illustrations/favicon.ico"/>
+		<title>Interface de connexion - Billet simple pour l'Alaska</title>
+		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/Alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	</head>
@@ -15,17 +15,19 @@
 
 		<main>
 			<h3> Se connecter </h3>
-			<form id="formConnexion"  action="index.php?action=interfaceAdmin" method="post">
+			<form id="formConnexion"  method="post">
 				<div id="saisieMdP">
 					<label for="login"> Identifiant</label>
-					<input type="text" name="login"/><br/>
+					<input type="text" name="login" id="loginUser"/><br/><br/>
 					<label for="password">Mot de passe </label>
-					<input id="motDePasse" type="password" name="password" /><br/>
-					<a id="changeMdP" href="newPassword.php">Changer de mot de passe</a>
+					<input id="passwordUser" type="password" name="password" /><br/>
 				</div>
 				<button class="button" id="connectButton" type="submit" value="Se connecter">Se connecter</button>
-				<a class="retourAccueil button" id="accueilConnexion" href="index.php">Retour à la page d'accueil</a>
+				<a class="button" id="connectRetourAccueil" href="index.php">Retour à la page d'accueil</a>
 			</form>
+			<div id="redirectionConnect">
+			</div>
 		</main>
 	</body>
+	<script src="public/gestionUsers.js"> </script>
 </html>	

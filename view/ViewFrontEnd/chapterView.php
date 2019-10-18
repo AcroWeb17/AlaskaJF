@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Chapitre</title>
+		<title><?= htmlspecialchars($chap['title']) ?> - Billet simple pour l'Alaska</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/alaska.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -111,6 +111,7 @@
 		</footer>
 
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="tinymce/themes/silver/theme.min.js"></script>
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
 
 	</body>

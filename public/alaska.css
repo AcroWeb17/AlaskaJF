@@ -205,10 +205,10 @@ p
 	position:relative;
 }
 
-#accueilConnexion
+#connectRetourAccueil
 {
-	left:48%;
-	top:103px;
+	right:35%;
+	top:140px;
 }
 
 #saisieMdP
@@ -218,9 +218,20 @@ p
 	width:30%;
 	margin:auto;
 	padding:10px;
-	margin-top:50px;
+	margin-top:25px;
 	position:relative;
 	height:90px;
+}
+
+#redirectionConnect
+{
+	width:100%;
+	color:#AC8646;
+	text-align:center;
+	top:453px;
+	position:absolute;
+	font-style: italic;
+	font-weight:bold;
 }
 
 #changeMdP
@@ -229,9 +240,8 @@ p
 	font-style:italic;
 	font-size:0.8em;
 	color:#AC8646;
-	text-align:center;
-	width:100%;
-	bottom:8px;
+	top:285px;
+	right:175px;
 }
 
 #erreurMdP
@@ -258,7 +268,7 @@ p
 	padding-bottom:5px;
 	position:absolute;
 	left:35%;
-	top:103px;
+	top:140px;
 }
 
 /*Interface de déconnexion*/
@@ -356,26 +366,28 @@ p
 /*Blog Admin*/
 .edit
 {
-	color:#AC8646;
+	color:white;
 	font-size:0.8em;
-	border:2px solid #AC8646;
+	border:2px solid #898606;
 	text-align:center;
 	border-radius:5px;
-	padding:3px;
+	padding:3px 7px 3px 7px;
 	position:absolute;
-	bottom:8px;
+	background-color: #616811;
 }
 
 #editChap
 {
 	width:90px;
 	left:15px;
+	bottom:8px;
 }
 
 #deleteChap
 {
 	width:80px;
 	left:120px;
+	bottom:8px;
 }
 
 #newChapter
