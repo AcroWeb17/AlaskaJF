@@ -16,7 +16,7 @@
 		<main>
 			<h3> Etes-vous certain de vouloir supprimer ce chapitre? </h3>
 			<a href="index.php?action=deleteChapter&id=<?= htmlspecialchars($chap['id']); ?>" 
-			   class="button deleteConfirm">Confirmer la suppression</a>
+			   class="editButton deleteConfirm">Confirmer la suppression</a>
 			<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
 			<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
 		</main>

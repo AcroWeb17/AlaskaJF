@@ -1,7 +1,7 @@
 <!--Ajout des contacts et mentions légales-->
 <div class="contacts">
-	<p class="mail"><a href="mentions_legales.html" class="mentionslegales" title="Mentions légales"> Mentions légales </a></p>
-	<p class="mail">Contacts: acroweb@orange.fr</p>
+	<p class="mail" id="mentionsLegales"><a href="mentions_legales.html" class="mentionslegales" title="Mentions légales"> Mentions légales </a></p>
+	<p class="mail" id="mailContact">Contacts: acroweb@orange.fr</p>
 </div>
 <div id="connexion" class="button">
 	<?php

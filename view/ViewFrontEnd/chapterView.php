@@ -36,10 +36,10 @@
 						<textarea id="texte" name="texte" rows="2" >
 							<?= nl2br(htmlspecialchars($chap['texte'])) ?>
 						</textarea>
-						<input type="submit" class="button" id="submitUpdate" value="Enregistrer"/>
+						<input type="submit" class="editButton" id="submitUpdate" value="Enregistrer"/>
 
 						<div >
-							<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['id']); ?>" class="button" id="deleteUpdate">Supprimer</a>
+							<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['id']); ?>" class="editButton" id="deleteUpdate">Supprimer</a>
 						</div>
 					</form>
 			<?php
@@ -82,7 +82,7 @@
 							if (isset($_SESSION['auth'])) {
 						?>
 								<div >
-									<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="button" id="deleteComment">Supprimer</a>
+									<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="editButton" id="deleteComment">Supprimer</a>
 								</div>
 						<?php
 							}
@@ -111,7 +111,6 @@
 		</footer>
 
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
-		<script type="text/javascript" src="tinymce/themes/silver/theme.min.js"></script>
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
 
 	</body>

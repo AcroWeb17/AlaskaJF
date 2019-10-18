@@ -13,16 +13,17 @@
 		<!--En-tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="retourAccueil button" id="accueilChapitre" href="index.php">Accueil</a>
-			<a class="retourAccueil button" id="retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="index.php">Accueil</a>
+			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
 		<main>	
+			<h3 id="biographyTitle">Biographie</h3>
 			<form id="updateBiography" action="index.php?action=updateBiography" method="post" >
 				<textarea id="contentBiography" name="content" rows="255" >
 					<?= htmlspecialchars($biography['content']) ?>
 				</textarea>
-				<input type="submit"/>
+				<input type="submit" class="submit" value="Enregistrer"/>
 			</form>
 		</main>
 

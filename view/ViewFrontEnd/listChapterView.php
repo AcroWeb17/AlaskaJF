@@ -16,8 +16,8 @@
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
-				<a class="button" id="adminComments" href="index.php?action=adminComments">Gestion des commentaires</a>
-				<a class="button" id="newChapter" href="index.php?action=newChapter">Nouveau Chapitre</a>
+				<a class="editButton" id="adminComments" href="index.php?action=adminComments">Gestion des commentaires</a>
+				<a class="editButton" id="newChapter" href="index.php?action=newChapter">Nouveau Chapitre</a>
 			<?php
 				}
 			?>
@@ -49,8 +49,8 @@
 							<?php
 								if (isset($_SESSION['auth'])) {
 							?>
-									<a class="edit" id="editChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">Mise à jour</a>
-									<a class="edit" id="deleteChap" href="index.php?action=confirmDelete&id=<?= htmlspecialchars($data['id']); ?>">Supprimer</a>
+									<a class="editButton" id="editChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">Mise à jour</a>
+									<a class="editButton" id="deleteChap" href="index.php?action=confirmDelete&id=<?= htmlspecialchars($data['id']); ?>">Supprimer</a>
 							<?php
 								}
 							?>

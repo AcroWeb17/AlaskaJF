@@ -17,7 +17,7 @@
 			?>	
 					<h4> Bienvenue Jean Forteroche </h4>
 					<!--changer le logo pour modifier le mot de passe -->
-					<a id="changeMdP" href="index.php?action=newPassword">Changer de mot de passe</a>
+					<a id="changeMdP" href="index.php?action=newPassword" alt="Password" title="Modifier le mot de passe"><i class="fas fa-key"></i></a>
 			<?php
 				}
 			?>
@@ -26,6 +26,7 @@
 		<main>
 			<section id="biographie">
 				<img id="logo" src="public/Illustrations/logo.png" alt="Logo" title="Logo"/>
+				<article id="biographyTxt">
 					<?php
 						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
 						$req = $db->query('SELECT id, content FROM biography');
@@ -38,15 +39,16 @@
 				<?php
 					if (isset($_SESSION['auth'])){
 				?>	
-					<a class="edit" id="editBiography" href="index.php?action=biography">Mise à jour</a>
+					<a class="editButton" id="editBiography" href="index.php?action=biography">Mise à jour</a>
 				<?php
 					}
 				?>
+				</article>
 			</section>
 
 			<section id="couverture">
 				<img src="public/Illustrations/couverture.png" alt="Couverture du nouveau livre" title="Nouveau livre"/>
-				<article id="resumeBook">
+				<article id="resumeTxt">
 					<?php
 						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
 						$req = $db->query('SELECT id, content FROM summary');
@@ -61,7 +63,7 @@
 					<?php
 						if (isset($_SESSION['auth'])){
 					?>		
-							<a class="edit" id="editResume" href="index.php?action=summary">Mise à jour</a>
+							<a class="editButton" id="editResume" href="index.php?action=summary">Mise à jour</a>
 					<?php
 						}
 					?>

@@ -39,6 +39,17 @@ a
 	position:absolute;
 }
 
+.submit
+{
+	color:white;
+	font-size:0.8em;
+	border:2px solid #898606;
+	text-align:center;
+	border-radius:5px;
+	padding:3px 7px 3px 7px;
+	background-color: #616811;
+}
+
 .retourAccueil
 {
 	right:20px;
@@ -50,6 +61,15 @@ a
 	right:20px;
 	top:245px;
 }
+
+.tox 
+{
+	width:90%;
+	height:500px;
+	margin:auto;
+}
+
+
 
 /*Propriétés des titres*/
 h1 /*Titre du bandeau*/
@@ -87,13 +107,14 @@ h4
 	color:#AC8646;
 	font-style:italic;
 	position:absolute;
-	right:175px;
+	right:115px;
 	top:240px;
 }
 
 p
 {
 	font-size: 1em;
+	margin:0;
 }
 
 /*Propriétés du bandeau*/
@@ -154,20 +175,18 @@ p
 	display: flex;
 }
 
-#resumeBook
+#resumeTxt
 {
 	width:50%;
 	margin-left:10%;
 	box-shadow: 3px 3px 10px #AC8646;
 	position:relative;
+	padding:10px 15px 0px 15px;
 }
 
-#txtResume
+#biographyTxt
 {
-	padding:20px;
-	margin:0;
-	overflow:auto;
-	height:330px;
+	padding:0px 15px 15px 15px;
 }
 
 #accesBlog
@@ -195,8 +214,14 @@ p
 
 #editResume
 {
-	left:20px;
+	right:30px;
 	bottom:10px;
+}
+
+#editBiography
+{
+	right:20px;
+	bottom:5px;
 }
 
 /*Interface de connexion*/
@@ -240,8 +265,8 @@ p
 	font-style:italic;
 	font-size:0.8em;
 	color:#AC8646;
-	top:285px;
-	right:175px;
+	top:262px;
+	right:90px;
 }
 
 #erreurMdP
@@ -364,7 +389,7 @@ p
 }
 
 /*Blog Admin*/
-.edit
+.editButton
 {
 	color:white;
 	font-size:0.8em;
@@ -401,6 +426,8 @@ p
 	top:245px;
 	right:40px;
 }
+
+
 
 /*Chapitre détaillé*/
 #numChapitre
@@ -507,8 +534,20 @@ footer::after
 
 .mail
 {
-	padding-left:15px;
+	position:absolute;
 	color:white;
+	left:15px;
+	width:300px;
+}
+
+#mailContact
+{
+	bottom:20px;
+}
+
+#mentionsLegales
+{
+	bottom:50px;
 }
 
 .mail a
@@ -519,7 +558,7 @@ footer::after
 
 #connexion
 {
-	right:-985px;
+	right:-1200px;
 	bottom:15px;
 }
 
