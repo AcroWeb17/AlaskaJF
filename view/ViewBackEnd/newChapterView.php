@@ -18,20 +18,22 @@
 		</header>
 
 		<main>
+			<h3 id="newChapterTitle">Nouveau Chapitre</h3>
 			<form id="newChapitre" action="index.php?action=addChapter" method="post">
-				<div>
-					<label for="numChapter">Numéro du chapitre</label><br/>
+				<div class="styleForm">
+					<label for="numChapter">Numéro du chapitre:</label>
 					<input type="number" id="numChapterAdmin" name="numChapter" />
-				</div>
-				<div>
-					<label for="titleChap">Titre du chapitre</label><br/>
+					<label for="titleChap">Titre du chapitre:</label>
 					<input type="text" id="titleChapAdmin" name="titleChap"/>
 				</div>
-				<div>
-					<label for="txtChap">Chapitre</label><br/>
-					<textarea id="txtChapAdmin" name="txtChap"></textarea>
+				<div class="styleForm">
+					<label for="txtChap">Contenu du chapitre:</label><br/>
+					<textarea id="txtChapAdmin" class="largeTxtAdmin" name="txtChap"></textarea>
+					<div class="submitNewChapter">
+						<a class="submit" href="index.php?action=listChapter">Annuler</a>
+						<input type="submit" class="submit" value="Enregistrer" />
+					</div>
 				</div>
-				<input type="submit" id="submitNewChap"  value="Enregistrer" />
 			</form>
 		</main>
 

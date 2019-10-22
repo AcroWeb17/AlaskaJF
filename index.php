@@ -107,6 +107,16 @@ try {
 			}
 		}
 
+		//signaler un commentaire
+		else if ($_GET['action'] == 'signalComment'){
+			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+				$idChapter = isset($_POST['idChapter'])?htmlspecialchars($_POST['idChapter']):NULL;
+				$alertComment = isset($_POST['alert'])?htmlspecialchars($_POST['alert']):NULL;
+				$alertConfirm = new CommentsAdminControl();
+				$commentAlertConfirm = $alertConfirm ->alertComment($_GET['id'], $alertComment);
+			}
+		}
+
 		//administration des commentaires
 		else if ($_GET['action'] == 'adminComments'){
 			$commentControl = new CommentsAdminControl;
@@ -174,6 +184,8 @@ try {
 
 		//authentification
 		else if($_GET['action'] == 'interfaceAdmin'){
+			$login = isset($_POST['login'])?htmlspecialchars($_POST['login']):NULL;
+			$password = (isset($_POST['passwordUser'])?htmlspecialchars($_POST['passwordUser']):NULL);
 			$connectControl = new ConnectControl();
 			$admin = $connectControl->interfaceAdmin();
 		}
@@ -182,18 +194,15 @@ try {
 		else if($_GET['action'] == 'newPassword'){
 			require ('view/ViewBackEnd/newPassword.php');
 		}
-
-		//validation du nouveau mot de passe
-		else if ($_GET['action'] == 'updateNewPassword'){
-			
+		
+		//mise à jour du mot de passe
+		else if ($_GET['action'] == 'updatePassword'){
 			$login = isset($_POST['login'])?htmlspecialchars($_POST['login']):NULL;
-			$password = isset($_POST['password'])?htmlspecialchars($_POST['password']):NULL;
+			$password = (isset($_POST['newPassword'])?htmlspecialchars($_POST['newPassword']):NULL);
 			$connectControl = new ConnectControl();
 			$admin = $connectControl->updatePassword($login, $password);
 		}
 	}
-
-
 
 
 	//affichage de la page d'accueil
@@ -209,11 +218,3 @@ catch(Exception $e){
 
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf-8">
-	    <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
-	    <script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
-	</head>
-</html>

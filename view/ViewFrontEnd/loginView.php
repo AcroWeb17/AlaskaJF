@@ -15,7 +15,7 @@
 
 		<main>
 			<h3> Se connecter </h3>
-			<form id="formConnexion"  method="post">
+			<form id="formConnexion" action="index.php?action=interfaceAdmin" method="post">
 				<div id="saisieMdP">
 					<label for="login"> Identifiant</label>
 					<input type="text" name="login" id="loginUser"/><br/><br/>
@@ -29,5 +29,5 @@
 			</div>
 		</main>
 	</body>
-	<script src="public/gestionUsers.js"> </script>
+	<!--<script src="public/gestionUsers.js"> </script>-->
 </html>	

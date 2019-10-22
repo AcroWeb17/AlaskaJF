@@ -20,26 +20,26 @@
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
+					<h3 id="newChapterTitle">Modification du chapitre <?= htmlspecialchars($chap['numChapter']); ?></h3>
 					<form id="updateChapitre" action="index.php?action=updateChapter&id=<?= htmlspecialchars($chap['id']); ?>" method="post">
-						<label for="id">Identifiant du chapitre :</label>
-						<input id="id" name="id" disabled value=
-							"<?= htmlspecialchars($chap['id']) ?>"
-						/>
-						<label for="numChapter">Chapitre numéro :</label>
-						<input type="number" id="numChapter" name="numChapter" value=
-							"<?= htmlspecialchars($chap['numChapter']) ?>"
-						/>
-						<label for="title">Titre :</label>
-						<input type="text" id="title" name="title" value=
-							"<?= htmlspecialchars($chap['title']) ?>"
-						/>
-						<textarea id="texte" name="texte" rows="2" >
-							<?= nl2br(htmlspecialchars($chap['texte'])) ?>
-						</textarea>
-						<input type="submit" class="editButton" id="submitUpdate" value="Enregistrer"/>
-
-						<div >
-							<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['id']); ?>" class="editButton" id="deleteUpdate">Supprimer</a>
+						<div class="styleForm">
+							<label for="numChapter">Numéro du chapitre:</label>
+							<input type="number" id="numChapterAdmin" name="numChapter" value=
+							"<?= htmlspecialchars($chap['numChapter']) ?>" />
+							<label for="titleChap">Titre du chapitre:</label>
+							<input type="text" id="titleChapAdmin" name="titleChap" value=
+							"<?= htmlspecialchars($chap['title']) ?>"/>
+						</div>
+						<div class="styleForm">
+							<label for="txtChap">Contenu du chapitre:</label><br/>
+							<textarea id="texte" class="largeTxtAdmin"  name="texte" rows="2" >
+								<?= nl2br(htmlspecialchars($chap['texte'])) ?>
+							</textarea>
+							<div class="submitUpdateChapter">
+								<a class="submit" href="index.php?action=listChapter">Annuler</a>
+								<input type="submit" class="submit" value="Enregistrer" />
+								<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['id']); ?>" class="submit">Supprimer</a>
+							</div>
 						</div>
 					</form>
 			<?php
@@ -60,50 +60,65 @@
 			<?php
 				} 
 			?>
-				<section id="commentaire">
+				<section class="commentaires">
 					<h3 id="commentTitle">Commentaires</h3>
 					<?php
 						while($dataComment = $comments->fetch())
 						{
 					?>
-							<p class="commentAffiche">
-								<?= htmlspecialchars($dataComment['id']) ?>
-							</p>
-							<p class="commentAffiche">
-								<?= htmlspecialchars($dataComment['author']) ?>
-							</p>
-							<p class="commentAffiche">
-								<?= htmlspecialchars($dataComment['dateComment']) ?>
-							</p>
+							<div class="dispoComment">
+								<p class="commentAuthor">
+									<?= htmlspecialchars($dataComment['author']) ?> - 
+								</p>
+								<p class="commentDate">
+									 <?= htmlspecialchars($dataComment['dateComment']) ?>
+								</p>
+								<div >
+									<?php
+										if ((htmlspecialchars($dataComment['alert']))==='1'){
+									?>
+											<p class="signalComment">En attente de modération</p>
+									<?php 
+										}else{
+									?>								
+											<a href="index.php?action=signalComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="signalComment" id="signalButton">Signaler</a>
+									<?php 
+										}
+									?>
+								</div>
+								<?php
+									if (isset($_SESSION['auth'])) {
+								?>
+									<div >
+										<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="submit" id="deleteComment">Supprimer</a>
+									</div>
+								<?php
+									}
+								?>
+							</div>
 							<p class="commentAffiche">
 								<?= nl2br(htmlspecialchars($dataComment['comment'])) ?>
 							</p>
-						<?php
-							if (isset($_SESSION['auth'])) {
-						?>
-								<div >
-									<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="editButton" id="deleteComment">Supprimer</a>
-								</div>
-						<?php
-							}
-						?>
+		
 					<?php
 						}
 					?>
 				</section>
-				<form action="index.php?action=addComment&amp;id=<?= $chap['id'] ?>" method="post">
-					<div>
-						<label for="author">Author</label><br/>
-						<input type="text" id="author" name="author"/>
-					</div>
-					<div>
-						<label for="comment">Commentaire</label><br/>
-						<textarea id="comment" name="comment"></textarea>
-					</div>
-					<div>
-						<input type="submit"/>
-					</div>
-				</form>
+				<section class="commentaires">
+					<form action="index.php?action=addComment&amp;id=<?= $chap['id'] ?>" method="post">
+						<div>
+							<label for="author">Votre nom</label>
+							<input type="text" id="author" name="author"/>
+						</div>
+						<div id="labelComment">
+							<label for="comment">Votre commentaire</label><br/>
+							<textarea id="comment" name="comment"></textarea>
+						</div>
+						<div>
+							<input type="submit" class="button" id="validComment"/>
+						</div>
+					</form>
+				</section>
 		</main>	
 
 		<footer>
@@ -114,3 +129,4 @@
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
 
 	</body>
+</html>

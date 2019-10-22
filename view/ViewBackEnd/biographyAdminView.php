@@ -19,11 +19,14 @@
 
 		<main>	
 			<h3 id="biographyTitle">Biographie</h3>
-			<form id="updateBiography" action="index.php?action=updateBiography" method="post" >
-				<textarea id="contentBiography" name="content" rows="255" >
+			<form id="updateBiography" class="styleForm" action="index.php?action=updateBiography" method="post" >
+				<textarea id="contentBiography" class="smallTxtAdmin" name="content" rows="255" >
 					<?= htmlspecialchars($biography['content']) ?>
 				</textarea>
-				<input type="submit" class="submit" value="Enregistrer"/>
+				<div class="submitAccueil">
+					<a class="submit" href="index.php">Annuler</a>
+					<input type="submit" class="submit" value="Enregistrer" />
+				</div>
 			</form>
 		</main>
 

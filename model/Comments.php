@@ -12,7 +12,7 @@ class Comments extends DataBase
 	public function getComment($id)
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('SELECT id, idChapter,author, comment,dateComment FROM comments WHERE idChapter=?');
+		$comments = $db->prepare('SELECT id, idChapter,author, comment,dateComment,alert FROM comments WHERE idChapter=?');
 		$comments->execute(array($id));
 		return $comments;
 	}
@@ -22,7 +22,7 @@ class Comments extends DataBase
 	{
 		$db = $this->dbConnect();
 		//on récupère les derniers chapitres
-		$listComments = $db->query('SELECT id, idChapter,author, comment,dateComment FROM comments');
+		$listComments = $db->query('SELECT id, idChapter,author, comment,dateComment,alert FROM comments');
 		return $listComments;
 	}
 
@@ -51,5 +51,14 @@ class Comments extends DataBase
 		$req = $db->prepare('DELETE FROM comments WHERE id = ?');
 		$comDelete = $req->execute(array($id));
 		return $comDelete;
+	}
+
+	//alerte sur un commentaire
+	public function updateComment($id,$alertComment)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('UPDATE comments SET alert="1" WHERE id = ?');
+		$comAlert = $req->execute(array($id));
+		return $comAlert;
 	}
 }

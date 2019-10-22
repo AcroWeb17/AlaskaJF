@@ -39,7 +39,7 @@
 				<?php
 					if (isset($_SESSION['auth'])){
 				?>	
-					<a class="editButton" id="editBiography" href="index.php?action=biography">Mise à jour</a>
+					<a class="editButton" id="editBiographyAccueil" href="index.php?action=biography">Mise à jour</a>
 				<?php
 					}
 				?>

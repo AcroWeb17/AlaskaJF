@@ -29,4 +29,11 @@ class CommentsAdminControl
 		$listComments = $commentsManager-> getListComments(); //appel d'une fonction d'un objet
 		require('view/ViewBackEnd/commentsAdminView.php');
 	}
+
+	public function alertComment($id,$alertComment)
+	{
+		$commentsManager = new Comments();
+		$alertComments = $commentsManager-> updateComment($id,$alertComment); //appel d'une fonction d'un objet
+		require('view/ViewFrontEnd/signalCommentView.php');
+	}
 }

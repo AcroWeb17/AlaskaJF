@@ -48,28 +48,28 @@ a
 	border-radius:5px;
 	padding:3px 7px 3px 7px;
 	background-color: #616811;
+	cursor:pointer;
+	height: 26px;
 }
 
 .retourAccueil
 {
-	right:20px;
+	right:40px;
 	top:205px;
 }
 
 .retourListeChap
 {
-	right:20px;
+	right:40px;
 	top:245px;
 }
 
-.tox 
+
+
+.styleForm
 {
-	width:90%;
-	height:500px;
-	margin:auto;
+	margin: 20px 50px 0px 50px;
 }
-
-
 
 /*Propriétés des titres*/
 h1 /*Titre du bandeau*/
@@ -218,10 +218,18 @@ p
 	bottom:10px;
 }
 
-#editBiography
+#editBiographyAccueil
 {
 	right:20px;
 	bottom:5px;
+}
+
+.submitAccueil
+{
+	position:absolute;
+	right:50px;
+	bottom:245px;
+	cursor:pointer;
 }
 
 /*Interface de connexion*/
@@ -303,7 +311,7 @@ p
 	top:40%;
 }
 
-/*Blog*/
+/*Liste des chapitres*/
 .lienChapitre
 {
 	display:block;
@@ -388,7 +396,7 @@ p
 	left:0;
 }
 
-/*Blog Admin*/
+/*Administration liste des chapitres*/
 .editButton
 {
 	color:white;
@@ -418,7 +426,7 @@ p
 #newChapter
 {
 	top:245px;
-	right:283px;
+	right:240px;
 }
 
 #adminComments
@@ -427,7 +435,26 @@ p
 	right:40px;
 }
 
+/*Nouveau Chapitre*/
+.submitNewChapter
+{
+	position:absolute;
+	right:50px;
+	bottom:110px;
+}
 
+#numChapterAdmin
+{
+	margin-right:70px;
+	width:50px;
+	height:30px;
+}
+
+#titleChapAdmin
+{
+	width:300px;
+	height:30px;
+}
 
 /*Chapitre détaillé*/
 #numChapitre
@@ -438,16 +465,6 @@ p
 .contenuChapitre
 {
 	padding:20px;
-}
-
-/*Nouveau chapitre*/
-#submitNewChap
-{
-	background-color:#AC8646;
-	color:white;
-	border:1px solid #333;
-	font-size:1em;
-	padding:5px;
 }
 
 /*Modification d'un chapitre*/
@@ -472,16 +489,17 @@ p
 	bottom:-40px;
 }
 
-#deleteUpdate
+.submitUpdateChapter
 {
-	left:135px;
-	bottom:-40px;
+	position:absolute;
+	right:50px;
+	bottom:-35px;
 }
 
 /*Suppression d'un chapitre*/
 .deleteConfirm
 {
-	right:43.5%;
+	text-align:center;
 }
 
 .deleteListChap
@@ -505,6 +523,103 @@ p
 .deleteChapRetourList
 {
 	left:420px;
+}
+
+/*Commentaires*/
+.commentaires
+{
+	margin:80px 50px 0px 50px;
+}
+
+.dispoComment
+{
+	display:flex;
+}
+
+.commentAuthor
+{
+	font-weight:bold;
+}
+
+.commentDate
+{
+	color:#555;
+	padding-left: 5px;
+}
+
+.commentAffiche
+{
+	padding:5px 0px 20px 0px;
+}
+
+.signalComment
+{
+	color:white;
+	font-size:0.8em;
+	border:2px solid #444;
+	text-align:center;
+	border-radius:5px;
+	padding:3px 7px 3px 7px;
+	background-color: #8F0E14;
+	height: 26px;
+	margin-left:25px;
+}
+
+#signalButton
+{
+	cursor:pointer;
+}
+
+#deleteComment
+{
+	margin-left:15px;
+}
+
+#labelComment
+{
+	margin-top:15px;
+}
+
+#validComment
+{
+	right:50px;
+	bottom:105px;
+}
+
+/*Administration des commentaires*/
+#commentsList
+{
+	border:1px solid #444;
+	margin:5px 50px 30px 50px;
+}
+
+#deleteCommentList
+{
+	margin-left:72%;
+	margin-top:5px;
+}
+
+#alertComment
+{
+	margin:5px -827px 0px 57%;
+}
+
+/*Propriétés de TinyMCE*/
+.tox
+{
+	width:100%;
+	margin:auto;
+	margin-top:10px;
+}
+
+.largeTxtAdmin + .tox-tinymce
+{
+	height:800px !important;
+}
+
+.smallTxtAdmin + .tox-tinymce
+{
+	height:300px !important;
 }
 
 /*Propriétés du pied de page*/
@@ -558,13 +673,13 @@ footer::after
 
 #connexion
 {
-	right:-1200px;
+	right:-1240px;
 	bottom:15px;
 }
 
 #accueilAlaska
 {
-	right:-860px;
+	right:-1110px;
 	bottom:15px;
 }
 

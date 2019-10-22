@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Suppression d'un commentaire - Billet simple pour l'Alaska</title>
+		<title>Signalement d'un commentaire inapproprié - Billet simple pour l'Alaska</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/Alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -14,13 +14,8 @@
 		</header>
 
 		<main>
-			<h3> Etes-vous certain de vouloir supprimer ce commentaire? </h3>
-			<div class="deleteConfirm">
-				<a  href="index.php?action=adminComments" 
-				   class="submit" >Annuler</a>
-				<a  href="index.php?action=deleteComment&id=<?=htmlspecialchars($commentId['id']); ?>" 
-			   class="submit" >Confirmer la suppression</a>
-			</div>
+			<h3> Merci pour votre signalement</h3>
+
 			<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
 			<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
 		</main>

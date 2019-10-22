@@ -15,6 +15,7 @@
 
 		<main>
 			<h3> Le commentaire a bien été supprimé</h3>
+			<a class="button deleteComList" href="../../index.php?action=adminComments">Retour aux commentaires</a>
 			<a class="button deleteChapAccueil" href="../../index.php">Retour à la page d'accueil</a>
 			<a class="button deleteChapRetourList" href="../../index.php?action=listChapter">Liste des chapitre</a>
 		</main>

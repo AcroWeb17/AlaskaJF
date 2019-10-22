@@ -17,26 +17,35 @@
 
 		<main>
 			<h3> Administration des commentaires </h3>
-			<section id="chapitres">
+			<section>
 				<?php
 				//on affiche le contenu
 					while($data = $listComments ->fetch())
 					{
 				?>
-						<div class="episodes">
-							<p>
-								Auteur
-								<?= htmlspecialchars($data['author']); ?>
-							</p>
-							<p>
-								date
-								<?= htmlspecialchars($data['dateComment']); ?>
-							</p>
+						<div id="commentsList">
+							<div class="dispoComment">
+								<p class="commentAuthor">
+									<?= htmlspecialchars($data['author']); ?> - 
+								</p>
+								<p class="commentDate">
+									 <?= htmlspecialchars($data['dateComment']); ?>
+								</p>
+								<?php
+									if ((htmlspecialchars($data['alert']))==='1')
+									{
+								?>
+										<p class="signalComment" id="alertComment">Commentaire signalé</p>
+								<?php
+									}	
+								?>
+								<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($data['id']); ?>" class="submit" id="deleteCommentList">Supprimer</a>
+							</div>
 							<p>
 								Commentaire
 								<?= nl2br(htmlspecialchars($data['comment'])); ?>
 							</p>							
-							<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($data['id']); ?>" class="button" id="deleteComment">Supprimer</a>
+							
 						</div>
 				<?php
 					}	

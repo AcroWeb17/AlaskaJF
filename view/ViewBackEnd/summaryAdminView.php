@@ -13,16 +13,20 @@
 		<!--En-tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="retourAccueil button" id="accueilChapitre" href="index.php">Accueil</a>
-			<a class="retourAccueil button" id="retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="index.php">Accueil</a>
+			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
 		<main>	
-			<form id="updateSummary" action="index.php?action=updateSummary" method="post" >
-				<textarea id="contentSummary" name="content" rows="255" >
+			<h3 id="summaryTitle">Résumé du livre</h3>
+			<form id="updateSummary" class="styleForm" action="index.php?action=updateSummary" method="post" >
+				<textarea id="contentSummary" class="smallTxtAdmin"  name="content" rows="255" >
 					<?= htmlspecialchars($summary['content']) ?>
 				</textarea>
-				<input type="submit"/>
+				<div class="submitAccueil">
+					<a class="submit" href="index.php">Annuler</a>
+					<input type="submit" class="submit" value="Enregistrer" />
+				</div>
 			</form>
 		</main>
 

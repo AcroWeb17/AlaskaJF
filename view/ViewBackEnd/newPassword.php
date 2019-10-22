@@ -11,23 +11,27 @@
 	<body>
 		<header>
 			<?php include("public/bandeau.php");?>
+			<a class="button retourAccueil" href="index.php">Accueil</a>
+			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
 		<main>
 			<h3> Modification du mot de passe </h3>
-			<form id="formMdP"  action="index.php?action=updateNewPassword" method="post">
+			<form id="formMdP"  action="index.php?action=updatePassword" method="post">
 				<div id="saisieMdP">
 					<label for="login"> Identifiant</label>
 					<input type="text" name="login"/><br/>
-					<label for="password">Mot de passe </label>
-					<input id="motDePasse" type="password" name="password" /><br/>
-					<label for="Newpassword">Nouveau mot de passe </label>
-					<input id="newMdP" type="password" name="Newpassword" /><br/>
-					<label for="ConfirmNewPassword">Confirmer le nouveau mot de passe </label>
-					<input id="ConfNewMdP" type="password" name="ConfirmNewPassword" /><br/>
+					<label for="oldPassword">Mot de passe </label>
+					<input id="oldPassword" type="password" name="oldPassword" /><br/>
+					<label for="newPassword">Nouveau mot de passe </label>
+					<input id="newPassword" type="password" name="newPassword" /><br/>
+					<label for="confirmNewPassword">Confirmer le nouveau mot de passe </label>
+					<input id="confNewMdP" type="password" name="confirmNewPassword" /><br/>
 				</div>
-				<input type="submit" id="submitNewMdP"  value="Valider" />
-				<a class="retourAccueil" id="accueilConnexion" href="index.php">Retour à la page d'accueil</a>
+				<div class="submitNewPassword">
+					<a class="submit" href="index.php">Annuler</a>
+					<input type="submit" class="submit" value="Valider" />
+				</div>
 			</form>
 		</main>
 	</body>
