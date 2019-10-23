@@ -13,7 +13,7 @@ class Chapter extends DataBase
 	{
 		$db = $this->dbConnect();
 		//on récupère les derniers chapitres
-		$listChapter = $db->query('SELECT id, numChapter, title, texte FROM chapter');
+		$listChapter = $db->query('SELECT id, numChapter, title, texte FROM chapter ORDER BY numChapter ASC');
 		return $listChapter;
 	}
 
@@ -25,6 +25,17 @@ class Chapter extends DataBase
 		$req->execute(array($id));
 		$contentChapter = $req->fetch();
 		return $contentChapter;
+	}
+
+	//verifie si le numero de chapitre est existant
+	public function chapterVerif($chapterNum)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('SELECT COUNT(numChapter) AS cnt FROM chapter WHERE numChapter=?');
+		$req->execute(array($_POST['numChapter']));
+		$chapterNumVerif = $req->fetch();
+		$chapCount = $chapterNumVerif['cnt'];
+		return $chapCount;
 	}
 
 	//ajoute un nouveau chapitre dans la base

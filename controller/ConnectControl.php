@@ -1,9 +1,8 @@
 <?php
 namespace AlaskaJF\controller;
-use AlaskaJF\model\DataBase;
 use AlaskaJF\model\Users;
 
-class ConnectControl extends DataBase
+class ConnectControl
 {
 	public function connect()
 	{
@@ -16,38 +15,54 @@ class ConnectControl extends DataBase
 		header('Location: view/ViewFrontEnd/deconnectView.php');
 	}
 
-	public function interfaceAdmin()
+	public function interfaceAdmin($login,$password)
 	{
 		if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['password'])){
 			$passwordConnect = new Users();
-			$passwordCo = $passwordConnect->modifPassword($login,$password);
+			$passwordCo = $passwordConnect->passwordVerif($login,$password);
 			if($passwordCo){
+				echo "succes";
 				$_SESSION['auth'] = $passwordCo;
-				header('Location: index.php');
 				exit();
 			}
 			else {
 				echo "echec";
 			}
-			
 		}
 		else
 		{
 			echo 'mauvais nom d utilisateur';
 		}
-	
 	}
 
-
-	public function updatePassword($login,$password)
+	public function updatePassword($login, $password, $newPassword)
 	{	
-		$passwordModify = new Users();
-		$passwordMo = $passwordModify->modifPassword($login,$password);
-		if ($passwordMo === false){
-			throw new Exception('Impossible d\'effectuer la mise à jour!');		
+		if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['password'])){
+			$passwordConnect = new Users();
+			$passwordCo = $passwordConnect->passwordVerif($login,$password);
+			if($passwordCo){
+				if (($_POST['newPassword'])===($_POST['confirmNewPassword'])){
+					$passwordModify = new Users();
+					$passwordMo = $passwordModify->modifPassword($login, $newPassword);
+						if ($passwordMo === false){
+							throw new Exception('Impossible d\'effectuer la mise à jour!');		
+						}
+						else {
+							echo "succes";
+							exit();
+						}
+				}
+				else {
+					echo 'les nouveaux mots de passe ne sont pas identiques';
+				}
+			}
+			else
+			{
+				echo 'mauvais nom d utilisateur ou de mot de passe';
+			}
 		}
 		else {
-			header('Location: view/ViewBackEnd/modifPasswordView.php');	
+			echo 'Nom d\'utilisateur ou mot de passe incorrect';
 		}
 	}
 		

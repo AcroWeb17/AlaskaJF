@@ -73,6 +73,20 @@
 
 		<footer>
 			<?php include("public/footer.php");?>
+			<div id="connexion" class="button">
+				<?php
+					if (isset($_SESSION['auth'])){
+				?>	
+						<a href="index.php?action=deconnect"> Deconnexion</a>
+				<?php
+					}
+					else {
+				?>
+						<a href="index.php?action=connect"> Connexion</a>
+				<?php
+					}
+				?>
+			</div>
 		</footer>
 		
 	</body>

@@ -16,41 +16,51 @@
 		</header>
 
 		<main>
-			<h3> Administration des commentaires </h3>
-			<section>
-				<?php
-				//on affiche le contenu
-					while($data = $listComments ->fetch())
-					{
-				?>
-						<div id="commentsList">
-							<div class="dispoComment">
-								<p class="commentAuthor">
-									<?= htmlspecialchars($data['author']); ?> - 
-								</p>
-								<p class="commentDate">
-									 <?= htmlspecialchars($data['dateComment']); ?>
-								</p>
-								<?php
-									if ((htmlspecialchars($data['alert']))==='1')
-									{
-								?>
-										<p class="signalComment" id="alertComment">Commentaire signalé</p>
-								<?php
-									}	
-								?>
-								<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($data['id']); ?>" class="submit" id="deleteCommentList">Supprimer</a>
-							</div>
-							<p>
-								Commentaire
-								<?= nl2br(htmlspecialchars($data['comment'])); ?>
-							</p>							
-							
-						</div>
-				<?php
-					}	
-				?>
-			</section>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>	
+					<h3> Administration des commentaires </h3>
+					<section>
+						<?php
+						//on affiche le contenu
+							while($data = $listComments ->fetch())
+							{
+						?>
+								<div id="commentsList">
+									<div class="dispoComment">
+										<p class="commentAuthor">
+											<?= htmlspecialchars($data['author']); ?> - 
+										</p>
+										<p class="commentDate">
+											 <?= htmlspecialchars($data['dateComment']); ?>
+										</p>
+										<?php
+											if ((htmlspecialchars($data['alert']))==='1')
+											{
+										?>
+												<p class="signalComment" id="alertComment">Commentaire signalé</p>
+										<?php
+											}	
+										?>
+										<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($data['id']); ?>" class="submit" id="deleteCommentList">Supprimer</a>
+									</div>
+									<p>
+										Commentaire
+										<?= nl2br(htmlspecialchars($data['comment'])); ?>
+									</p>							
+									
+								</div>
+						<?php
+							}	
+						?>
+					</section>
+			<?php
+				}else {
+			?>
+					<h3> Vous n'avez pas les droits sur cette page </h3>
+			<?php
+				}
+			?>		
 		</main>
 
 		<footer>

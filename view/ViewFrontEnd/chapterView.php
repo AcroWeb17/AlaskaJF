@@ -123,6 +123,9 @@
 
 		<footer>
 			<?php include("public/footer.php");?>
+			<div class="button" id="accueilAlaska">
+				<a href="index.php"> Accueil</a>
+			</div>
 		</footer>
 
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>

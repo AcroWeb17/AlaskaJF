@@ -16,23 +16,39 @@
 		</header>
 
 		<main>
-			<h3> Modification du mot de passe </h3>
-			<form id="formMdP"  action="index.php?action=updatePassword" method="post">
-				<div id="saisieMdP">
-					<label for="login"> Identifiant</label>
-					<input type="text" name="login"/><br/>
-					<label for="oldPassword">Mot de passe </label>
-					<input id="oldPassword" type="password" name="oldPassword" /><br/>
-					<label for="newPassword">Nouveau mot de passe </label>
-					<input id="newPassword" type="password" name="newPassword" /><br/>
-					<label for="confirmNewPassword">Confirmer le nouveau mot de passe </label>
-					<input id="confNewMdP" type="password" name="confirmNewPassword" /><br/>
-				</div>
-				<div class="submitNewPassword">
-					<a class="submit" href="index.php">Annuler</a>
-					<input type="submit" class="submit" value="Valider" />
-				</div>
-			</form>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>
+					<h3> Modification du mot de passe </h3>
+					<form id="formMdP" method="post">
+						<div class="saisieMdP" id="saisieNewMdP">
+							<label for="login"> Identifiant</label>
+							<input type="text" name="login"/><br/><br/>
+							<label for="oldPassword">Mot de passe </label>
+							<input id="oldPassword" type="password" name="password" /><br/><br/>
+							<label for="newPassword">Nouveau mot de passe </label>
+							<input id="newPassword" type="password" name="newPassword" /><br/><br/>
+							<label for="confirmNewPassword">Confirmer le nouveau mot de passe </label>
+							<input id="confirmNewPassword" type="password" name="confirmNewPassword" /><br/>
+						</div>
+						<div class="submitNewPassword">
+							<a class="submit" href="index.php">Annuler</a>
+							<input type="submit" class="submit" value="Valider" />
+						</div>
+					</form>
+					<div id="redirectionNewPsw" class="redirection">
+					</div>
+			<?php
+				}else {
+			?>
+					<h3> Vous n'avez pas les droits sur cette page </h3>
+			<?php
+				}
+			?>	
 		</main>
+		<footer>
+			<?php include("public/footer.php");?>
+		</footer>
 	</body>
+	<script src="public/gestionUsers.js"> </script>
 </html>	

@@ -18,23 +18,33 @@
 		</header>
 
 		<main>
-			<h3 id="newChapterTitle">Nouveau Chapitre</h3>
-			<form id="newChapitre" action="index.php?action=addChapter" method="post">
-				<div class="styleForm">
-					<label for="numChapter">Numéro du chapitre:</label>
-					<input type="number" id="numChapterAdmin" name="numChapter" />
-					<label for="titleChap">Titre du chapitre:</label>
-					<input type="text" id="titleChapAdmin" name="titleChap"/>
-				</div>
-				<div class="styleForm">
-					<label for="txtChap">Contenu du chapitre:</label><br/>
-					<textarea id="txtChapAdmin" class="largeTxtAdmin" name="txtChap"></textarea>
-					<div class="submitNewChapter">
-						<a class="submit" href="index.php?action=listChapter">Annuler</a>
-						<input type="submit" class="submit" value="Enregistrer" />
-					</div>
-				</div>
-			</form>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>	
+					<h3 id="newChapterTitle">Nouveau Chapitre</h3>
+					<form id="newChapitre" action="index.php?action=addChapter" method="post">
+						<div class="styleForm">
+							<label for="numChapter">Numéro du chapitre:</label>
+							<input type="number" id="numChapterAdmin" name="numChapter" />
+							<label for="titleChap">Titre du chapitre:</label>
+							<input type="text" id="titleChapAdmin" name="titleChap"/>
+						</div>
+						<div class="styleForm">
+							<label for="txtChap">Contenu du chapitre:</label><br/>
+							<textarea id="txtChapAdmin" class="largeTxtAdmin" name="txtChap"></textarea>
+							<div class="submitNewChapter">
+								<a class="submit" href="index.php?action=listChapter">Annuler</a>
+								<input type="submit" class="submit" value="Enregistrer" />
+							</div>
+						</div>
+					</form>
+			<?php
+				}else {
+			?>
+					<h3> Vous n'avez pas les droits sur cette page </h3>
+			<?php
+				}
+			?>
 		</main>
 
 		<footer>

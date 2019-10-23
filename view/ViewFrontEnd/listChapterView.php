@@ -30,7 +30,7 @@
 					while($data = $listChap->fetch())
 					{
 				?>
-						<div class="episodes">
+						<article class="episodes" id=articleChap>
 							<a class="lienChapitre" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">
 								<h2>
 									CHAPITRE
@@ -54,7 +54,7 @@
 							<?php
 								}
 							?>
-						</div>
+						</article>
 				<?php
 					}	
 				?>

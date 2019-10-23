@@ -14,15 +14,25 @@
 		</header>
 
 		<main>
-			<h3> Etes-vous certain de vouloir supprimer ce commentaire? </h3>
-			<div class="deleteConfirm">
-				<a  href="index.php?action=adminComments" 
-				   class="submit" >Annuler</a>
-				<a  href="index.php?action=deleteComment&id=<?=htmlspecialchars($commentId['id']); ?>" 
-			   class="submit" >Confirmer la suppression</a>
-			</div>
-			<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
-			<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>	
+					<h3> Etes-vous certain de vouloir supprimer ce commentaire? </h3>
+					<div class="deleteConfirm">
+						<a  href="index.php?action=adminComments" 
+						   class="submit" >Annuler</a>
+						<a  href="index.php?action=deleteComment&id=<?=htmlspecialchars($commentId['id']); ?>" 
+					   class="submit" >Confirmer la suppression</a>
+					</div>
+					<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
+					<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
+			<?php
+				}else {
+			?>
+					<h3> Vous n'avez pas les droits sur cette page </h3>
+			<?php
+				}
+			?>
 		</main>
 
 		<footer>

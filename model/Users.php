@@ -8,10 +8,10 @@ class Users extends DataBase
 
 
 	//modifie le mot de passe
-	public function modifPassword($login,$password)
+	public function modifPassword($login,$newPassword)
 	{
 		$db = $this->dbConnect();
-		$passwordHach = password_hash($password,PASSWORD_DEFAULT);
+		$passwordHach = password_hash($newPassword,PASSWORD_DEFAULT);
 		$req = $db->prepare('UPDATE users SET password= "'.$passwordHach.'" WHERE login = "'.$login.'"');
 		$passwordMaj = $req->execute(array($login));
 		return $passwordMaj;
@@ -25,6 +25,5 @@ class Users extends DataBase
 		$user = $req->fetch();
 		$passwordExact = password_verify($_POST['password'],$user['password']);
 		return $passwordExact;
-	
 	}
 }

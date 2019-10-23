@@ -15,8 +15,8 @@
 
 		<main>
 			<h3> Se connecter </h3>
-			<form id="formConnexion" action="index.php?action=interfaceAdmin" method="post">
-				<div id="saisieMdP">
+			<form id="formConnexion"  method="post">
+				<div class="saisieMdP" id="connectMdP">
 					<label for="login"> Identifiant</label>
 					<input type="text" name="login" id="loginUser"/><br/><br/>
 					<label for="password">Mot de passe </label>
@@ -25,9 +25,12 @@
 				<button class="button" id="connectButton" type="submit" value="Se connecter">Se connecter</button>
 				<a class="button" id="connectRetourAccueil" href="index.php">Retour à la page d'accueil</a>
 			</form>
-			<div id="redirectionConnect">
+			<div id="redirectionConnect" class="redirection">
 			</div>
 		</main>
 	</body>
-	<!--<script src="public/gestionUsers.js"> </script>-->
+	<footer>
+		<?php include("public/footer.php");?>
+	</footer>
+	<script src="public/gestionUsers.js"> </script>
 </html>	

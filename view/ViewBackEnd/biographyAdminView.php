@@ -17,17 +17,27 @@
 			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
-		<main>	
-			<h3 id="biographyTitle">Biographie</h3>
-			<form id="updateBiography" class="styleForm" action="index.php?action=updateBiography" method="post" >
-				<textarea id="contentBiography" class="smallTxtAdmin" name="content" rows="255" >
-					<?= htmlspecialchars($biography['content']) ?>
-				</textarea>
-				<div class="submitAccueil">
-					<a class="submit" href="index.php">Annuler</a>
-					<input type="submit" class="submit" value="Enregistrer" />
-				</div>
-			</form>
+		<main>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>		
+					<h3 id="biographyTitle">Biographie</h3>
+					<form id="updateBiography" class="styleForm" action="index.php?action=updateBiography" method="post" >
+						<textarea id="contentBiography" class="smallTxtAdmin" name="content" rows="255" >
+							<?= htmlspecialchars($biography['content']) ?>
+						</textarea>
+						<div class="submitAccueil">
+							<a class="submit" href="index.php">Annuler</a>
+							<input type="submit" class="submit" value="Enregistrer" />
+						</div>
+					</form>
+			<?php
+				}else {
+			?>
+				<h3> Vous n'avez pas les droits sur cette page </h3>
+			<?php
+				}
+			?>
 		</main>
 
 		<footer>

@@ -46,9 +46,13 @@ try {
 			$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
 			$titleChap = isset($_POST['titleChap'])?htmlspecialchars($_POST['titleChap']):NULL;
 			$txtChap = isset($_POST['txtChap'])?htmlspecialchars($_POST['txtChap']):NULL;
-			//if(isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']) > 0){
-			$chapterNew = new ChapterAdminControl();
-			$chapter = $chapterNew->addChapter($chapterNum, $titleChap, $txtChap);
+			if(isset($_POST['numChapter']) && $_POST['numChapter']>0){
+				$chapterNew = new ChapterAdminControl();
+				$chapter = $chapterNew->addChapter($chapterNum, $titleChap, $txtChap);	
+			}
+			else {
+				throw new Exception('Veuillez renseigner un numéro de chapitre valide');
+			}
 		}
 
 		//modifier un chapitre
@@ -89,6 +93,10 @@ try {
 				$chapControl = new ChapterAdminControl();
 				$chapDetail = $chapControl->deleteChapter($_GET['id'], $chapterNum, $titleChap, $txtChap);
 			}
+		}
+
+		else if ($_GET['action'] == 'confirmDeleteChapter'){
+			require 'view/ViewBackEnd/confirmDeleteChapView.php';
 		}
 
 		//rédaction d'un commentaire
@@ -187,7 +195,7 @@ try {
 			$login = isset($_POST['login'])?htmlspecialchars($_POST['login']):NULL;
 			$password = (isset($_POST['passwordUser'])?htmlspecialchars($_POST['passwordUser']):NULL);
 			$connectControl = new ConnectControl();
-			$admin = $connectControl->interfaceAdmin();
+			$admin = $connectControl->interfaceAdmin($login,$password);
 		}
 
 		//modification du mot de passe
@@ -198,12 +206,13 @@ try {
 		//mise à jour du mot de passe
 		else if ($_GET['action'] == 'updatePassword'){
 			$login = isset($_POST['login'])?htmlspecialchars($_POST['login']):NULL;
-			$password = (isset($_POST['newPassword'])?htmlspecialchars($_POST['newPassword']):NULL);
+			$password = (isset($_POST['password'])?htmlspecialchars($_POST['password']):NULL);
+			$newPassword = (isset($_POST['newPassword'])?htmlspecialchars($_POST['newPassword']):NULL);
+			$confNewPassword = (isset($_POST['confirmNewPassword'])?htmlspecialchars($_POST['confirmNewPassword']):NULL);
 			$connectControl = new ConnectControl();
-			$admin = $connectControl->updatePassword($login, $password);
+			$admin = $connectControl->updatePassword($login, $password, $newPassword, $confNewPassword);
 		}
 	}
-
 
 	//affichage de la page d'accueil
 	else {

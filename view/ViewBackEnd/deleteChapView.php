@@ -14,11 +14,21 @@
 		</header>
 
 		<main>
-			<h3> Etes-vous certain de vouloir supprimer ce chapitre? </h3>
-			<a href="index.php?action=deleteChapter&id=<?= htmlspecialchars($chap['id']); ?>" 
-			   class="editButton deleteConfirm">Confirmer la suppression</a>
-			<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
-			<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
+			<?php
+				if (isset($_SESSION['auth'])) {
+			?>	
+					<h3> Etes-vous certain de vouloir supprimer ce chapitre? </h3>
+					<a href="index.php?action=deleteChapter&id=<?= htmlspecialchars($chap['id']); ?>" 
+					   class="editButton deleteConfirmChap">Confirmer la suppression</a>
+					<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
+					<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
+			<?php
+				}else {
+			?>
+					<h3> Vous n'avez pas les droits sur cette page </h3>
+			<?php
+				}
+			?>
 		</main>
 
 		<footer>
