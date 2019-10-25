@@ -14,10 +14,11 @@
 			<?php include("public/bandeau.php");?>
 			<?php
 				if (isset($_SESSION['auth'])){
-			?>	
-					<h4> Bienvenue Jean Forteroche </h4>
-					<!--changer le logo pour modifier le mot de passe -->
-					<a id="changeMdP" href="index.php?action=newPassword" alt="Password" title="Modifier le mot de passe"><i class="fas fa-key"></i></a>
+			?>		
+					<div id="identification">
+						<h4> Bienvenue Jean Forteroche </h4>
+						<a id="changeMdP" href="index.php?action=newPassword" alt="Password" title="Modifier le mot de passe"><i class="fas fa-key"></i></a>
+					</div>
 			<?php
 				}
 			?>
@@ -32,7 +33,7 @@
 						$req = $db->query('SELECT id, content FROM biography');
 						while($donnees = $req->fetch())
 						{
-							echo '<p>'.htmlspecialchars($donnees['content']).'</p>';
+							echo '<p>'.html_entity_decode($donnees['content']).'</p>';
 						}
 
 					?>
@@ -47,14 +48,16 @@
 			</section>
 
 			<section id="couverture">
-				<img src="public/Illustrations/couverture.png" alt="Couverture du nouveau livre" title="Nouveau livre"/>
+				<div id="couv">
+					<img id="imgBook" src="public/Illustrations/couverture.png" alt="Couverture du nouveau livre" title="Nouveau livre"/>
+				</div>
 				<article id="resumeTxt">
 					<?php
 						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
 						$req = $db->query('SELECT id, content FROM summary');
 						while($donnees = $req->fetch())
 						{
-							echo '<p>'.htmlspecialchars($donnees['content']).'</p>';
+							echo '<p>'.html_entity_decode($donnees['content']).'</p>';
 						}
 					?>
 					<div>

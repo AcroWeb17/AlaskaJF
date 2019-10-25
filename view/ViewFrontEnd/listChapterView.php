@@ -32,7 +32,7 @@
 				?>
 						<article class="episodes" id=articleChap>
 							<a class="lienChapitre" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">
-								<h2>
+								<h2 id="decoChap">
 									CHAPITRE
 									<?= htmlspecialchars($data['numChapter']); ?>
 								</h2>
@@ -40,7 +40,7 @@
 									<?= htmlspecialchars($data['title']); ?>
 								</h3>
 								<p class="txtEpisodes">
-									<?= nl2br(htmlspecialchars($data['texte'])); ?>
+									<?= html_entity_decode($data['texte']); ?>
 								</p>
 								<p class="suiteEpisode">
 									<i class="fas fa-ellipsis-h"></i>

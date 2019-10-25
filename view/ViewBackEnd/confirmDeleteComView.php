@@ -14,20 +14,10 @@
 		</header>
 
 		<main>
-			<?php
-				if (isset($_SESSION['auth'])) {
-			?>
-					<h3> Le commentaire a bien été supprimé</h3>
-					<a class="button deleteComList" href="../../index.php?action=adminComments">Retour aux commentaires</a>
-					<a class="button deleteChapAccueil" href="../../index.php">Retour à la page d'accueil</a>
-					<a class="button deleteChapRetourList" href="../../index.php?action=listChapter">Liste des chapitre</a>
-			<?php
-				}else {
-			?>
-					<h3> Vous n'avez pas les droits sur cette page </h3>
-			<?php
-				}
-			?>		
+			<h3> Le commentaire a bien été supprimé</h3>
+			<a class="button deleteComList" href="../../index.php?action=adminComments">Retour aux commentaires</a>
+			<a class="button deleteChapAccueil" href="../../index.php">Retour à la page d'accueil</a>
+			<a class="button deleteChapRetourList" href="../../index.php?action=listChapter">Liste des chapitre</a>		
 		</main>
 
 		<footer>

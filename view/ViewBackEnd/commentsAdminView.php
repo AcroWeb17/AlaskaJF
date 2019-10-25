@@ -34,6 +34,8 @@
 										<p class="commentDate">
 											 <?= htmlspecialchars($data['dateComment']); ?>
 										</p>
+										<a id="commentLienChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['idChapter']); ?>">Retour au chapitre</a>
+										
 										<?php
 											if ((htmlspecialchars($data['alert']))==='1')
 											{

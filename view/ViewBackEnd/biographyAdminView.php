@@ -13,8 +13,10 @@
 		<!--En-tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="button retourAccueil" href="index.php">Accueil</a>
-			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<div id="menu">
+				<a class="button retourAccueil" href="index.php">Accueil</a>
+				<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			</div>
 		</header>
 
 		<main>
@@ -24,7 +26,7 @@
 					<h3 id="biographyTitle">Biographie</h3>
 					<form id="updateBiography" class="styleForm" action="index.php?action=updateBiography" method="post" >
 						<textarea id="contentBiography" class="smallTxtAdmin" name="content" rows="255" >
-							<?= htmlspecialchars($biography['content']) ?>
+							<?=html_entity_decode(($biography['content']))?>
 						</textarea>
 						<div class="submitAccueil">
 							<a class="submit" href="index.php">Annuler</a>
@@ -45,6 +47,7 @@
 		</footer>
 
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="tinymce/themes/silver/theme.min.js"></script>
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
 	</body>
 </html>

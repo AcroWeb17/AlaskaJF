@@ -17,8 +17,8 @@ class Biography extends DataBase
 	public function modifBiography($content)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE biography SET content="'.$content.'" WHERE id =1');
-		$majBiography =$req->execute(array($id));
+		$req = $db->prepare('UPDATE biography SET content=? WHERE id =1');
+		$majBiography =$req->execute(array($content));
 		return $majBiography;
 	}
 }

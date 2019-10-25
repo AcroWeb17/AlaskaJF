@@ -27,7 +27,7 @@ function callUser(reponse){
 	else if (reponse == "succes")
 	{
 		document.getElementById("redirectionConnect").innerHTML="Vous êtes maintenant connecté.<br/> Vous allez être redirigé vers la page d'accueil dans quelques instants...";
-		setTimeout(function(){window.location = "index.php";},3000);
+		setTimeout(function(){window.location = "index.php";},2000);
 	}
 }
 
@@ -45,6 +45,6 @@ function callPassword(reponse){
 	else if (reponse == "succes")
 	{
 		document.getElementById("redirectionNewPsw").innerHTML="Votre mot de passe a bien été mofifié.<br/> Vous allez être redirigé vers la page d'accueil dans quelques instants...";
-		setTimeout(function(){window.location = "index.php";},3000);
+		setTimeout(function(){window.location = "index.php";},2000);
 	}
 }

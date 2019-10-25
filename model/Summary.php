@@ -17,8 +17,8 @@ class Summary extends DataBase
 	public function modifSummary($content)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE summary SET content="'.$content.'" WHERE id =1');
-		$majSummary =$req->execute(array($id));
+		$req = $db->prepare('UPDATE summary SET content=? WHERE id =1');
+		$majSummary =$req->execute(array($content));
 		return $majSummary;
 	}
 }

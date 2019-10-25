@@ -59,7 +59,7 @@ try {
 		else if ($_GET['action'] == 'updateChapter'){
 			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
 				$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
-				$titleChap = isset($_POST['title'])?htmlspecialchars($_POST['title']):NULL;
+				$titleChap = isset($_POST['titleChap'])?htmlspecialchars($_POST['titleChap']):NULL;
 				$txtChap = isset($_POST['texte'])?htmlspecialchars($_POST['texte']):NULL;
 				$chapControl = new ChapterAdminControl();
 				$chapDetail = $chapControl->updateChapter($_GET['id'], $chapterNum, $titleChap, $txtChap);

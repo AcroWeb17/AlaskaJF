@@ -24,7 +24,7 @@
 					<h3 id="summaryTitle">Résumé du livre</h3>
 					<form id="updateSummary" class="styleForm" action="index.php?action=updateSummary" method="post" >
 						<textarea id="contentSummary" class="smallTxtAdmin"  name="content" rows="255" >
-							<?= htmlspecialchars($summary['content']) ?>
+							<?= html_entity_decode($summary['content']) ?>
 						</textarea>
 						<div class="submitAccueil">
 							<a class="submit" href="index.php">Annuler</a>
@@ -45,6 +45,7 @@
 		</footer>
 
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="tinymce/themes/silver/theme.min.js"></script>
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
 	</body>
 </html>

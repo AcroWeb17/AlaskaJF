@@ -25,9 +25,9 @@
 					<form id="newChapitre" action="index.php?action=addChapter" method="post">
 						<div class="styleForm">
 							<label for="numChapter">Numéro du chapitre:</label>
-							<input type="number" id="numChapterAdmin" name="numChapter" />
+							<input type="number" id="numChapterAdmin" name="numChapter" required />
 							<label for="titleChap">Titre du chapitre:</label>
-							<input type="text" id="titleChapAdmin" name="titleChap"/>
+							<input type="text" id="titleChapAdmin" name="titleChap" required/>
 						</div>
 						<div class="styleForm">
 							<label for="txtChap">Contenu du chapitre:</label><br/>

@@ -25,15 +25,15 @@
 						<div class="styleForm">
 							<label for="numChapter">Numéro du chapitre:</label>
 							<input type="number" id="numChapterAdmin" name="numChapter" value=
-							"<?= htmlspecialchars($chap['numChapter']) ?>" />
+							"<?= htmlspecialchars($chap['numChapter']) ?>" required/>
 							<label for="titleChap">Titre du chapitre:</label>
 							<input type="text" id="titleChapAdmin" name="titleChap" value=
-							"<?= htmlspecialchars($chap['title']) ?>"/>
+							"<?= htmlspecialchars($chap['title']) ?>" required/>
 						</div>
 						<div class="styleForm">
 							<label for="txtChap">Contenu du chapitre:</label><br/>
-							<textarea id="texte" class="largeTxtAdmin"  name="texte" rows="2" >
-								<?= nl2br(htmlspecialchars($chap['texte'])) ?>
+							<textarea id="texte" class="largeTxtAdmin"  name="texte" rows="255" >
+								<?= html_entity_decode($chap['texte']) ?>
 							</textarea>
 							<div class="submitUpdateChapter">
 								<a class="submit" href="index.php?action=listChapter">Annuler</a>
@@ -129,6 +129,7 @@
 		</footer>
 
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="tinymce/themes/silver/theme.min.js"></script>
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>
 
 	</body>

@@ -19,8 +19,12 @@ body
 	font-family: verdana, arial;
 	background-color:white;
 	position:relative;
-	min-height:100vh;
-	padding-bottom: 130px;
+}
+
+main
+{
+	position:relative;
+	min-height:52.7vh;
 }
 
 a
@@ -50,24 +54,23 @@ a
 	margin-left:10px;
 	background-color: #616811;
 	cursor:pointer;
-	height: 26px;
 }
 
 .retourAccueil
 {
 	right:40px;
-	top:205px;
+	top:270px;
 }
 
 .retourListeChap
 {
 	right:40px;
-	top:245px;
+	top:315px;
 }
 
 .styleForm
 {
-	margin: 20px 50px 0px 50px;
+	margin: 30px 50px 0px 50px;
 }
 
 /*Propriétés des titres*/
@@ -78,8 +81,8 @@ h1 /*Titre du bandeau*/
 	font-size:2.3em;
 	position:absolute;
 	color:white;
-	right:25%;
-	left:20%;
+	right:25px;
+	left:25px;
 	bottom:90px;
 }
 
@@ -98,6 +101,7 @@ h3
 	font-size:1.2em;
 	color:#AC8646;
 	font-style:italic;
+	margin-top:25px;
 }
 
 h4
@@ -107,7 +111,7 @@ h4
 	font-style:italic;
 	position:absolute;
 	right:115px;
-	top:240px;
+	bottom:-5%
 }
 
 p
@@ -117,6 +121,11 @@ p
 }
 
 /*Propriétés du bandeau*/
+header
+{
+	position:relative;
+}
+
 #bandeau
 {
 	position: relative;
@@ -130,12 +139,12 @@ p
 {
 	content:"";
 	position: absolute;
-	border-bottom: 97px white solid;
-	border-left:770px solid transparent;
+	border-bottom: 120px white solid;
+	border-left:880px solid transparent;
 	width:0;
 	height:0;
 	right:0;
-	bottom:0px;
+	bottom:-1px;
 }
 
 #photo
@@ -143,11 +152,13 @@ p
 	width:100%;
 }
 
+/*Accueil*/
 #logo
 {
 	display:flex;
 	padding:10px;
 	margin:auto;
+	width:77%;
 }
 
 #biographie
@@ -157,7 +168,7 @@ p
 	border:2px solid #AC8646;
 	background-color: white;
 	margin-left:25px;
-	top:180px;
+	top:-120px;
 	border-radius:30px;
 }
 
@@ -166,17 +177,24 @@ p
 	padding:10px;
 }
 
-/*Accueil*/
 #couverture
 {
+	position: relative;
 	margin-left:29%;
-	margin-top:50px;
+	margin-top:30px;
 	display: flex;
+	flex-wrap: wrap;
+	width:71%;
+}
+
+#couv
+{
+	width:32%;
 }
 
 #resumeTxt
 {
-	width:50%;
+	width:455px;
 	margin-left:10%;
 	box-shadow: 3px 3px 10px #AC8646;
 	position:relative;
@@ -225,11 +243,11 @@ p
 
 .submitAccueil
 {
-	position:absolute;
-	right:50px;
-	bottom:245px;
+	margin-left:85%;
+	margin-top:10px;
 	cursor:pointer;
 }
+
 
 /*Interface de connexion*/
 #formConnexion
@@ -292,7 +310,7 @@ p
 	font-style:italic;
 	font-size:0.8em;
 	color:#AC8646;
-	top:262px;
+	bottom:7px;
 	right:90px;
 }
 
@@ -366,7 +384,7 @@ p
 {
 	color:#AC8646;
 	position:absolute;
-	bottom:5px;
+	bottom:10px;
 	right:20px;
 	border:2px solid #AC8646;
 	padding-right:5px;
@@ -374,22 +392,30 @@ p
 	border-radius:7px;
 }
 
-#decoTitre
-{
-	position:relative;
-}
-
-#decoTitre::before
+#decoChap::after
 {
 	content:'';
 	border-right:80px solid #F9D8A9;
 	border-bottom:70px solid transparent;
-	right:0;
-	bottom: 17px;
+	right:0px;
+	top:0px;
 	width:0;
 	height:0;
-	left:183px;
 	position:absolute;
+}
+
+#decoTitre
+{
+	position:relative;
+	padding-bottom:5px;
+}
+
+#decoTitre::before
+{
+	content:'*';
+	position:absolute;
+	top:29px;
+	left:47%;
 }
 
 #decoTitre::after
@@ -408,6 +434,7 @@ p
 	height:315px;
 	position:relative;
 	color:black;
+	padding:5px 10px 0px 10px;
 }
 
 .txtEpisodes::before
@@ -450,13 +477,13 @@ p
 
 #newChapter
 {
-	top:245px;
+	top:300px;
 	right:240px;
 }
 
 #adminComments
 {
-	top:245px;
+	top:300px;
 	right:40px;
 }
 
@@ -487,9 +514,27 @@ p
 	margin:20px;
 }
 
+#titreChapitre::before
+{
+	content:'*';
+	position:absolute;
+	top:88px;
+	left:49.1%;
+}
+
+#titreChapitre::after
+{
+	content:'';
+	top:96px;
+	width:110px;
+	left:45.5%;
+	position:absolute;
+	border-top:1px solid #AC8646;
+}
+
 .contenuChapitre
 {
-	padding:20px;
+	padding:20px 50px 20px 50px;
 }
 
 /*Modification d'un chapitre*/
@@ -558,6 +603,7 @@ p
 /*Commentaires*/
 .commentaires
 {
+	position:relative;
 	margin:80px 50px 0px 50px;
 }
 
@@ -575,6 +621,7 @@ p
 {
 	color:#555;
 	padding-left: 5px;
+	padding-right:20px;
 }
 
 .commentAffiche
@@ -612,26 +659,36 @@ p
 
 #validComment
 {
-	right:50px;
-	bottom:105px;
+	right:0px;
+	bottom:-40px;
 }
 
 /*Administration des commentaires*/
+#commentLienChap
+{
+	width:180px;
+	color:#AC8646;
+}
+
 #commentsList
 {
 	border:1px solid #444;
 	margin:5px 50px 30px 50px;
+	position:relative;
 }
 
 #deleteCommentList
 {
-	margin-left:72%;
-	margin-top:5px;
+	position: absolute;
+	top:3px;
+	right:5px;
 }
 
 #alertComment
 {
-	margin:5px -827px 0px 57%;
+	position:absolute;
+	top:3px;
+	right:100px;
 }
 
 /*Mentions Légales*/
@@ -677,14 +734,12 @@ p
 footer
 {
 	display:flex;
-	position:absolute;
 	bottom:0px;
 }
 
 footer::after
 {
 	content:"";
-	position: absolute;
 	border-bottom: 125px #AC8646 solid;
 	border-right:650px solid transparent;
 	width:0;
@@ -724,13 +779,13 @@ footer::after
 
 #connexion
 {
-	right:-1240px;
+	right:75px;
 	bottom:15px;
 }
 
 #accueilAlaska
 {
-	right:-1235px;
+	right:40px;
 	bottom:15px;
 }
 
@@ -742,3 +797,472 @@ footer::after
 	color:white;
 }
 
+/*Responsive*/
+@media(max-width:1280px){/*grand ecran*/
+	#bandeau::after
+	{
+		border-bottom:95px white solid;
+		border-left:770px solid transparent;
+	}
+
+	h1
+	{
+		bottom:70px;
+	}
+
+	.retourListeChap
+	{
+		top:260px;
+	}
+
+	.retourAccueil
+	{
+		top:217px;
+	}
+
+	/*Liste des chapitres*/
+	#newChapter
+	{
+		top:250px;
+	}
+
+	#adminComments
+	{
+		top:250px;
+	}
+}
+
+@media(max-width:1025px){/*IPadPro*/
+	main
+	{
+		min-height:71vh;
+	}
+	h1
+	{
+		bottom:50px;
+	}
+
+	h3
+	{
+		margin-top:35px;
+	}
+	h4
+	{
+		bottom:-24px;
+		right:95px;
+	}
+	#changeMdP
+	{
+		bottom:-2px;
+		right:64px;
+	}
+	#bandeau::after
+	{
+		border-bottom:75px white solid;
+		border-left:580px solid transparent;
+	}
+
+	.retourAccueil
+	{
+		top:175px;
+	}
+	.retourListeChap
+	{
+		top:215px;
+	}
+
+	/*Page d'accueil*/
+	#biographie
+	{
+		top:-104px;
+	}
+	#couverture
+	{
+		justify-content: center;
+		margin-top:50px;
+		margin-left:;
+	}
+	#resumeTxt
+	{
+		width:670px;
+		margin-left:0;
+		padding:10px 15px 55px 15px;
+		margin-top:50px;
+	}
+
+	/*Admin Accueil*/
+	.submitAccueil
+	{
+		margin-left:80%;
+	}
+
+	footer::after
+	{
+		border-right: 565px solid transparent;
+	}
+
+	/*Liste des chapitres*/
+	#newChapter
+	{
+		top:200px;
+		right:220px;
+	}
+
+	#adminComments
+	{
+		top:200px;
+		right:20px;
+	}
+
+	/*interface de connexion*/
+	#connectMdP
+	{
+		width:50%;
+	}
+
+	#connectRetourAccueil
+	{
+		right:27%;
+	}
+
+	#connectButton
+	{
+		left:30%;
+	}
+}
+
+@media(max-width:800px){/*IPad*/
+	*
+	{
+		box-sizing: content-box; ;
+	}
+	main
+	{
+		min-height:68vh;
+	}
+	#bandeau::after
+	{
+		border-bottom:55px white solid;
+		border-left:460px solid transparent;
+	}
+	h1
+	{
+		bottom:32px;
+	}
+
+	.retourAccueil
+	{
+		top:150px;
+		right:20px;
+	}
+
+	.retourListeChap
+	{
+		top:150px;
+		right:95px;
+	}
+	#accesBlog
+	{
+		width:20px;
+		height:20px;
+		left:45%;
+	}
+
+	/*Admin Accueil*/
+	.submitAccueil
+	{
+		margin-left:70%;
+	}
+
+	footer::after
+	{
+		border-right: 400px solid transparent;
+	}
+
+	#mentionsLegales
+	{
+		bottom:40px;
+	}
+
+	#mailContact
+	{
+		bottom:10px;
+	}
+
+	/*Liste des chapitres*/
+	#newChapter
+	{
+		top:165px;
+	}
+
+	#adminComments
+	{
+		top:165px;
+	}
+
+	#chapitres
+	{
+		margin-top:50px;
+	}
+
+	.txtEpisodes::before
+	{
+		height:50px;
+	}
+
+	#editChap
+	{
+		width:75px;
+	}
+	#deleteChap
+	{
+		width:75px;
+	}
+}
+
+@media(max-width:500px){/*IPhoneX*/
+	#bandeau::after
+	{
+		border-bottom:30px white solid;
+		border-left:230px solid transparent;
+	}
+	h1
+	{
+		font-size:1em;
+		bottom:20px;
+	}
+
+	h3
+	{
+		margin-top:20px;
+	}
+	h4
+	{
+		position:relative;
+		bottom:0;
+		right:0;
+		text-align:center;
+	}
+
+	.styleForm
+	{
+		margin:20px 20px 0px 20px;
+	}
+	#changeMdP
+	{
+		bottom:0;
+		right:0;
+		margin-right:10%;
+	}
+	.retourAccueil
+	{
+		top:95px;
+		right:290px;
+	}
+
+	.retourListeChap
+	{
+		top:95px;
+		right:20px;
+	}
+	.smallTxtAdmin + .tox-tinymce
+	{
+		height:400px !important;
+	}
+	#logo
+	{
+		width:20%;
+	}
+	#biographie
+	{
+		width:350px;
+		margin:auto;
+		position: relative;
+		top:0;
+		margin-top:40px;
+	}
+
+	#couverture
+	{
+		margin-left:0;
+		width:auto;
+	}
+
+	#couv
+	{
+		width:auto;
+	}
+
+	#resumeTxt
+	{
+		margin:50px 25px 30px 25px;
+	}
+
+	.submitAccueil
+	{
+		margin-left:40%;
+	}
+	footer::after
+	{
+		border-right: 255px solid transparent;
+		border-bottom:80px #AC8648 solid;
+	}
+
+	#connexion
+	{
+		right:15px;
+		bottom:10px;
+	}
+	.button
+	{
+		font-size:0.8em;
+	}
+
+	#mentionsLegales
+	{
+		bottom:25px;
+		left:4px;
+	}
+	#mailContact
+	{
+		bottom:4px;
+		left:4px;
+	}
+	.mail
+	{
+		left:8px;
+		bottom:5px;
+		font-size:0.8em;
+	}
+
+	/*Liste des chapitres*/
+	#newChapter
+	{
+		top:94px;
+	}
+
+	#adminComments
+	{
+		top:94px;
+	}
+	.txtEpisodes::before
+	{
+		height:50px;
+	}
+
+	#editChap
+	{
+		width:75px;
+	}
+	#deleteChap
+	{
+		width:75px;
+	}
+
+	/*interface de connexion*/
+	#connectButton
+	{
+		left:40%;
+		top:145px;
+	}
+
+	#connectRetourAccueil
+	{
+		left:27%;
+		top:182px;
+		width:175px;
+	}
+
+	/*mentions légales*/
+	#h2MentionsLegales
+	{
+		padding:60px 0px 30px 0px;
+	}
+}
+
+@media(max-width:350px){
+	#bandeau::after
+	{
+		border-bottom:25px white solid;
+		border-left:180px solid transparent;
+	}
+	h1
+	{
+		bottom:15px;
+	}
+
+	h3
+	{
+		margin-top:20px;
+	}
+
+	.retourAccueil
+	{
+		top:90px;
+		right:240px;
+	}
+
+	.retourListeChap
+	{
+		top:90px;
+		right:20px;
+	}
+	#changeMdP
+	{
+		margin-right:5%;
+	}
+	#biographie
+	{
+		width:300px;
+	}
+	#editResume
+	{
+		right:10px;
+	}
+	#connexion
+	{
+		bottom:25px;
+	}
+
+	.submitAccueil
+	{
+		margin-left:35%;
+	}
+
+	/*Liste des chapitres*/
+	#newChapter
+	{
+		right:0;
+		top:75px;
+		width:95%;
+	}
+
+	#adminComments
+	{
+		top:105px;
+		right:0;
+		width:95%;
+	}
+
+	#chapitres
+	{
+		margin-top:70px;
+	}
+
+	#editChap
+	{
+		left:8px;
+	}
+
+	#deleteChap
+	{
+		left:106px;
+	}
+
+	/*interface de connexion*/
+	#connectMdP
+	{
+		width:60%;
+	}
+
+}
