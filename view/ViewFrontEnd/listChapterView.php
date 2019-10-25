@@ -31,7 +31,7 @@
 					{
 				?>
 						<article class="episodes" id=articleChap>
-							<a class="lienChapitre" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">
+							<a class="lienChapitre" href="index.php?action=chapter&id=<?= htmlspecialchars($data['idChapter']); ?>">
 								<h2 id="decoChap">
 									CHAPITRE
 									<?= htmlspecialchars($data['numChapter']); ?>
@@ -49,8 +49,8 @@
 							<?php
 								if (isset($_SESSION['auth'])) {
 							?>
-									<a class="editButton" id="editChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['id']); ?>">Mise à jour</a>
-									<a class="editButton" id="deleteChap" href="index.php?action=confirmDelete&id=<?= htmlspecialchars($data['id']); ?>">Supprimer</a>
+									<a class="editButton" id="editChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['idChapter']); ?>">Mise à jour</a>
+									<a class="editButton" id="deleteChap" href="index.php?action=confirmDelete&id=<?= htmlspecialchars($data['idChapter']); ?>">Supprimer</a>
 							<?php
 								}
 							?>

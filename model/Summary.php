@@ -5,11 +5,11 @@ class Summary extends DataBase
 	private $_id,
 			$_content;
 
-	public function getContentSummary($id)
+	public function getContentSummary()
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('SELECT id, content FROM summary WHERE id="1"');
-		$req->execute(array($id));
+		$req->execute(array());
 		$txtSummary = $req->fetch();
 		return $txtSummary;
 	}

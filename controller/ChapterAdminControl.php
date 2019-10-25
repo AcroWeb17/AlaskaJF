@@ -1,6 +1,7 @@
 <?php
 namespace AlaskaJF\controller;
 use AlaskaJF\model\Chapter;
+use AlaskaJF\model\Comments;
 
 class ChapterAdminControl
 {
@@ -39,7 +40,7 @@ class ChapterAdminControl
 			throw new Exception('Impossible d\'effectuer la mise à jour!');		
 		}
 		else {
-			header('Location: view/ViewBackEnd/modifView.php');	
+			header('Location: index.php?action=confirmUpdateChapter');
 		}
 	}
 

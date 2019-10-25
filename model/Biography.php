@@ -5,14 +5,15 @@ class Biography extends DataBase
 	private $_id,
 			$_content;
 
-	public function getContentBiography($id)
+	public function getContentBiography()
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('SELECT id, content FROM biography WHERE id="1"');
-		$req->execute(array($id));
+		$req->execute(array());
 		$txtBiography = $req->fetch();
 		return $txtBiography;
 	}
+
 
 	public function modifBiography($content)
 	{

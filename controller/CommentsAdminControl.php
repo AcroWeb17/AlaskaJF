@@ -16,17 +16,17 @@ class CommentsAdminControl
 		$commentDelete = new Comments();
 		$commentMo = $commentDelete->suppComment($id, $idChapter, $authorComment, $txtComment);
 		if ($commentMo === false){
-			throw new Exception('Impossible de supprimer ce chapitre!');		
+			throw new Exception('Impossible de supprimer ce commentaire!');		
 		}
 		else{
-			header('Location: view/ViewBackEnd/confirmDeleteComView.php');	
+			header('Location: index.php?action=confirmDeleteCom');	
 		}
 	}
 
 	public function listComments()
 	{
 		$commentsManager = new Comments();
-		$listComments = $commentsManager-> getListComments(); //appel d'une fonction d'un objet
+		$listComments = $commentsManager-> getListComments(); 
 		require('view/ViewBackEnd/commentsAdminView.php');
 	}
 

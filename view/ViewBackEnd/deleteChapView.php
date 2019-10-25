@@ -18,7 +18,7 @@
 				if (isset($_SESSION['auth'])) {
 			?>	
 					<h3> Etes-vous certain de vouloir supprimer ce chapitre? </h3>
-					<a href="index.php?action=deleteChapter&id=<?= htmlspecialchars($chap['id']); ?>" 
+					<a href="index.php?action=deleteChapter&id=<?= htmlspecialchars($chap['idChapter']); ?>" 
 					   class="editButton deleteConfirmChap">Confirmer la suppression</a>
 					<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
 					<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>

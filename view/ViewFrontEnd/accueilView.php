@@ -28,15 +28,7 @@
 			<section id="biographie">
 				<img id="logo" src="public/Illustrations/logo.png" alt="Logo" title="Logo"/>
 				<article id="biographyTxt">
-					<?php
-						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
-						$req = $db->query('SELECT id, content FROM biography');
-						while($donnees = $req->fetch())
-						{
-							echo '<p>'.html_entity_decode($donnees['content']).'</p>';
-						}
-
-					?>
+					<p>	<?= html_entity_decode($bio['content']) ?></p> 
 				<?php
 					if (isset($_SESSION['auth'])){
 				?>	
@@ -52,14 +44,7 @@
 					<img id="imgBook" src="public/Illustrations/couverture.png" alt="Couverture du nouveau livre" title="Nouveau livre"/>
 				</div>
 				<article id="resumeTxt">
-					<?php
-						$db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8','root','');
-						$req = $db->query('SELECT id, content FROM summary');
-						while($donnees = $req->fetch())
-						{
-							echo '<p>'.html_entity_decode($donnees['content']).'</p>';
-						}
-					?>
+					<p>	<?= html_entity_decode($summary['content']) ?></p> 
 					<div>
 						<a id="accesBlog" href="index.php?action=listChapter"><i class="fas fa-book-open"></i></a>
 					</div>

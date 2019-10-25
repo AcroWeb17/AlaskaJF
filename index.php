@@ -11,6 +11,7 @@ use AlaskaJF\controller\ChapterAdminControl;
 use AlaskaJF\controller\CommentsAdminControl;
 use AlaskaJF\controller\SummaryControl;
 use AlaskaJF\controller\BiographyControl;
+use AlaskaJF\controller\AccueilControl;
 
 try {
 
@@ -71,6 +72,10 @@ try {
 			else {
 				throw new Exception('Aucun identifiant de chapitre envoyé');
 			}
+		}
+
+		else if ($_GET['action'] == 'confirmUpdateChapter'){
+			require 'view/ViewBackEnd/modifView.php';
 		}
 
 		//confirmer la suppression d'un chapitre
@@ -153,6 +158,11 @@ try {
 			}
 		}
 
+		else if ($_GET['action'] == 'confirmDeleteCom'){
+			require 'view/ViewBackEnd/confirmDeleteComView.php';
+		}
+
+
 		//mise à jour de la page d'accueil
 		//modifier le résumé du livre
 		else if ($_GET['action'] == 'summary'){
@@ -216,7 +226,9 @@ try {
 
 	//affichage de la page d'accueil
 	else {
-		require  ('view/ViewFrontEnd/accueilView.php');
+		$accueilControl = new AccueilControl();
+		$accueilDetail = $accueilControl->accueilDetail();
+		//require  ('view/ViewFrontEnd/accueilView.php');
 	}
 }
 

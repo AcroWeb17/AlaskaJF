@@ -11,6 +11,7 @@ class BiographyControl {
 		require('view/ViewBackEnd/biographyAdminView.php');
 	}
 
+
 	public function updateBiography($content)
 	{
 		$biographyModify = new Biography();
