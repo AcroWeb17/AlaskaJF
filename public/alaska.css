@@ -24,7 +24,8 @@ body
 main
 {
 	position:relative;
-	min-height:52.7vh;
+	min-height:60vh;
+	padding:30px 0px 80px 0px;
 }
 
 a
@@ -294,13 +295,13 @@ header
 
 #redirectionConnect
 {
-	bottom:355px;
+	top:255px;
 	line-height:25px;
 }
 
 #redirectionNewPsw
 {
-	bottom:295px;
+	top:355px;
 	line-height:25px;
 }
 
@@ -349,8 +350,8 @@ header
 /*Interface de déconnexion*/
 #deconnectAccueil
 {
-	right:41%;
-	top:40%;
+	right:43%;
+	top:150px;
 }
 
 /*Liste des chapitres*/
@@ -492,7 +493,7 @@ header
 {
 	position:absolute;
 	right:50px;
-	bottom:110px;
+	bottom:40px;
 }
 
 #numChapterAdmin
@@ -511,23 +512,23 @@ header
 /*Chapitre détaillé*/
 #numChapitre
 {
-	margin:20px;
+	margin:20px 20px 20px 50px;
 }
 
 #titreChapitre::before
 {
 	content:'*';
 	position:absolute;
-	top:88px;
-	left:49.1%;
+	top:140px;
+	left:49%;
 }
 
 #titreChapitre::after
 {
 	content:'';
-	top:96px;
+	top:148px;
 	width:110px;
-	left:45.5%;
+	left:46%;
 	position:absolute;
 	border-top:1px solid #AC8646;
 }
@@ -545,12 +546,12 @@ header
 
 #modifAccueil
 {
-	right:420px;
+	right:570px;
 }
 
 #modifListChap
 {
-	left:420px;
+	left:575px;
 }
 
 #submitUpdate
@@ -574,30 +575,30 @@ header
 
 .deleteConfirmChap
 {
-	margin-left:41%;
+	margin-left:43%;
 }
 
 .deleteListChap
 {
-	left:420px;
-	top:400px;
+	left:505px;
+	top:150px;
 }
 
 .deleteAccueil
 {
-	right:420px;
-	top:400px;
+	right:515px;
+	top:150px;
 }
 
 /*Confirmation de la suppression d'un chapitre*/
 .deleteChapAccueil
 {
-	right:420px;
+	right:570px;
 }
 
 .deleteChapRetourList
 {
-	left:420px;
+	left:590px;
 }
 
 /*Commentaires*/
@@ -638,7 +639,6 @@ header
 	border-radius:5px;
 	padding:3px 7px 3px 7px;
 	background-color: #999;
-	height: 26px;
 	margin-left:25px;
 }
 
@@ -674,6 +674,7 @@ header
 {
 	border:1px solid #444;
 	margin:5px 50px 30px 50px;
+	padding: 5px;
 	position:relative;
 }
 
@@ -689,6 +690,12 @@ header
 	position:absolute;
 	top:3px;
 	right:100px;
+}
+
+.deleteComList
+{
+	left:42%;
+	top:145px;
 }
 
 /*Mentions Légales*/
@@ -830,12 +837,63 @@ footer::after
 	{
 		top:250px;
 	}
+
+	/*Chapitres*/
+	#titreChapitre::before
+	{
+		left:49.8%;
+	}
+
+	/*Modif chapitres*/
+	#modifAccueil
+	{
+		right:415px;
+	}
+
+	#modifListChap
+	{
+		left:410px;
+	}
+
+	/*Suppression d'un chapitre*/
+	.deleteConfirmChap
+	{
+		margin-left:42%;
+	}
+
+	.deleteListChap
+	{
+		left:31%;
+	}
+
+	.deleteAccueil
+	{
+		right:30%;
+	}
+
+	/*Confirmation de la suppression d'un chapitre*/
+	.deleteChapAccueil
+	{
+		right:425px;
+	}
+
+	.deleteChapRetourList
+	{
+		left:430px;
+	}
+
+	/*Interface de deconnexion*/
+	#deconnectAccueil
+	{
+		right:41%;
+
+	}
 }
 
 @media(max-width:1025px){/*IPadPro*/
 	main
 	{
-		min-height:71vh;
+		min-height:75vh;
 	}
 	h1
 	{
@@ -844,7 +902,7 @@ footer::after
 
 	h3
 	{
-		margin-top:35px;
+		margin-top:15px;
 	}
 	h4
 	{
@@ -872,10 +930,6 @@ footer::after
 	}
 
 	/*Page d'accueil*/
-	#biographie
-	{
-		top:-104px;
-	}
 	#couverture
 	{
 		justify-content: center;
@@ -914,6 +968,39 @@ footer::after
 		right:20px;
 	}
 
+	/*Chapitres*/
+	#titreChapitre::before
+	{
+		left:49%;
+	}
+
+	#titreChapitre::after
+	{
+		left:44%;
+	}
+
+	/*Modif chapitres*/
+	#modifAccueil
+	{
+		right:310px;
+	}
+
+	#modifListChap
+	{
+		left:310px;
+	}
+
+	/*Confirmation de la suppression d'un chapitre*/
+	.deleteChapAccueil
+	{
+		right:30%;
+	}
+
+	.deleteChapRetourList
+	{
+		left:30%;
+	}
+
 	/*interface de connexion*/
 	#connectMdP
 	{
@@ -929,6 +1016,8 @@ footer::after
 	{
 		left:30%;
 	}
+
+
 }
 
 @media(max-width:800px){/*IPad*/
@@ -1018,9 +1107,93 @@ footer::after
 	{
 		width:75px;
 	}
+
+	/*Chapitres*/
+	#titreChapitre::before
+	{
+		left:48%;
+	}
+
+	#titreChapitre::after
+	{
+		left:38%;
+	}
+
+	/*Chapitre Admin*/
+	.styleForm
+	{
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	/*Nouveau chapitre*/
+	#numChapterAdmin
+	{
+		margin-right:320px;
+	}
+
+	/*Modif chapitres*/
+	#modifAccueil
+	{
+		right:175px;
+	}
+
+	#modifListChap
+	{
+		left:175px;
+	}
+
+	/*Suppression d'un chapitre*/
+	.deleteConfirmChap
+	{
+		margin-left:38%;
+	}
+
+	.deleteListChap
+	{
+		left:25%;
+	}
+
+	.deleteAccueil
+	{
+		right:20%;
+	}
+
+	/*Confirmation de la suppression d'un chapitre*/
+	.deleteChapAccueil
+	{
+		right:25%;
+	}
+
+	.deleteChapRetourList
+	{
+		left:25%;
+	}
+
+	/*Confirmation suppression commentaire*/
+	.deleteComList
+	{
+		left:35%;
+	}
+
+	/*Interface de deconnexion*/
+	#deconnectAccueil
+	{
+		right:36%;
+	}
+
+	/*Modification du mot de passe*/
+	.submitNewPassword
+	{
+		margin-left:40%;
+	}
 }
 
 @media(max-width:500px){/*IPhoneX*/
+	main
+	{
+		min-height:75vh;
+	}
 	#bandeau::after
 	{
 		border-bottom:30px white solid;
@@ -1067,7 +1240,7 @@ footer::after
 	}
 	.smallTxtAdmin + .tox-tinymce
 	{
-		height:400px !important;
+		height:500px !important;
 	}
 	#logo
 	{
@@ -1079,7 +1252,6 @@ footer::after
 		margin:auto;
 		position: relative;
 		top:0;
-		margin-top:40px;
 	}
 
 	#couverture
@@ -1159,6 +1331,95 @@ footer::after
 		width:75px;
 	}
 
+	/*Chapitres*/
+	#titreChapitre::before
+	{
+		left:48%;
+	}
+
+	#titreChapitre::after
+	{
+		left:36%;
+	}
+
+	/*Modif chapitres*/
+	#modifAccueil
+	{
+		right:30%;
+		top:160px;
+	}
+
+	#modifListChap
+	{
+		left:30%;
+	}
+
+	/*Suppression d'un chapitre*/
+	.deleteConfirmChap
+	{
+		margin-left:30%;
+	}
+
+	.deleteListChap
+	{
+		left:35%;
+	}
+
+	.deleteAccueil
+	{
+		right:27%;
+		top:190px;
+	}
+
+	/*Confirmation de la suppression d'un chapitre*/
+	.deleteChapAccueil
+	{
+		left:15%;
+		top:150px;
+	}
+
+	.deleteChapRetourList
+	{
+		left:15%;
+	}
+
+	/*Confirmation suppression commentaire*/
+	.deleteComList
+	{
+		left:15%;
+		top:185px;
+	}
+
+	/*Commentaires*/
+	.dispoComment
+	{
+		flex-wrap:wrap;
+	}
+	.commentAuthor
+	{
+		padding-top:45px;
+	}
+
+	.commentDate
+	{
+		padding-top:45px;
+	}
+
+	#alertComment
+	{
+		margin-left:0;
+	}
+
+	#commentLienChap
+	{
+		margin-top:-38px;
+	}
+
+	#commentsList
+	{
+		margin:5px 25px 30px 25px;
+	}
+
 	/*interface de connexion*/
 	#connectButton
 	{
@@ -1173,11 +1434,35 @@ footer::after
 		width:175px;
 	}
 
+	#redirectionConnect
+	{
+		top:325px;
+	}
+
+	/*Interface de deconnexion*/
+	#deconnectAccueil
+	{
+		right:27%;
+
+	}
+
 	/*mentions légales*/
 	#h2MentionsLegales
 	{
 		padding:60px 0px 30px 0px;
 	}
+
+	/*Modification du mot de passe*/
+	#saisieNewMdP
+	{
+		width:75%;
+	}
+	.submitNewPassword
+	{
+		margin-left:32%;
+	}
+
+
 }
 
 @media(max-width:350px){
@@ -1259,10 +1544,46 @@ footer::after
 		left:106px;
 	}
 
+	/*Chapitres*/
+
+	#titreChapitre::after
+	{
+		left:34%;
+	}
+
+	/*Chapitres Admin*/
+	.submitUpdateChapter
+	{
+		position: relative;
+		right:0;
+		bottom:0;
+	}
+
+	/*Suppression d'un chapitre*/
+	.deleteConfirmChap
+	{
+		margin-left:25%;
+	}
+
+	.deleteListChap
+	{
+		left:33%;
+	}
+
+	.deleteAccueil
+	{
+		right:19%;
+	}
+
 	/*interface de connexion*/
 	#connectMdP
 	{
 		width:60%;
+	}
+
+	#redirectionNewPsw
+	{
+		top:380px;
 	}
 
 }

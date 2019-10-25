@@ -44,7 +44,7 @@ function callPassword(reponse){
 	}
 	else if (reponse == "succes")
 	{
-		document.getElementById("redirectionNewPsw").innerHTML="Votre mot de passe a bien été mofifié.<br/> Vous allez être redirigé vers la page d'accueil dans quelques instants...";
+		document.getElementById("redirectionNewPsw").innerHTML="Votre mot de passe a bien été modifié.<br/> Vous allez être redirigé vers la page d'accueil dans quelques instants...";
 		setTimeout(function(){window.location = "index.php";},2000);
 	}
 }

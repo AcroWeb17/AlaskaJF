@@ -55,7 +55,7 @@
 					</h3>
 					<p class="contenuChapitre">
 						<!-- chapitre.texte Ajout du contenu du chapitre-->
-						<?= nl2br(htmlspecialchars($chap['texte'])) ?>
+						<?= html_entity_decode($chap['texte']) ?>
 					</p>
 			<?php
 				} 
