@@ -10,12 +10,14 @@
 	</head>
 
 	<body>
+		<!--En tête-->
 		<header>
 			<?php include("../../public/bandeau.php");?>
 			<a class="button retourAccueil" href="../../index.php">Accueil</a>
 			<a class="button retourListeChap" href="../../index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
+		<!--Corps de page-->
 		<main>
 			<h2 id="h2MentionsLegales"> Mentions légales</h2>
 			<h3 class="h3MentionsLegales"> Editeur du site Billet simple pour l'Alaska </h3>
@@ -41,8 +43,10 @@
 			</p>
 		</main>	
 
+		<!--Pied de page-->
 		<footer>
 			<?php include("../../public/footer.php");?>
 		</footer>
+		
 	</body>
 </html>

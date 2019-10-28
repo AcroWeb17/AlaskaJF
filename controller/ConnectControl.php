@@ -4,17 +4,20 @@ use AlaskaJF\model\Users;
 
 class ConnectControl
 {
+	//interface de connexion
 	public function connect()
 	{
 		require('view/ViewFrontEnd/loginView.php');
 	}
 
+	//interface de déconnexion
 	public function deconnect()
 	{
 		session_destroy();
 		header('Location: view/ViewFrontEnd/deconnectView.php');
 	}
 
+	//vérification du login et mdp pour connexion
 	public function interfaceAdmin($login,$password)
 	{
 		if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['password'])){
@@ -29,12 +32,12 @@ class ConnectControl
 				echo "echec";
 			}
 		}
-		else
-		{
+		else {
 			echo 'mauvais nom d utilisateur';
 		}
 	}
 
+	//modification du mot de passe
 	public function updatePassword($login, $password, $newPassword)
 	{	
 		if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['password'])){
@@ -56,8 +59,7 @@ class ConnectControl
 					echo 'les nouveaux mots de passe ne sont pas identiques';
 				}
 			}
-			else
-			{
+			else {
 				echo 'mauvais nom d utilisateur ou de mot de passe';
 			}
 		}

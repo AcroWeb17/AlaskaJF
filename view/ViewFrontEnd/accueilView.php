@@ -10,6 +10,7 @@
 	</head>
 
 	<body>
+		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
 			<?php
@@ -24,21 +25,24 @@
 			?>
 		</header>
 
+		<!--Corps de page-->
 		<main>
+			<!--Biographie-->
 			<section id="biographie">
 				<img id="logo" src="public/Illustrations/logo.png" alt="Logo" title="Logo"/>
 				<article id="biographyTxt">
 					<p>	<?= html_entity_decode($bio['content']) ?></p> 
-				<?php
-					if (isset($_SESSION['auth'])){
-				?>	
-					<a class="editButton" id="editBiographyAccueil" href="index.php?action=biography">Mise à jour</a>
-				<?php
-					}
-				?>
+					<?php
+						if (isset($_SESSION['auth'])){
+					?>	
+							<a class="editButton" id="editBiographyAccueil" href="index.php?action=biography">Mise à jour</a>
+					<?php
+						}
+					?>
 				</article>
 			</section>
 
+			<!--Couverture-->
 			<section id="couverture">
 				<div id="couv">
 					<img id="imgBook" src="public/Illustrations/couverture.png" alt="Couverture du nouveau livre" title="Nouveau livre"/>
@@ -59,6 +63,7 @@
 			</section>
 		</main>
 
+		<!--Pied de page-->
 		<footer>
 			<?php include("public/footer.php");?>
 			<div id="connexion" class="button">
@@ -67,8 +72,7 @@
 				?>	
 						<a href="index.php?action=deconnect"> Deconnexion</a>
 				<?php
-					}
-					else {
+					} else {
 				?>
 						<a href="index.php?action=connect"> Connexion</a>
 				<?php

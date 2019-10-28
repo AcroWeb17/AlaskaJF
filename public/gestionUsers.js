@@ -1,10 +1,14 @@
+//fichier Javascript de redirection automatique
+//redirection après connexion à l'interface admin
 if (document.getElementById("formConnexion")){
 	document.getElementById("formConnexion").addEventListener("submit",verifUser,false)
 }
+//redirection après modification du mot de passe
 else if(document.getElementById("formMdP")){
 	document.getElementById("formMdP").addEventListener("submit",verifPassword,false)
 };
 
+//fonction ajax
 function ajaxPost(url, data, callback){
     var req = new XMLHttpRequest();
     req.open("POST", url);
@@ -14,12 +18,15 @@ function ajaxPost(url, data, callback){
     req.send(data);
 }
 
+//Redirection après connexion à l'interface admin
+//vérification du mot de passe avec la base de données
 function verifUser(e){
 	e.preventDefault();
 	var data = new FormData(document.getElementById("formConnexion"));
 	ajaxPost("index.php?action=interfaceAdmin",data, callUser);
 }
 
+//redirection
 function callUser(reponse){
 	if (reponse == "echec"){
 		document.getElementById("redirectionConnect").innerHTML="Echec de la connexion";
@@ -31,14 +38,16 @@ function callUser(reponse){
 	}
 }
 
+//Redirection après modification du mot de passe
+//vérification du mot de passe avec la base de données
 function verifPassword(e){
 	e.preventDefault();
 	var data = new FormData(document.getElementById("formMdP"));
 	ajaxPost("index.php?action=updatePassword",data, callPassword);
 }
 
+//redirection
 function callPassword(reponse){
-	console.log(reponse);
 	if (reponse == "echec"){
 		document.getElementById("redirectionNewPsw").innerHTML="Echec de la connexion";
 	}

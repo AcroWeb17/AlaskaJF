@@ -2,8 +2,9 @@
 namespace AlaskaJF\controller;
 use AlaskaJF\model\Biography;
 
-class BiographyControl {
-
+class BiographyControl
+{
+	//affichage du détail de la biographie
 	public function biographyDetail()
 	{
 		$biographyManager = new Biography();
@@ -11,7 +12,7 @@ class BiographyControl {
 		require('view/ViewBackEnd/biographyAdminView.php');
 	}
 
-
+	//mise à jour de la biographie
 	public function updateBiography($content)
 	{
 		$biographyModify = new Biography();
@@ -23,4 +24,5 @@ class BiographyControl {
 			header('Location: index.php');	
 		}
 	}
+
 }

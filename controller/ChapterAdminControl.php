@@ -5,14 +5,13 @@ use AlaskaJF\model\Comments;
 
 class ChapterAdminControl
 {
+	//ajouter un chapitre
 	public function addChapter($chapterNum, $titleChap, $txtChap)
 	{
 		if(!empty($_POST) && !empty($_POST['numChapter'])){
 			$chapterNumo = new Chapter();
 			$chapterVerif = $chapterNumo->chapterVerif($chapterNum);
-			var_dump($chapterVerif);
 			if($chapterVerif==="0"){
-				var_dump($chapterNum, $titleChap, $txtChap);
 				$chapterManager = new Chapter();
 				$newChapter = $chapterManager->postChapter($chapterNum, $titleChap, $txtChap);
 				if ($newChapter === false){
@@ -22,16 +21,16 @@ class ChapterAdminControl
 					header('Location: index.php?action=listChapter');
 				}
 			}
-			else
-			{
-				var_dump('chapitre deja écrit');
+			else {
+				header('chapitre deja écrit');
 			}
 		} 
-		else{
+		else {
 			throw new Exception('Numéro de chapitre non conforme!');	
 		}
 	}
 
+	//mise à jour d'un chapitre
 	public function updateChapter($id, $chapterNum, $titleChap, $txtChap)
 	{	
 		$chapterModify = new Chapter();
@@ -44,6 +43,7 @@ class ChapterAdminControl
 		}
 	}
 
+	//vérification avant suppression d'un chapitre
 	public function verifDeleteChap($id,$chapterNum, $titleChap, $txtChap)
 	{
 		$chapterManager = new Chapter();
@@ -51,6 +51,7 @@ class ChapterAdminControl
 		require('view/ViewBackEnd/deleteChapView.php');
 	}
 
+	//suppression d'un chapitre
 	public function deleteChapter($id, $chapterNum, $titleChap, $txtChap)
 	{	
 		$chapterDelete = new Chapter();
@@ -63,6 +64,13 @@ class ChapterAdminControl
 		}
 	}
 
+	//affichage du détail d'un chapitre
+	public function chapterDetailAdmin()
+	{
+		$chapterManager = new Chapter();
+		$chap= $chapterManager->getContentChapter($_GET['id']);//récupère le number_chapter dans l'url
+		require('view/ViewBackEnd/updateChapterView.php');
+	}
 
 }
 

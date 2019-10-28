@@ -6,7 +6,6 @@ class Users extends DataBase
 			$_login,
 			$_password;
 
-
 	//modifie le mot de passe
 	public function modifPassword($login,$newPassword)
 	{
@@ -17,6 +16,7 @@ class Users extends DataBase
 		return $passwordMaj;
 	}
 
+	//vérification du login et du mdp avant connexion
 	public function passwordVerif()
 	{
 		$db = $this->dbConnect();
@@ -26,4 +26,5 @@ class Users extends DataBase
 		$passwordExact = password_verify($_POST['password'],$user['password']);
 		return $passwordExact;
 	}
+
 }

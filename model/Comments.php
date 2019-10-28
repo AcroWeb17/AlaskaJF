@@ -21,11 +21,11 @@ class Comments extends DataBase
 	public function getListComments()
 	{
 		$db = $this->dbConnect();
-		//on récupère les derniers chapitres
 		$listComments = $db->query('SELECT id, idChapter,author, comment,dateComment,alert FROM comments');
 		return $listComments;
 	}
 
+	//affichage des commentaires dans un chapitre
 	public function getContentComment($id)
 	{
 		$db = $this->dbConnect();
@@ -61,4 +61,5 @@ class Comments extends DataBase
 		$comAlert = $req->execute(array($id));
 		return $comAlert;
 	}
+	
 }

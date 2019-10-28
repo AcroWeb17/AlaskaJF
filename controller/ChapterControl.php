@@ -3,8 +3,9 @@ namespace AlaskaJF\controller;
 use AlaskaJF\model\Chapter;
 use AlaskaJF\model\Comments;
 
-class ChapterControl {
-
+class ChapterControl
+{
+	//affichage de la liste des chapitres
 	public function listChapter()
 	{
 		$chapterManager = new Chapter();
@@ -12,6 +13,7 @@ class ChapterControl {
 		require('view/ViewFrontEnd/listChapterView.php');
 	}
 
+	//affichage d'un chapitre en particulier
 	public function chapterDetail()
 	{
 		$chapterManager = new Chapter();

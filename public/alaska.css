@@ -249,7 +249,6 @@ header
 	cursor:pointer;
 }
 
-
 /*Interface de connexion*/
 #formConnexion
 {
@@ -536,6 +535,12 @@ header
 .contenuChapitre
 {
 	padding:20px 50px 20px 50px;
+}
+
+#updateChap
+{
+	left:55px;
+	top:10px;
 }
 
 /*Modification d'un chapitre*/

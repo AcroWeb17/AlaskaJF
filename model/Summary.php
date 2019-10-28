@@ -5,6 +5,7 @@ class Summary extends DataBase
 	private $_id,
 			$_content;
 
+	//affichage du résumé
 	public function getContentSummary()
 	{
 		$db = $this->dbConnect();
@@ -14,6 +15,7 @@ class Summary extends DataBase
 		return $txtSummary;
 	}
 
+	//modification du résumé
 	public function modifSummary($content)
 	{
 		$db = $this->dbConnect();
@@ -21,4 +23,5 @@ class Summary extends DataBase
 		$majSummary =$req->execute(array($content));
 		return $majSummary;
 	}
+
 }

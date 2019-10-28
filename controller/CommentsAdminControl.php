@@ -4,6 +4,7 @@ use AlaskaJF\model\Comments;
 
 class CommentsAdminControl
 {
+	//vérification de la suppression d'un commentaire
 	public function verifDeleteComment($id, $idChapter, $authorComment, $txtComment)
 	{
 		$commentManager = new Comments();
@@ -11,6 +12,7 @@ class CommentsAdminControl
 		require('view/ViewBackEnd/deleteCommentView.php');
 	}
 
+	//suppression d'un commentaire
 	public function deleteComment($id, $idChapter, $authorComment, $txtComment)
 	{	
 		$commentDelete = new Comments();
@@ -18,11 +20,12 @@ class CommentsAdminControl
 		if ($commentMo === false){
 			throw new Exception('Impossible de supprimer ce commentaire!');		
 		}
-		else{
+		else {
 			header('Location: index.php?action=confirmDeleteCom');	
 		}
 	}
 
+	//affichage de la liste des commentaires
 	public function listComments()
 	{
 		$commentsManager = new Comments();
@@ -30,6 +33,7 @@ class CommentsAdminControl
 		require('view/ViewBackEnd/commentsAdminView.php');
 	}
 
+	//alerte sur un commentaire
 	public function alertComment($id,$alertComment)
 	{
 		$commentsManager = new Comments();

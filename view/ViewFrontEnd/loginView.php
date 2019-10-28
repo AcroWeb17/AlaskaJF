@@ -4,15 +4,17 @@
 		<meta charset="UTF-8"/>
 		<title>Interface de connexion - Billet simple pour l'Alaska</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
-		<link rel="stylesheet" href="public/Alaska.css"/>
+		<link rel="stylesheet" href="public/alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	</head>
 
 	<body>
+		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
 		</header>
 
+		<!--Corps de page-->
 		<main>
 			<h3> Se connecter </h3>
 			<form id="formConnexion"  method="post">
@@ -28,9 +30,14 @@
 			<div id="redirectionConnect" class="redirection">
 			</div>
 		</main>
+
+		<!--Pied de page-->
+		<footer>
+			<?php include("public/footer.php");?>
+		</footer>
+
+		<!--Fichier Javascript-->
+		<script src="public/gestionUsers.js"> </script>
+		
 	</body>
-	<footer>
-		<?php include("public/footer.php");?>
-	</footer>
-	<script src="public/gestionUsers.js"> </script>
 </html>	

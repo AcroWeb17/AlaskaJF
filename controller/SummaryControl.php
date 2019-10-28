@@ -4,6 +4,7 @@ use AlaskaJF\model\Summary;
 
 class SummaryControl {
 
+	//afficher le résumé du livre
 	public function summaryDetail()
 	{
 		$summaryManager = new Summary();
@@ -11,6 +12,7 @@ class SummaryControl {
 		require('view/ViewBackEnd/summaryAdminView.php');
 	}
 
+	//mise à jour du résumé du livre
 	public function updateSummary($content)
 	{
 		$summaryModify = new Summary();
@@ -18,7 +20,7 @@ class SummaryControl {
 		if ($summaryMo === false){
 			throw new Exception('Impossible d\'effectuer la mise à jour!');		
 		}
-		else{
+		else {
 			header('Location: index.php');	
 		}
 	}

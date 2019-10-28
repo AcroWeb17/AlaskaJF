@@ -1,5 +1,6 @@
 <?php
 
+// définition des controller
 session_start();
 require('autoloader.php');
 Autoloader::register();
@@ -14,9 +15,7 @@ use AlaskaJF\controller\BiographyControl;
 use AlaskaJF\controller\AccueilControl;
 
 try {
-
 	if(isset($_GET['action'])){
-
 		//affichage de la liste des chapitres
 		if ($_GET['action'] == 'listChapter'){
 			$chapControl = new ChapterControl;
@@ -28,6 +27,20 @@ try {
 			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
 				$chapControl = new ChapterControl();
 				$chapDetail = $chapControl->chapterDetail();
+			}
+			else if (isset($_GET['id']) && $_GET['id']<0 && $_GET['id']>100 ){
+				throw new Exception('paf');
+			}
+			else {
+				throw new Exception('Aucun identifiant de chapitre envoyé');
+			}
+		}
+
+		//affichage d'un chapitre en particulier
+		else if ($_GET['action'] == 'chapterAdmin'){
+			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+				$chapControl = new ChapterAdminControl();
+				$chapDetail = $chapControl->chapterDetailAdmin();
 			}
 			else if (isset($_GET['id']) && $_GET['id']<0 && $_GET['id']>100 ){
 				throw new Exception('paf');
@@ -64,7 +77,6 @@ try {
 				$txtChap = isset($_POST['texte'])?htmlspecialchars($_POST['texte']):NULL;
 				$chapControl = new ChapterAdminControl();
 				$chapDetail = $chapControl->updateChapter($_GET['id'], $chapterNum, $titleChap, $txtChap);
-
 			}
 			else if (isset($_GET['id']) && $_GET['id']<0 && $_GET['id']>100 ){
 				throw new Exception('paf');
@@ -74,6 +86,7 @@ try {
 			}
 		}
 
+		//confirmation de la mise à jour d'un chapitre
 		else if ($_GET['action'] == 'confirmUpdateChapter'){
 			require 'view/ViewBackEnd/modifView.php';
 		}
@@ -100,6 +113,7 @@ try {
 			}
 		}
 
+		//confirmation de la suppression d'un chapitre
 		else if ($_GET['action'] == 'confirmDeleteChapter'){
 			require 'view/ViewBackEnd/confirmDeleteChapView.php';
 		}
@@ -158,30 +172,32 @@ try {
 			}
 		}
 
+		//confirmation de la suppression d'un commentaire
 		else if ($_GET['action'] == 'confirmDeleteCom'){
 			require 'view/ViewBackEnd/confirmDeleteComView.php';
 		}
 
-
 		//mise à jour de la page d'accueil
-		//modifier le résumé du livre
+		//afficher le résumé du livre
 		else if ($_GET['action'] == 'summary'){
 			$summaryControl = new SummaryControl();
 			$summaryDetail = $summaryControl->SummaryDetail();
 		}
 
+		//modifier le résumé du livre
 		else if ($_GET['action'] == 'updateSummary'){
 			$summaryContent = isset($_POST['content'])?htmlspecialchars($_POST['content']):NULL;
 			$summaryControl = new SummaryControl();
 			$summaryModif = $summaryControl->updateSummary($summaryContent);
 		}
 
-		//modifier la biographie de l'auteur
+		//afficher la biographie de l'auteur
 		else if ($_GET['action'] == 'biography'){
 			$biographyControl = new BiographyControl();
 			$biographyDetail = $biographyControl->biographyDetail();
 		}
 
+		//modifier la biographie de l'auteur
 		else if ($_GET['action'] == 'updateBiography'){
 			$biographyContent = isset($_POST['content'])?htmlspecialchars($_POST['content']):NULL;
 			$biographyControl = new BiographyControl();
@@ -228,7 +244,6 @@ try {
 	else {
 		$accueilControl = new AccueilControl();
 		$accueilDetail = $accueilControl->accueilDetail();
-		//require  ('view/ViewFrontEnd/accueilView.php');
 	}
 }
 

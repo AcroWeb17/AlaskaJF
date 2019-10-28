@@ -10,56 +10,39 @@
 	</head>
 
 	<body>
+		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
 			<a class="button retourAccueil" href="index.php">Accueil</a>
 			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
+		<!--Corps de page-->
 		<main>
+			<!--En mode Admin-->
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
-					<h3 id="newChapterTitle">Modification du chapitre <?= htmlspecialchars($chap['numChapter']); ?></h3>
-					<form id="updateChapitre" action="index.php?action=updateChapter&id=<?= htmlspecialchars($chap['idChapter']); ?>" method="post">
-						<div class="styleForm">
-							<label for="numChapter">Numéro du chapitre:</label>
-							<input type="number" id="numChapterAdmin" name="numChapter" value=
-							"<?= htmlspecialchars($chap['numChapter']) ?>" required/>
-							<label for="titleChap">Titre du chapitre:</label>
-							<input type="text" id="titleChapAdmin" name="titleChap" value=
-							"<?= htmlspecialchars($chap['title']) ?>" required/>
-						</div>
-						<div class="styleForm">
-							<label for="txtChap">Contenu du chapitre:</label><br/>
-							<textarea id="texte" class="largeTxtAdmin"  name="texte" rows="255" >
-								<?= html_entity_decode($chap['texte']) ?>
-							</textarea>
-							<div class="submitUpdateChapter">
-								<a class="submit" href="index.php?action=listChapter">Annuler</a>
-								<input type="submit" class="submit" value="Enregistrer" />
-								<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['idChapter']); ?>" class="submit">Supprimer</a>
-							</div>
-						</div>
-					</form>
+				<a class="editButton" id="updateChap" href="index.php?action=chapterAdmin&id=<?= htmlspecialchars($chap['idChapter']); ?>">Mise à jour</a>
 			<?php
-				} else {
+				}
 			?>
-					<h2 id="numChapitre">
-						CHAPITRE
-						<?= htmlspecialchars($chap['numChapter']) ?>
-					</h2>
-					<h3 id="titreChapitre">
-						<!-- chapitre.titre Ajout du titre du chapitre-->
-						<?= htmlspecialchars($chap['title']) ?>
-					</h3>
-					<p class="contenuChapitre">
-						<!-- chapitre.texte Ajout du contenu du chapitre-->
-						<?= html_entity_decode($chap['texte']) ?>
-					</p>
-			<?php
-				} 
-			?>
+			<!--En mode Utilisateur-->
+				<!--Affichage des chapitres-->
+				<h2 id="numChapitre">
+					CHAPITRE
+					<?= htmlspecialchars($chap['numChapter']) ?>
+				</h2>
+				<h3 id="titreChapitre">
+					<!-- Ajout du titre du chapitre-->
+					<?= htmlspecialchars($chap['title']) ?>
+				</h3>
+				<p class="contenuChapitre">
+					<!-- Ajout du contenu du chapitre-->
+					<?= html_entity_decode($chap['texte']) ?>
+				</p>
+				
+				<!--Affichage des commentaires-->
 				<section class="commentaires">
 					<h3 id="commentTitle">Commentaires</h3>
 					<?php
@@ -86,12 +69,13 @@
 										}
 									?>
 								</div>
+								<!--En mode Admin-->
 								<?php
 									if (isset($_SESSION['auth'])) {
 								?>
-									<div >
-										<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="submit" id="deleteComment">Supprimer</a>
-									</div>
+										<div >
+											<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="submit" id="deleteComment">Supprimer</a>
+										</div>
 								<?php
 									}
 								?>
@@ -99,12 +83,13 @@
 							<p class="commentAffiche">
 								<?= nl2br(htmlspecialchars($dataComment['comment'])) ?>
 							</p>
-		
 					<?php
 						}
 					?>
 				</section>
+				<!--En mode Utilisateur-->
 				<section class="commentaires">
+					<!--Formulaire de rédaction d'un commentaire-->
 					<form action="index.php?action=addComment&amp;id=<?= $chap['idChapter'] ?>" method="post">
 						<div>
 							<label for="author">Votre nom</label>
@@ -121,6 +106,7 @@
 				</section>
 		</main>	
 
+		<!--Pied de page-->
 		<footer>
 			<?php include("public/footer.php");?>
 			<div class="button" id="accueilAlaska">
@@ -128,6 +114,7 @@
 			</div>
 		</footer>
 
+		<!--Fichiers Javascript-->
 		<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
 		<script type="text/javascript" src="tinymce/themes/silver/theme.min.js"></script>
 		<script type="text/javascript" src="tinymce/parametresTinyMCE.js"></script>

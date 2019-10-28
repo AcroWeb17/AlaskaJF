@@ -12,7 +12,6 @@ class Chapter extends DataBase
 	public function getListChapters()
 	{
 		$db = $this->dbConnect();
-		//on récupère les derniers chapitres
 		$listChapter = $db->query('SELECT idChapter, numChapter, title, texte FROM chapter ORDER BY numChapter ASC');
 		return $listChapter;
 	}
@@ -56,13 +55,13 @@ class Chapter extends DataBase
 		return $chapMaj;
 	}
 
-	//suppression d'un chapitre
+	//suppression d'un chapitre avec commentaire
 	public function suppChapter($id, $chapterNum, $titleChap, $txtChap)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('DELETE t1, t2 FROM chapter t1 JOIN comments t2 ON t2.idChapter=t1.idChapter  WHERE t1.idChapter = ? ');
-		$chapDelete = $req->execute(array($id));
-		var_dump($id);
-		return $chapDelete;
+		$req = $db->prepare('DELETE t1, t2 FROM chapter t1 LEFT JOIN comments t2 ON t2.idChapter=t1.idChapter  WHERE t1.idChapter = ? ');
+		$chapComDelete = $req->execute(array($id));
+		return $chapComDelete;
 	}
+
 }

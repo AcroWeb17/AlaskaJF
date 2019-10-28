@@ -4,7 +4,7 @@
 		<meta charset="UTF-8"/>
 		<title>Liste des chapitres - Billet simple pour l'Alaska</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
-		<link rel="stylesheet" href="public/Alaska.css"/>
+		<link rel="stylesheet" href="public/alaska.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	</head>
@@ -23,10 +23,11 @@
 			?>
 		</header>
 
+		<!--Corps de page-->
 		<main>
 			<section id="chapitres">
 				<?php
-				//on affiche le contenu
+				//Affichage des chapitres
 					while($data = $listChap->fetch())
 					{
 				?>
@@ -46,10 +47,11 @@
 									<i class="fas fa-ellipsis-h"></i>
 								</p>
 							</a>
+							<!--En mode Admin-->
 							<?php
 								if (isset($_SESSION['auth'])) {
 							?>
-									<a class="editButton" id="editChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['idChapter']); ?>">Mise à jour</a>
+									<a class="editButton" id="editChap" href="index.php?action=chapterAdmin&id=<?= htmlspecialchars($data['idChapter']); ?>">Mise à jour</a>
 									<a class="editButton" id="deleteChap" href="index.php?action=confirmDelete&id=<?= htmlspecialchars($data['idChapter']); ?>">Supprimer</a>
 							<?php
 								}
@@ -61,6 +63,7 @@
 			</section>
 		</main>
 
+		<!--Pied de page-->
 		<footer>
 			<?php include("public/footer.php");?>
 			<div class="button" id="accueilAlaska">

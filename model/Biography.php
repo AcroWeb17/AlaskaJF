@@ -5,6 +5,7 @@ class Biography extends DataBase
 	private $_id,
 			$_content;
 
+	//affichage de la biographie de l'auteur
 	public function getContentBiography()
 	{
 		$db = $this->dbConnect();
@@ -14,7 +15,7 @@ class Biography extends DataBase
 		return $txtBiography;
 	}
 
-
+	//mise à jour de la biographie de l'auteur
 	public function modifBiography($content)
 	{
 		$db = $this->dbConnect();

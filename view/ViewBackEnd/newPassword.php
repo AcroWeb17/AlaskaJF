@@ -4,21 +4,25 @@
 		<meta charset="UTF-8"/>
 		<title>Accès à l'interface d'administration</title>
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
-		<link rel="stylesheet" href="public/Alaska.css"/>
+		<link rel="stylesheet" href="public/alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	</head>
 
 	<body>
+		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
 			<a class="button retourAccueil" href="index.php">Accueil</a>
 			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
 		</header>
 
+		<!--Corps de page-->
 		<main>
+			<!--En mode Admin-->
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
+					<!--Formulaire de modification du mot de passe-->
 					<h3> Modification du mot de passe </h3>
 					<form id="formMdP" method="post">
 						<div class="saisieMdP" id="saisieNewMdP">
@@ -36,19 +40,28 @@
 							<input type="submit" class="submit" value="Valider" />
 						</div>
 					</form>
+					<!--Redirection automatique-->
 					<div id="redirectionNewPsw" class="redirection">
 					</div>
+			<!--En mode Utilisateur-->
 			<?php
-				}else {
+				}
+				else {
 			?>
 					<h3> Vous n'avez pas les droits sur cette page </h3>
 			<?php
 				}
 			?>	
 		</main>
+
+		<!--Pied de page-->
 		<footer>
 			<?php include("public/footer.php");?>
 		</footer>
+
 	</body>
+
+	<!--Fichier Javascript-->
 	<script src="public/gestionUsers.js"> </script>
+	
 </html>	
