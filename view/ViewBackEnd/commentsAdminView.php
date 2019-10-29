@@ -38,7 +38,7 @@
 										<p class="commentDate">
 											 <?= htmlspecialchars($data['dateComment']); ?>
 										</p>
-										<a id="commentLienChap" href="index.php?action=chapter&id=<?= htmlspecialchars($data['idChapter']); ?>">Retour au chapitre</a>
+										<a id="commentLienChap" href="index.php?action=chapter&numChapter=<?= htmlspecialchars($data['numChapter']); ?>">Retour au chapitre</a>
 										
 										<!--Si un commentaire a été signalé-->
 										<?php

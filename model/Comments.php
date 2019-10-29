@@ -12,7 +12,7 @@ class Comments extends DataBase
 	public function getComment($id)
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('SELECT id, idChapter,author, comment,dateComment,alert FROM comments WHERE idChapter=?');
+		$comments = $db->prepare('SELECT id, numChapter,author, comment,dateComment,alert FROM comments WHERE numChapter=?');
 		$comments->execute(array($id));
 		return $comments;
 	}
@@ -21,7 +21,7 @@ class Comments extends DataBase
 	public function getListComments()
 	{
 		$db = $this->dbConnect();
-		$listComments = $db->query('SELECT id, idChapter,author, comment,dateComment,alert FROM comments');
+		$listComments = $db->query('SELECT id, numChapter,author, comment,dateComment,alert FROM comments');
 		return $listComments;
 	}
 
@@ -29,23 +29,23 @@ class Comments extends DataBase
 	public function getContentComment($id)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT id, idChapter,author, comment,dateComment FROM comments WHERE id=?');
+		$req = $db->prepare('SELECT id, numChapter,author, comment,dateComment FROM comments WHERE id=?');
 		$req->execute(array($id));
 		$comments=$req->fetch();
 		return $comments;
 	}
 
 	//ajout d'un commentaire en base
-	public function postComment($chapterId, $author,$comment)
+	public function postComment($chapterNum, $author,$comment)
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('INSERT INTO comments(idChapter, author, comment, dateComment) VALUES(?,?,?,NOW())');
-		$affectedLines = $comments->execute(array($chapterId,$author,$comment));
+		$comments = $db->prepare('INSERT INTO comments(numChapter, author, comment, dateComment) VALUES(?,?,?,NOW())');
+		$affectedLines = $comments->execute(array($chapterNum,$author,$comment));
 		return $affectedLines;
 	}
 
 	//suppression d'un commentaire
-	public function suppComment($id, $idChapter, $authorComment, $txtComment)
+	public function suppComment($id, $chapterNum, $authorComment, $txtComment)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('DELETE FROM comments WHERE id = ?');

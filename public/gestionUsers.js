@@ -29,6 +29,9 @@ function verifUser(e){
 //redirection
 function callUser(reponse){
 	if (reponse == "echec"){
+		document.getElementById("redirectionConnect").innerHTML="L'identifiant ou le mot de passe sont incorrects";
+	}
+	else if (reponse == "error"){
 		document.getElementById("redirectionConnect").innerHTML="Echec de la connexion";
 	}
 	else if (reponse == "succes")
@@ -48,8 +51,14 @@ function verifPassword(e){
 
 //redirection
 function callPassword(reponse){
-	if (reponse == "echec"){
-		document.getElementById("redirectionNewPsw").innerHTML="Echec de la connexion";
+	if (reponse == "les nouveaux mots de passe ne sont pas identiques"){
+		document.getElementById("redirectionNewPsw").innerHTML="Les nouveaux mots de passe ne sont pas identiques";
+	}
+	else if (reponse == "mauvais nom d utilisateur ou de mot de passe"){
+		document.getElementById("redirectionNewPsw").innerHTML="Nom d\'utilisateur ou mot de passe incorrect";
+	}
+	else if (reponse == "champs non remplis"){
+		document.getElementById("redirectionNewPsw").innerHTML="Veuillez remplir tous les champs";
 	}
 	else if (reponse == "succes")
 	{

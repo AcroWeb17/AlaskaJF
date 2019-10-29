@@ -25,7 +25,7 @@
 			?>
 					<!--Formulaire de mise à jour du chapitre-->
 					<h3 id="newChapterTitle">Modification du chapitre <?= htmlspecialchars($chap['numChapter']); ?></h3>
-					<form id="updateChapitre" action="index.php?action=updateChapter&id=<?= htmlspecialchars($chap['idChapter']); ?>" method="post">
+					<form id="updateChapitre" action="index.php?action=updateChapter&numChapter=<?= htmlspecialchars($chap['numChapter']); ?>" method="post">
 						<div class="styleForm">
 							<label for="numChapter">Numéro du chapitre:</label>
 							<input type="number" id="numChapterAdmin" name="numChapter" value=
@@ -42,7 +42,7 @@
 							<div class="submitUpdateChapter">
 								<a class="submit" href="index.php?action=listChapter">Annuler</a>
 								<input type="submit" class="submit" value="Enregistrer" />
-								<a href="index.php?action=confirmDelete&id=<?= htmlspecialchars($chap['idChapter']); ?>" class="submit">Supprimer</a>
+								<a href="index.php?action=confirmDelete&numChapter=<?= htmlspecialchars($chap['numChapter']); ?>" class="submit">Supprimer</a>
 							</div>
 						</div>
 					</form>

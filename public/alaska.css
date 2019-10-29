@@ -25,7 +25,7 @@ main
 {
 	position:relative;
 	min-height:60vh;
-	padding:30px 0px 80px 0px;
+	padding:50px 0px 80px 0px;
 }
 
 a
@@ -244,7 +244,7 @@ header
 
 .submitAccueil
 {
-	margin-left:85%;
+	margin-left:80%;
 	margin-top:10px;
 	cursor:pointer;
 }
@@ -518,14 +518,14 @@ header
 {
 	content:'*';
 	position:absolute;
-	top:140px;
+	top:160px;
 	left:49%;
 }
 
 #titreChapitre::after
 {
 	content:'';
-	top:148px;
+	top:168px;
 	width:110px;
 	left:46%;
 	position:absolute;
@@ -895,7 +895,7 @@ footer::after
 	}
 }
 
-@media(max-width:1025px){/*IPadPro*/
+@media(max-width:1125px){/*IPadPro*/
 	main
 	{
 		min-height:75vh;
@@ -952,7 +952,7 @@ footer::after
 	/*Admin Accueil*/
 	.submitAccueil
 	{
-		margin-left:80%;
+		margin-left:74%;
 	}
 
 	footer::after
@@ -1021,8 +1021,6 @@ footer::after
 	{
 		left:30%;
 	}
-
-
 }
 
 @media(max-width:800px){/*IPad*/
@@ -1042,18 +1040,19 @@ footer::after
 	h1
 	{
 		bottom:32px;
+		font-size: 1.8em;
 	}
 
 	.retourAccueil
 	{
-		top:150px;
-		right:20px;
+		top:165px;
+		right:80%;
 	}
 
 	.retourListeChap
 	{
-		top:150px;
-		right:95px;
+		top:165px;
+		right:20px;
 	}
 	#accesBlog
 	{
@@ -1065,7 +1064,7 @@ footer::after
 	/*Admin Accueil*/
 	.submitAccueil
 	{
-		margin-left:70%;
+		margin-left:55%;
 	}
 
 	footer::after
@@ -1131,6 +1130,12 @@ footer::after
 		flex-wrap: wrap;
 	}
 
+	#updateChap
+	{
+		left:222px;
+		top:70px;
+	}
+
 	/*Nouveau chapitre*/
 	#numChapterAdmin
 	{
@@ -1194,7 +1199,7 @@ footer::after
 	}
 }
 
-@media(max-width:500px){/*IPhoneX*/
+@media(max-width:600px){/*IPhoneX*/
 	main
 	{
 		min-height:75vh;
@@ -1206,7 +1211,7 @@ footer::after
 	}
 	h1
 	{
-		font-size:1em;
+		font-size:1.5em;
 		bottom:20px;
 	}
 
@@ -1234,13 +1239,12 @@ footer::after
 	}
 	.retourAccueil
 	{
-		top:95px;
-		right:290px;
+		top:135px;
 	}
 
 	.retourListeChap
 	{
-		top:95px;
+		top:135px;
 		right:20px;
 	}
 	.smallTxtAdmin + .tox-tinymce
@@ -1315,12 +1319,12 @@ footer::after
 	/*Liste des chapitres*/
 	#newChapter
 	{
-		top:94px;
+		top:140px;
 	}
 
 	#adminComments
 	{
-		top:94px;
+		top:140px;
 	}
 	.txtEpisodes::before
 	{

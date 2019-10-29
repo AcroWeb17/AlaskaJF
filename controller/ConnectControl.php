@@ -30,10 +30,12 @@ class ConnectControl
 			}
 			else {
 				echo "echec";
+				exit();
 			}
 		}
 		else {
-			echo 'mauvais nom d utilisateur';
+			echo "error";
+			exit();
 		}
 	}
 
@@ -57,14 +59,17 @@ class ConnectControl
 				}
 				else {
 					echo 'les nouveaux mots de passe ne sont pas identiques';
+					exit();
 				}
 			}
 			else {
 				echo 'mauvais nom d utilisateur ou de mot de passe';
+				exit();
 			}
 		}
 		else {
-			echo 'Nom d\'utilisateur ou mot de passe incorrect';
+			echo 'champs non remplis';
+			exit();
 		}
 	}
 		

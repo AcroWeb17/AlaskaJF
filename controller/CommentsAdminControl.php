@@ -18,7 +18,7 @@ class CommentsAdminControl
 		$commentDelete = new Comments();
 		$commentMo = $commentDelete->suppComment($id, $idChapter, $authorComment, $txtComment);
 		if ($commentMo === false){
-			throw new Exception('Impossible de supprimer ce commentaire!');		
+			throw new Exception('Impossible de supprimer ce commentaire');		
 		}
 		else {
 			header('Location: index.php?action=confirmDeleteCom');	

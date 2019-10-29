@@ -16,9 +16,11 @@
 		</header>
 
 		<main>
-			<p>
-			</p>
+			<h3><?php echo' '.$errorMessage.'' ?></h3>
 
+			<a class="button deleteChapAccueil" href="index.php">Retour à la page d'accueil</a>
+			<a class="button deleteChapRetourList" href="index.php?action=listChapter">Liste des chapitre</a>
+		
 		</main>
 
 		<!--Pied de page-->

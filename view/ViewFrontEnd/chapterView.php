@@ -23,7 +23,7 @@
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
-				<a class="editButton" id="updateChap" href="index.php?action=chapterAdmin&id=<?= htmlspecialchars($chap['idChapter']); ?>">Mise à jour</a>
+				<a class="editButton" id="updateChap" href="index.php?action=chapterAdmin&numChapter=<?= htmlspecialchars($chap['numChapter']); ?>">Mise à jour</a>
 			<?php
 				}
 			?>
@@ -90,7 +90,7 @@
 				<!--En mode Utilisateur-->
 				<section class="commentaires">
 					<!--Formulaire de rédaction d'un commentaire-->
-					<form action="index.php?action=addComment&amp;id=<?= $chap['idChapter'] ?>" method="post">
+					<form action="index.php?action=addComment&amp;numChapter=<?= $chap['numChapter'] ?>" method="post">
 						<div>
 							<label for="author">Votre nom</label>
 							<input type="text" id="author" name="author"/>

@@ -7,7 +7,6 @@ Autoloader::register();
 use AlaskaJF\controller\ChapterControl;
 use AlaskaJF\controller\CommentsControl;
 use AlaskaJF\controller\ConnectControl;
-use AlaskaJF\controller\Exception;
 use AlaskaJF\controller\ChapterAdminControl;
 use AlaskaJF\controller\CommentsAdminControl;
 use AlaskaJF\controller\SummaryControl;
@@ -24,26 +23,26 @@ try {
 
 		//affichage d'un chapitre en particulier
 		else if ($_GET['action'] == 'chapter'){
-			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+			if(isset($_GET['numChapter']) && $_GET['numChapter']>0 && $_GET['numChapter']<=100){
 				$chapControl = new ChapterControl();
 				$chapDetail = $chapControl->chapterDetail();
 			}
-			else if (isset($_GET['id']) && $_GET['id']<0 && $_GET['id']>100 ){
-				throw new Exception('paf');
+			else if (isset($_GET['numChapter']) && $_GET['numChapter']<0 OR $_GET['numChapter']>100 ){
+				throw new Exception('Numéro de chapitre non valide');
 			}
 			else {
 				throw new Exception('Aucun identifiant de chapitre envoyé');
 			}
 		}
 
-		//affichage d'un chapitre en particulier
+		//affichage d'un chapitre en particulier en mode Admin
 		else if ($_GET['action'] == 'chapterAdmin'){
-			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+			if(isset($_GET['numChapter']) && $_GET['numChapter']>0 && $_GET['numChapter']<=100){
 				$chapControl = new ChapterAdminControl();
 				$chapDetail = $chapControl->chapterDetailAdmin();
 			}
-			else if (isset($_GET['id']) && $_GET['id']<0 && $_GET['id']>100 ){
-				throw new Exception('paf');
+			else if (isset($_GET['numChapter']) && $_GET['numChapter']<0 OR $_GET['numChapter']>100 ){
+				throw new Exception('Numéro de chapitre non valide');
 			}
 			else {
 				throw new Exception('Aucun identifiant de chapitre envoyé');
@@ -71,15 +70,15 @@ try {
 
 		//modifier un chapitre
 		else if ($_GET['action'] == 'updateChapter'){
-			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+			if(isset($_GET['numChapter']) && $_GET['numChapter']>0 && $_GET['numChapter']<=100){
 				$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
 				$titleChap = isset($_POST['titleChap'])?htmlspecialchars($_POST['titleChap']):NULL;
 				$txtChap = isset($_POST['texte'])?htmlspecialchars($_POST['texte']):NULL;
 				$chapControl = new ChapterAdminControl();
-				$chapDetail = $chapControl->updateChapter($_GET['id'], $chapterNum, $titleChap, $txtChap);
+				$chapDetail = $chapControl->updateChapter($_GET['numChapter'], $titleChap, $txtChap);
 			}
-			else if (isset($_GET['id']) && $_GET['id']<0 && $_GET['id']>100 ){
-				throw new Exception('paf');
+			else if (isset($_GET['numChapter']) && $_GET['numChapter']<0 OR $_GET['numChapter']>100 ){
+				throw new Exception('Numéro de chapitre non valide');
 			}
 			else {
 				throw new Exception('Aucun identifiant de chapitre envoyé');
@@ -88,28 +87,34 @@ try {
 
 		//confirmation de la mise à jour d'un chapitre
 		else if ($_GET['action'] == 'confirmUpdateChapter'){
-			require 'view/ViewBackEnd/modifView.php';
+			require 'view/ViewBackEnd/confirmUpdateChapterView.php';
 		}
 
 		//confirmer la suppression d'un chapitre
 		else if ($_GET['action'] == 'confirmDelete'){
-			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+			if(isset($_GET['numChapter']) && $_GET['numChapter']>0 && $_GET['numChapter']<=100){
 				$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
 				$titleChap = isset($_POST['title'])?htmlspecialchars($_POST['title']):NULL;
 				$txtChap = isset($_POST['texte'])?htmlspecialchars($_POST['texte']):NULL;
 				$chapConfirm = new ChapterAdminControl();
-				$chapIdConfirm = $chapConfirm ->verifDeleteChap($_GET['id'], $chapterNum, $titleChap, $txtChap);
+				$chapIdConfirm = $chapConfirm ->verifDeleteChap($_GET['numChapter'], $titleChap, $txtChap);
+			}
+			else {
+				throw new Exception('Erreur lors de la suppression du chapitre');
 			}
 		}
 
 		//supprimer un chapitre
 		else if ($_GET['action'] == 'deleteChapter'){
-			if(isset($_GET['id']) && $_GET['id']>0 && $_GET['id']<=100){
+			if(isset($_GET['numChapter']) && $_GET['numChapter']>0 && $_GET['numChapter']<=100){
 				$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
 				$titleChap = isset($_POST['title'])?htmlspecialchars($_POST['title']):NULL;
 				$txtChap = isset($_POST['texte'])?htmlspecialchars($_POST['texte']):NULL;
 				$chapControl = new ChapterAdminControl();
-				$chapDetail = $chapControl->deleteChapter($_GET['id'], $chapterNum, $titleChap, $txtChap);
+				$chapDetail = $chapControl->deleteChapter($_GET['numChapter'], $titleChap, $txtChap);
+			}
+			else {
+				throw new Exception('Erreur lors de la suppression du chapitre');
 			}
 		}
 
@@ -120,10 +125,10 @@ try {
 
 		//rédaction d'un commentaire
 		else if ($_GET['action'] == 'addComment'){
-			if(isset($_GET['id']) && $_GET['id'] > 0){
+			if(isset($_GET['numChapter']) && $_GET['numChapter'] > 0){
 				if (!empty($_POST['author']) && !empty($_POST['comment'])){
 					$commentsNew = new CommentsControl();
-					$comment = $commentsNew->addComment($_GET['id'],$_POST['author'],$_POST['comment']);
+					$comment = $commentsNew->addComment($_GET['numChapter'],$_POST['author'],$_POST['comment']);
 				}
 				else {
 					throw new Exception('Tous les champs ne sont pas remplis!');
@@ -142,6 +147,9 @@ try {
 				$alertConfirm = new CommentsAdminControl();
 				$commentAlertConfirm = $alertConfirm ->alertComment($_GET['id'], $alertComment);
 			}
+			else {
+				throw new Exception('Erreur lors du signalement du commentaire');
+			}
 		}
 
 		//administration des commentaires
@@ -159,6 +167,9 @@ try {
 				$commentConfirm = new CommentsAdminControl();
 				$commentIdConfirm = $commentConfirm ->verifDeleteComment($_GET['id'], $idChapter, $authorComment, $txtComment);
 			}
+			else {
+				throw new Exception('Erreur lors de la suppression du commentaire');
+			}
 		}
 
 		//supprimer un commentaire
@@ -169,6 +180,9 @@ try {
 				$txtComment = isset($_POST['comment'])?htmlspecialchars($_POST['comment']):NULL;
 				$commentControl = new CommentsAdminControl();
 				$commentDetail = $commentControl->deleteComment($_GET['id'], $idChapter, $authorComment, $txtComment);
+			}
+			else {
+				throw new Exception('Erreur lors de la suppression du commentaire');
 			}
 		}
 
@@ -238,6 +252,13 @@ try {
 			$connectControl = new ConnectControl();
 			$admin = $connectControl->updatePassword($login, $password, $newPassword, $confNewPassword);
 		}
+
+		//si action vide, alors retour sur la page d'accueil
+		else if($_GET['action'] == '')
+		{
+			$accueilControl = new AccueilControl();
+			$accueilDetail = $accueilControl->accueilDetail();
+		}
 	}
 
 	//affichage de la page d'accueil
@@ -248,6 +269,7 @@ try {
 }
 
 catch(Exception $e){
+	var_dump('paf');
 	$errorMessage = $e->getMessage();
 	require('view/ViewFrontEnd/errorView.php');
 }

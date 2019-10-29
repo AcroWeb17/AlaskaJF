@@ -22,7 +22,7 @@ class ChapterAdminControl
 				}
 			}
 			else {
-				header('chapitre deja écrit');
+				throw new Exception('Ce chapitre a déjà été écrit');
 			}
 		} 
 		else {
@@ -31,10 +31,10 @@ class ChapterAdminControl
 	}
 
 	//mise à jour d'un chapitre
-	public function updateChapter($id, $chapterNum, $titleChap, $txtChap)
+	public function updateChapter($chapterNum, $titleChap, $txtChap)
 	{	
 		$chapterModify = new Chapter();
-		$chapMo = $chapterModify->modifChapter($id, $chapterNum, $titleChap, $txtChap);
+		$chapMo = $chapterModify->modifChapter( $chapterNum, $titleChap, $txtChap);
 		if ($chapMo === false){
 			throw new Exception('Impossible d\'effectuer la mise à jour!');		
 		}
@@ -44,18 +44,18 @@ class ChapterAdminControl
 	}
 
 	//vérification avant suppression d'un chapitre
-	public function verifDeleteChap($id,$chapterNum, $titleChap, $txtChap)
+	public function verifDeleteChap($chapterNum, $titleChap, $txtChap)
 	{
 		$chapterManager = new Chapter();
-		$chap= $chapterManager->getContentChapter($_GET['id']);//récupère le number_chapter dans l'url
+		$chap= $chapterManager->getContentChapter($_GET['numChapter']);//récupère le number_chapter dans l'url
 		require('view/ViewBackEnd/deleteChapView.php');
 	}
 
 	//suppression d'un chapitre
-	public function deleteChapter($id, $chapterNum, $titleChap, $txtChap)
+	public function deleteChapter($chapterNum, $titleChap, $txtChap)
 	{	
 		$chapterDelete = new Chapter();
-		$chapMo = $chapterDelete->suppChapter($id, $chapterNum, $titleChap, $txtChap);
+		$chapMo = $chapterDelete->suppChapter($chapterNum, $titleChap, $txtChap);
 		if ($chapMo === false){
 			throw new Exception('Impossible de supprimer ce chapitre!');		
 		}
@@ -68,7 +68,7 @@ class ChapterAdminControl
 	public function chapterDetailAdmin()
 	{
 		$chapterManager = new Chapter();
-		$chap= $chapterManager->getContentChapter($_GET['id']);//récupère le number_chapter dans l'url
+		$chap= $chapterManager->getContentChapter($_GET['numChapter']);//récupère le number_chapter dans l'url
 		require('view/ViewBackEnd/updateChapterView.php');
 	}
 

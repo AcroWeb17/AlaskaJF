@@ -18,8 +18,8 @@ class ChapterControl
 	{
 		$chapterManager = new Chapter();
 		$commentManager = new Comments();
-		$chap= $chapterManager->getContentChapter($_GET['id']);//récupère le number_chapter dans l'url
-		$comments = $commentManager->getComment($_GET['id']);
+		$chap= $chapterManager->getContentChapter($_GET['numChapter']);//récupère le number_chapter dans l'url
+		$comments = $commentManager->getComment($_GET['numChapter']);
 		require('view/ViewFrontEnd/chapterView.php');
 	}
 

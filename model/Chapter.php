@@ -17,11 +17,11 @@ class Chapter extends DataBase
 	}
 
 	//afficher le détail d'un chapitre
-	public function getContentChapter($id)
+	public function getContentChapter($numChapter)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT idChapter, numChapter, title, texte FROM chapter WHERE idChapter =?');
-		$req->execute(array($id));
+		$req = $db->prepare('SELECT idChapter, numChapter, title, texte FROM chapter WHERE numChapter =?');
+		$req->execute(array($numChapter));
 		$contentChapter = $req->fetch();
 		return $contentChapter;
 	}
@@ -47,20 +47,20 @@ class Chapter extends DataBase
 	}
 
 	//modifie le contenu d'un chapitre
-	public function modifChapter($id, $chapterNum, $titleChap, $txtChap)
+	public function modifChapter($chapterNum, $titleChap, $txtChap)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE chapter SET numChapter= "'.$chapterNum.'", title= "'.$titleChap.'", texte= "'.$txtChap.'" WHERE idChapter = ?');
-		$chapMaj = $req->execute(array($id));
+		$req = $db->prepare('UPDATE chapter SET numChapter= "'.$chapterNum.'", title= "'.$titleChap.'", texte= "'.$txtChap.'" WHERE numChapter = ?');
+		$chapMaj = $req->execute(array($chapterNum));
 		return $chapMaj;
 	}
 
 	//suppression d'un chapitre avec commentaire
-	public function suppChapter($id, $chapterNum, $titleChap, $txtChap)
+	public function suppChapter($chapterNum, $titleChap, $txtChap)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('DELETE t1, t2 FROM chapter t1 LEFT JOIN comments t2 ON t2.idChapter=t1.idChapter  WHERE t1.idChapter = ? ');
-		$chapComDelete = $req->execute(array($id));
+		$req = $db->prepare('DELETE t1, t2 FROM chapter t1 LEFT JOIN comments t2 ON t2.numChapter=t1.numChapter  WHERE t1.numChapter = ? ');
+		$chapComDelete = $req->execute(array($chapterNum));
 		return $chapComDelete;
 	}
 
