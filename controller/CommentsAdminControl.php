@@ -21,7 +21,7 @@ class CommentsAdminControl
 			throw new Exception('Impossible de supprimer ce commentaire');		
 		}
 		else {
-			header('Location: index.php?action=confirmDeleteCom');	
+			header('Location: confirmation-suppression-commentaire');	
 		}
 	}
 

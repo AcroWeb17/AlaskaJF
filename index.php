@@ -56,10 +56,10 @@ try {
 
 		//ajouter un chapitre
 		else if ($_GET['action'] == 'addChapter'){
-			$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
-			$titleChap = isset($_POST['titleChap'])?htmlspecialchars($_POST['titleChap']):NULL;
-			$txtChap = isset($_POST['txtChap'])?htmlspecialchars($_POST['txtChap']):NULL;
-			if(isset($_POST['numChapter']) && $_POST['numChapter']>0){
+			if(isset($_POST['numChapter']) && $_POST['numChapter']>0 && $_POST['numChapter']<=100){
+				$chapterNum = isset($_POST['numChapter'])?htmlspecialchars($_POST['numChapter']):NULL;
+				$titleChap = isset($_POST['titleChap'])?htmlspecialchars($_POST['titleChap']):NULL;
+				$txtChap = isset($_POST['txtChap'])?htmlspecialchars($_POST['txtChap']):NULL;
 				$chapterNew = new ChapterAdminControl();
 				$chapter = $chapterNew->addChapter($chapterNum, $titleChap, $txtChap);	
 			}
@@ -259,6 +259,11 @@ try {
 			$accueilControl = new AccueilControl();
 			$accueilDetail = $accueilControl->accueilDetail();
 		}
+
+		//mentions legales
+		else if ($_GET['action'] == 'mentionsLegales'){
+			require 'view/ViewFrontEnd/mentionsLegales.php';
+		}
 	}
 
 	//affichage de la page d'accueil
@@ -269,7 +274,6 @@ try {
 }
 
 catch(Exception $e){
-	var_dump('paf');
 	$errorMessage = $e->getMessage();
 	require('view/ViewFrontEnd/errorView.php');
 }

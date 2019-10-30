@@ -25,7 +25,7 @@
 					<input id="passwordUser" type="password" name="password" /><br/>
 				</div>
 				<button class="button" id="connectButton" type="submit" value="Se connecter">Se connecter</button>
-				<a class="button" id="connectRetourAccueil" href="index.php">Retour à la page d'accueil</a>
+				<a class="button" id="connectRetourAccueil" href="accueil">Retour à la page d'accueil</a>
 			</form>
 			<div id="redirectionConnect" class="redirection">
 			</div>

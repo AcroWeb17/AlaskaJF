@@ -13,8 +13,8 @@
 		<!--En-tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="button retourAccueil" href="index.php">Accueil</a>
-			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="accueil">Accueil</a>
+			<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 		</header>
 
 		<!--Corps de page-->
@@ -36,7 +36,7 @@
 							<label for="txtChap">Contenu du chapitre:</label><br/>
 							<textarea id="txtChapAdmin" class="largeTxtAdmin" name="txtChap"></textarea>
 							<div class="submitNewChapter">
-								<a class="submit" href="index.php?action=listChapter">Annuler</a>
+								<a class="submit" href="chapitres">Annuler</a>
 								<input type="submit" class="submit" value="Enregistrer" />
 							</div>
 						</div>

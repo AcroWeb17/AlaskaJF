@@ -598,12 +598,12 @@ header
 /*Confirmation de la suppression d'un chapitre*/
 .deleteChapAccueil
 {
-	right:570px;
+	right:35%;
 }
 
 .deleteChapRetourList
 {
-	left:590px;
+	left:35%;
 }
 
 /*Commentaires*/
@@ -700,7 +700,7 @@ header
 .deleteComList
 {
 	left:42%;
-	top:145px;
+	top:170px;
 }
 
 /*Mentions Légales*/
@@ -879,12 +879,12 @@ footer::after
 	/*Confirmation de la suppression d'un chapitre*/
 	.deleteChapAccueil
 	{
-		right:425px;
+		right:30%;
 	}
 
 	.deleteChapRetourList
 	{
-		left:430px;
+		left:30%;
 	}
 
 	/*Interface de deconnexion*/
@@ -998,12 +998,12 @@ footer::after
 	/*Confirmation de la suppression d'un chapitre*/
 	.deleteChapAccueil
 	{
-		right:30%;
+		right:25%;
 	}
 
 	.deleteChapRetourList
 	{
-		left:30%;
+		left:25%;
 	}
 
 	/*interface de connexion*/
@@ -1172,12 +1172,12 @@ footer::after
 	/*Confirmation de la suppression d'un chapitre*/
 	.deleteChapAccueil
 	{
-		right:25%;
+		right:18%;
 	}
 
 	.deleteChapRetourList
 	{
-		left:25%;
+		left:18%;
 	}
 
 	/*Confirmation suppression commentaire*/
@@ -1384,6 +1384,7 @@ footer::after
 	.deleteChapAccueil
 	{
 		left:15%;
+		right:48%;
 		top:150px;
 	}
 

@@ -23,13 +23,13 @@
 					<!--Confirmation de la suppression d'un commentaire-->
 					<h3> Etes-vous certain de vouloir supprimer ce commentaire? </h3>
 					<div class="deleteConfirm">
-						<a  href="index.php?action=adminComments" 
+						<a  href="gestion-commentaires" 
 						   class="submit" >Annuler</a>
 						<a  href="index.php?action=deleteComment&id=<?=htmlspecialchars($commentId['id']); ?>" 
 					   class="submit" >Confirmer la suppression</a>
 					</div>
-					<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
-					<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
+					<a class="button deleteListChap" href="chapitres">Liste des chapitres</a>
+					<a class="button deleteAccueil" href="accueil">Retour à la page d'accueil</a>
 
 			<!--En mode Utilisateur-->
 			<?php

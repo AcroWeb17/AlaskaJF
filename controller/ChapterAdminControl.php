@@ -18,7 +18,7 @@ class ChapterAdminControl
 					throw new Exception('Impossible d\'ajouter le chapitre!');		
 				}
 				else {
-					header('Location: index.php?action=listChapter');
+					header('Location: chapitres');
 				}
 			}
 			else {
@@ -39,7 +39,7 @@ class ChapterAdminControl
 			throw new Exception('Impossible d\'effectuer la mise à jour!');		
 		}
 		else {
-			header('Location: index.php?action=confirmUpdateChapter');
+			header('Location: modifications-chapitre');
 		}
 	}
 
@@ -60,7 +60,7 @@ class ChapterAdminControl
 			throw new Exception('Impossible de supprimer ce chapitre!');		
 		}
 		else {
-			header('Location: index.php?action=confirmDeleteChapter');	
+			header('Location: confirmation-suppression-chapitre');	
 		}
 	}
 

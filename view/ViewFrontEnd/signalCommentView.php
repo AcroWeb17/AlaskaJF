@@ -17,8 +17,8 @@
 		<!--Corps de page-->
 		<main>
 			<h3> Merci pour votre signalement</h3>
-			<a class="button deleteListChap" href="index.php?action=listChapter">Liste des chapitres</a>
-			<a class="button deleteAccueil" href="index.php">Retour à la page d'accueil</a>
+			<a class="button deleteListChap" href="chapitres">Liste des chapitres</a>
+			<a class="button deleteAccueil" href="accueil">Retour à la page d'accueil</a>
 		</main>
 
 		<!--Pied de page-->

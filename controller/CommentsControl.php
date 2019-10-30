@@ -13,7 +13,7 @@ class CommentsControl
 			throw new Exception('Impossible d\'ajouter le commentaire!');		
 		}
 		else {
-			header('Location: index.php?action=chapter&numChapter=' . $chapterNum);
+			header('Location: chapitre-' . $chapterNum);
 		}
 	}
 

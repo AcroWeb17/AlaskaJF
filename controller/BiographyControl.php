@@ -21,7 +21,7 @@ class BiographyControl
 			throw new Exception('Impossible d\'effectuer la mise à jour!');		
 		}
 		else {
-			header('Location: index.php');	
+			header('Location: accueil');	
 		}
 	}
 

@@ -1,0 +1,33 @@
+RewriteEngine On
+#redirection de l accueil
+RewriteRule ^accueil$ index.php [L]
+
+#redirection des pages de connexion
+RewriteRule ^connexion$ index.php?action=connect [L]
+RewriteRule ^deconnexion$ index.php?action=deconnect [L]
+RewriteRule ^changement-mot-de-passe$ index.php?action=newPassword [L]
+
+#redirection des pages biographie resume et mentions legales
+RewriteRule ^biographie$ index.php?action=biography [L]
+RewriteRule ^resume$ index.php?action=summary [L]
+RewriteRule ^mentions-legales$ index.php?action=mentionsLegales [L]
+
+#redirection des chapitres
+RewriteRule ^chapitres$ index.php?action=listChapter [L]
+RewriteRule ^chapitre-([0-9]+)$ index.php?action=chapter&numChapter=$1 [L] 
+RewriteRule ^administration-chapitre-([0-9]+)$ index.php?action=chapterAdmin&numChapter=$1 [L]
+RewriteRule ^modifications-chapitre$ index.php?action=confirmUpdateChapter [L]
+RewriteRule ^suppression-chapitre-([0-9]+)$ index.php?action=confirmDelete&numChapter=$1 [L] 
+RewriteRule ^confirmation-suppression-chapitre$ index.php?action=confirmDeleteChapter [L]
+RewriteRule ^nouveau-chapitre$ index.php?action=newChapter [L]
+
+#redirection des commentaires
+RewriteRule ^gestion-commentaires$ index.php?action=adminComments [L]
+RewriteRule ^suppression-commentaire-([0-9]+)$ index.php?action=confirmDeleteComment&id=$1 [L]
+RewriteRule ^signalement-commentaire-([0-9]+)$ index.php?action=signalComment&id=$1 [L]
+RewriteRule ^confirmation-suppression-commentaire$ index.php?action=confirmDeleteCom [L]
+
+
+
+
+

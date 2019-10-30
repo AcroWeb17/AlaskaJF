@@ -16,8 +16,8 @@
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
-				<a class="editButton" id="adminComments" href="index.php?action=adminComments">Gestion des commentaires</a>
-				<a class="editButton" id="newChapter" href="index.php?action=newChapter">Nouveau Chapitre</a>
+				<a class="editButton" id="adminComments" href="gestion-commentaires">Gestion des commentaires</a>
+				<a class="editButton" id="newChapter" href="nouveau-chapitre">Nouveau Chapitre</a>
 			<?php
 				}
 			?>
@@ -32,7 +32,7 @@
 					{
 				?>
 						<article class="episodes" id=articleChap>
-							<a class="lienChapitre" href="index.php?action=chapter&numChapter=<?= htmlspecialchars($data['numChapter']); ?>">
+							<a class="lienChapitre" href="chapitre-<?= htmlspecialchars($data['numChapter']); ?>">
 								<h2 id="decoChap">
 									CHAPITRE
 									<?= htmlspecialchars($data['numChapter']); ?>
@@ -51,8 +51,8 @@
 							<?php
 								if (isset($_SESSION['auth'])) {
 							?>
-									<a class="editButton" id="editChap" href="index.php?action=chapterAdmin&numChapter=<?= htmlspecialchars($data['numChapter']); ?>">Mise à jour</a>
-									<a class="editButton" id="deleteChap" href="index.php?action=confirmDelete&numChapter=<?= htmlspecialchars($data['numChapter']); ?>">Supprimer</a>
+									<a class="editButton" id="editChap" href="administration-chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Mise à jour</a>
+									<a class="editButton" id="deleteChap" href="suppression-chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Supprimer</a>
 							<?php
 								}
 							?>
@@ -67,7 +67,7 @@
 		<footer>
 			<?php include("public/footer.php");?>
 			<div class="button" id="accueilAlaska">
-				<a href="index.php"> Accueil</a>
+				<a href="accueil"> Accueil</a>
 			</div>
 		</footer>
 

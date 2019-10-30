@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Mentions légales - Billet simple pour l'Alaska</title>
-		<link rel="shortcut icon" href="../../public/Illustrations/favicon.ico"/>
-		<link rel="stylesheet" href="../../public/alaska.css"/>
+		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
+		<link rel="stylesheet" href="public/alaska.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	</head>
@@ -12,9 +12,9 @@
 	<body>
 		<!--En tête-->
 		<header>
-			<?php include("../../public/bandeau.php");?>
-			<a class="button retourAccueil" href="../../index.php">Accueil</a>
-			<a class="button retourListeChap" href="../../index.php?action=listChapter">Liste des chapitres</a>
+			<?php include("public/bandeau.php");?>
+			<a class="button retourAccueil" href="accueil">Accueil</a>
+			<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 		</header>
 
 		<!--Corps de page-->
@@ -45,7 +45,7 @@
 
 		<!--Pied de page-->
 		<footer>
-			<?php include("../../public/footer.php");?>
+			<?php include("public/footer.php");?>
 		</footer>
 		
 	</body>

@@ -13,8 +13,8 @@
 		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="button retourAccueil" href="index.php">Accueil</a>
-			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="accueil">Accueil</a>
+			<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 		</header>
 
 		<!--Corps de page-->
@@ -40,9 +40,9 @@
 								<?= html_entity_decode($chap['texte']) ?>
 							</textarea>
 							<div class="submitUpdateChapter">
-								<a class="submit" href="index.php?action=listChapter">Annuler</a>
+								<a class="submit" href="chapitres">Annuler</a>
 								<input type="submit" class="submit" value="Enregistrer" />
-								<a href="index.php?action=confirmDelete&numChapter=<?= htmlspecialchars($chap['numChapter']); ?>" class="submit">Supprimer</a>
+								<a href="suppression-chapitre-<?= htmlspecialchars($chap['numChapter']); ?>" class="submit">Supprimer</a>
 							</div>
 						</div>
 					</form>
@@ -60,7 +60,7 @@
 		<footer>
 			<?php include("public/footer.php");?>
 			<div class="button" id="accueilAlaska">
-				<a href="index.php"> Accueil</a>
+				<a href="accueil"> Accueil</a>
 			</div>
 		</footer>
 

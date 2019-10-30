@@ -12,8 +12,8 @@
 		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php"); ?>
-			<a class="button retourAccueil" href="index.php">Accueil</a>
-			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="accueil">Accueil</a>
+			<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 		</header>
 
 		<!--Corps de page-->
@@ -38,7 +38,7 @@
 										<p class="commentDate">
 											 <?= htmlspecialchars($data['dateComment']); ?>
 										</p>
-										<a id="commentLienChap" href="index.php?action=chapter&numChapter=<?= htmlspecialchars($data['numChapter']); ?>">Retour au chapitre</a>
+										<a id="commentLienChap" href="chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Retour au chapitre</a>
 										
 										<!--Si un commentaire a été signalé-->
 										<?php
@@ -48,7 +48,7 @@
 										<?php
 											}	
 										?>
-										<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($data['id']); ?>" class="submit" id="deleteCommentList">Supprimer</a>
+										<a href="suppression-commentaire-<?= htmlspecialchars($data['id']); ?>" class="submit" id="deleteCommentList">Supprimer</a>
 									</div>
 									<p>
 										<?= nl2br(htmlspecialchars($data['comment'])); ?>

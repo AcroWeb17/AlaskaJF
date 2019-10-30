@@ -12,8 +12,8 @@
 		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="button retourAccueil" href="index.php">Accueil</a>
-			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="accueil">Accueil</a>
+			<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 		</header>
 
 		<!--Corps de page-->
@@ -36,7 +36,7 @@
 							<input id="confirmNewPassword" type="password" name="confirmNewPassword" /><br/>
 						</div>
 						<div class="submitNewPassword">
-							<a class="submit" href="index.php">Annuler</a>
+							<a class="submit" href="accueil">Annuler</a>
 							<input type="submit" class="submit" value="Valider" />
 						</div>
 					</form>

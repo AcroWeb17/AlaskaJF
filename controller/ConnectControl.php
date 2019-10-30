@@ -14,7 +14,7 @@ class ConnectControl
 	public function deconnect()
 	{
 		session_destroy();
-		header('Location: view/ViewFrontEnd/deconnectView.php');
+		require('view/ViewFrontEnd/deconnectView.php');
 	}
 
 	//vérification du login et mdp pour connexion

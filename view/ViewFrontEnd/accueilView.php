@@ -18,7 +18,7 @@
 			?>		
 					<div id="identification">
 						<h4> Bienvenue Jean Forteroche </h4>
-						<a id="changeMdP" href="index.php?action=newPassword" alt="Password" title="Modifier le mot de passe"><i class="fas fa-key"></i></a>
+						<a id="changeMdP" href="changement-mot-de-passe" alt="Password" title="Modifier le mot de passe"><i class="fas fa-key"></i></a>
 					</div>
 			<?php
 				}
@@ -35,7 +35,7 @@
 					<?php
 						if (isset($_SESSION['auth'])){
 					?>	
-							<a class="editButton" id="editBiographyAccueil" href="index.php?action=biography">Mise à jour</a>
+							<a class="editButton" id="editBiographyAccueil" href="biographie">Mise à jour</a>
 					<?php
 						}
 					?>
@@ -50,12 +50,12 @@
 				<article id="resumeTxt">
 					<p>	<?= html_entity_decode($summary['content']) ?></p> 
 					<div>
-						<a id="accesBlog" href="index.php?action=listChapter"><i class="fas fa-book-open"></i></a>
+						<a id="accesBlog" href="chapitres"><i class="fas fa-book-open"></i></a>
 					</div>
 					<?php
 						if (isset($_SESSION['auth'])){
 					?>		
-							<a class="editButton" id="editResume" href="index.php?action=summary">Mise à jour</a>
+							<a class="editButton" id="editResume" href="resume">Mise à jour</a>
 					<?php
 						}
 					?>
@@ -70,11 +70,11 @@
 				<?php
 					if (isset($_SESSION['auth'])){
 				?>	
-						<a href="index.php?action=deconnect"> Deconnexion</a>
+						<a href="deconnexion"> Deconnexion</a>
 				<?php
 					} else {
 				?>
-						<a href="index.php?action=connect"> Connexion</a>
+						<a href="connexion"> Connexion</a>
 				<?php
 					}
 				?>

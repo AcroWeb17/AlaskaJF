@@ -13,8 +13,8 @@
 		<!--En tête-->
 		<header>
 			<?php include("public/bandeau.php");?>
-			<a class="button retourAccueil" href="index.php">Accueil</a>
-			<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+			<a class="button retourAccueil" href="accueil">Accueil</a>
+			<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 		</header>
 
 		<!--Corps de page-->
@@ -23,7 +23,7 @@
 			<?php
 				if (isset($_SESSION['auth'])) {
 			?>
-				<a class="editButton" id="updateChap" href="index.php?action=chapterAdmin&numChapter=<?= htmlspecialchars($chap['numChapter']); ?>">Mise à jour</a>
+				<a class="editButton" id="updateChap" href="administration-chapitre-<?= htmlspecialchars($chap['numChapter']); ?>">Mise à jour</a>
 			<?php
 				}
 			?>
@@ -64,7 +64,7 @@
 									<?php 
 										}else{
 									?>								
-											<a href="index.php?action=signalComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="signalComment" id="signalButton">Signaler</a>
+											<a href="signalement-commentaire-<?= htmlspecialchars($dataComment['id']); ?>" class="signalComment" id="signalButton">Signaler</a>
 									<?php 
 										}
 									?>
@@ -74,7 +74,7 @@
 									if (isset($_SESSION['auth'])) {
 								?>
 										<div >
-											<a href="index.php?action=confirmDeleteComment&id=<?= htmlspecialchars($dataComment['id']); ?>" class="submit" id="deleteComment">Supprimer</a>
+											<a href="suppression-commentaire-<?= htmlspecialchars($dataComment['id']); ?>" class="submit" id="deleteComment">Supprimer</a>
 										</div>
 								<?php
 									}
@@ -110,7 +110,7 @@
 		<footer>
 			<?php include("public/footer.php");?>
 			<div class="button" id="accueilAlaska">
-				<a href="index.php"> Accueil</a>
+				<a href="accueil"> Accueil</a>
 			</div>
 		</footer>
 

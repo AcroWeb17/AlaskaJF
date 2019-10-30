@@ -14,8 +14,8 @@
 		<header>
 			<?php include("public/bandeau.php");?>
 			<div id="menu">
-				<a class="button retourAccueil" href="index.php">Accueil</a>
-				<a class="button retourListeChap" href="index.php?action=listChapter">Liste des chapitres</a>
+				<a class="button retourAccueil" href="accueil">Accueil</a>
+				<a class="button retourListeChap" href="chapitres">Liste des chapitres</a>
 			</div>
 		</header>
 
@@ -32,7 +32,7 @@
 							<?=html_entity_decode(($biography['content']))?>
 						</textarea>
 						<div class="submitAccueil">
-							<a class="submit" href="index.php">Annuler</a>
+							<a class="submit" href="accueil">Annuler</a>
 							<input type="submit" class="submit" value="Enregistrer" />
 						</div>
 					</form>

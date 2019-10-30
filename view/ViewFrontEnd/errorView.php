@@ -18,8 +18,8 @@
 		<main>
 			<h3><?php echo' '.$errorMessage.'' ?></h3>
 
-			<a class="button deleteChapAccueil" href="index.php">Retour à la page d'accueil</a>
-			<a class="button deleteChapRetourList" href="index.php?action=listChapter">Liste des chapitre</a>
+			<a class="button deleteChapAccueil" href="accueil">Retour à la page d'accueil</a>
+			<a class="button deleteChapRetourList" href="chapitres">Liste des chapitre</a>
 		
 		</main>
 
