@@ -50,7 +50,7 @@ class ConnectControl
 					$passwordModify = new Users();
 					$passwordMo = $passwordModify->modifPassword($login, $newPassword);
 						if ($passwordMo === false){
-							throw new Exception('Impossible d\'effectuer la mise à jour!');		
+							throw new \Exception('Impossible d\'effectuer la mise à jour!');		
 						}
 						else {
 							echo "succes";

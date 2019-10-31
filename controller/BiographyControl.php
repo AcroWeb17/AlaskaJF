@@ -18,10 +18,11 @@ class BiographyControl
 		$biographyModify = new Biography();
 		$biographyMo = $biographyModify->modifBiography($content);
 		if ($sbiographyMo === false){
-			throw new Exception('Impossible d\'effectuer la mise à jour!');		
+			throw new \Exception('Impossible d\'effectuer la mise à jour!');		
 		}
 		else {
-			header('Location: accueil');	
+			header('Location: accueil');
+			exit();	
 		}
 	}
 

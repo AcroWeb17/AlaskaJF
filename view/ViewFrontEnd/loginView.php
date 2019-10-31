@@ -6,6 +6,7 @@
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="Interface de connexion">
 	</head>
 
 	<body>
@@ -19,9 +20,9 @@
 			<h3> Se connecter </h3>
 			<form id="formConnexion"  method="post">
 				<div class="saisieMdP" id="connectMdP">
-					<label for="login"> Identifiant</label>
+					<label for="loginUser"> Identifiant</label>
 					<input type="text" name="login" id="loginUser"/><br/><br/>
-					<label for="password">Mot de passe </label>
+					<label for="passwordUser">Mot de passe </label>
 					<input id="passwordUser" type="password" name="password" /><br/>
 				</div>
 				<button class="button" id="connectButton" type="submit" value="Se connecter">Se connecter</button>

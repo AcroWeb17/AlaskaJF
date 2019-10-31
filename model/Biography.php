@@ -9,7 +9,7 @@ class Biography extends DataBase
 	public function getContentBiography()
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT id, content FROM biography WHERE id="1"');
+		$req = $db->prepare('SELECT id, content FROM biography WHERE id=1');
 		$req->execute(array());
 		$txtBiography = $req->fetch();
 		return $txtBiography;

@@ -15,18 +15,19 @@ class ChapterAdminControl
 				$chapterManager = new Chapter();
 				$newChapter = $chapterManager->postChapter($chapterNum, $titleChap, $txtChap);
 				if ($newChapter === false){
-					throw new Exception('Impossible d\'ajouter le chapitre!');		
+					throw new \Exception('Impossible d\'ajouter le chapitre!');		
 				}
 				else {
 					header('Location: chapitres');
+					exit();
 				}
 			}
 			else {
-				throw new Exception('Ce chapitre a déjà été écrit');
+				throw new \Exception('Ce chapitre a déjà été écrit');
 			}
 		} 
 		else {
-			throw new Exception('Numéro de chapitre non conforme!');	
+			throw new \Exception('Numéro de chapitre non conforme!');	
 		}
 	}
 
@@ -36,10 +37,11 @@ class ChapterAdminControl
 		$chapterModify = new Chapter();
 		$chapMo = $chapterModify->modifChapter( $chapterNum, $titleChap, $txtChap);
 		if ($chapMo === false){
-			throw new Exception('Impossible d\'effectuer la mise à jour!');		
+			throw new \Exception('Impossible d\'effectuer la mise à jour!');		
 		}
 		else {
 			header('Location: modifications-chapitre');
+			exit();
 		}
 	}
 
@@ -57,10 +59,11 @@ class ChapterAdminControl
 		$chapterDelete = new Chapter();
 		$chapMo = $chapterDelete->suppChapter($chapterNum, $titleChap, $txtChap);
 		if ($chapMo === false){
-			throw new Exception('Impossible de supprimer ce chapitre!');		
+			throw new \Exception('Impossible de supprimer ce chapitre!');		
 		}
 		else {
-			header('Location: confirmation-suppression-chapitre');	
+			header('Location: confirmation-suppression-chapitre');
+			exit();	
 		}
 	}
 

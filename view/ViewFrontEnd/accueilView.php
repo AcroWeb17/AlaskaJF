@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/alaska.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="Billet simple pour l'Alaska. Page d'accueil du nouveau roman de Jean Forteroche">
 	</head>
 
 	<body>
@@ -50,7 +51,7 @@
 				<article id="resumeTxt">
 					<p>	<?= html_entity_decode($summary['content']) ?></p> 
 					<div>
-						<a id="accesBlog" href="chapitres"><i class="fas fa-book-open"></i></a>
+						<a id="accesBlog" href="chapitres"><i class="fas fa-book-open"></i>Accès aux chapitres</a>
 					</div>
 					<?php
 						if (isset($_SESSION['auth'])){

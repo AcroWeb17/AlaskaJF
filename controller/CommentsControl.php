@@ -10,10 +10,11 @@ class CommentsControl
 		$commentManager = new Comments();
 		$affectedLines = $commentManager->postComment($chapterNum, $author, $comment);
 		if ($affectedLines === false){
-			throw new Exception('Impossible d\'ajouter le commentaire!');		
+			throw new \Exception('Impossible d\'ajouter le commentaire!');		
 		}
 		else {
 			header('Location: chapitre-' . $chapterNum);
+			exit();
 		}
 	}
 

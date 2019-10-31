@@ -21,11 +21,16 @@ body
 	position:relative;
 }
 
+header
+{
+	padding-bottom:50px;
+}
+
 main
 {
 	position:relative;
 	min-height:60vh;
-	padding:50px 0px 80px 0px;
+	padding:0px 0px 80px 0px;
 }
 
 a
@@ -169,7 +174,7 @@ header
 	border:2px solid #AC8646;
 	background-color: white;
 	margin-left:25px;
-	top:-120px;
+	top:-96px;
 	border-radius:30px;
 }
 
@@ -214,13 +219,19 @@ header
 	font-weight:800;
 	border-radius:50%;
 	text-decoration:none;
-	padding:6px;
+	padding:8px 7px 9px 6px;
 	position:absolute;
 	bottom:6px;
 	left:50%;
 	width:35px;
 	height:35px;
 	text-align:center;
+	font-size:0;
+}
+
+.fas
+{
+	font-size:16px;
 }
 
 /*Accueil Admin*/
@@ -392,7 +403,7 @@ header
 	border-radius:7px;
 }
 
-#decoChap::after
+.decoChap::after
 {
 	content:'';
 	border-right:80px solid #F9D8A9;
@@ -404,13 +415,13 @@ header
 	position:absolute;
 }
 
-#decoTitre
+.decoTitre
 {
 	position:relative;
 	padding-bottom:5px;
 }
 
-#decoTitre::before
+.decoTitre::before
 {
 	content:'*';
 	position:absolute;
@@ -418,7 +429,7 @@ header
 	left:47%;
 }
 
-#decoTitre::after
+.decoTitre::after
 {
 	content:'';
 	bottom: -10px;
@@ -461,14 +472,14 @@ header
 	background-color: #616811;
 }
 
-#editChap
+.editChap
 {
 	width:90px;
 	left:15px;
 	bottom:8px;
 }
 
-#deleteChap
+.deleteChap
 {
 	width:80px;
 	left:120px;
@@ -770,7 +781,6 @@ footer::after
 	position:absolute;
 	color:white;
 	left:15px;
-	width:300px;
 }
 
 #mailContact
@@ -810,7 +820,8 @@ footer::after
 }
 
 /*Responsive*/
-@media(max-width:1280px){/*grand ecran*/
+@media(max-width:1280px)
+{
 	#bandeau::after
 	{
 		border-bottom:95px white solid;
@@ -891,15 +902,16 @@ footer::after
 	#deconnectAccueil
 	{
 		right:41%;
-
 	}
 }
 
-@media(max-width:1125px){/*IPadPro*/
+@media(max-width:1125px)
+{
 	main
 	{
 		min-height:75vh;
 	}
+
 	h1
 	{
 		bottom:50px;
@@ -909,16 +921,19 @@ footer::after
 	{
 		margin-top:15px;
 	}
+
 	h4
 	{
 		bottom:-24px;
 		right:95px;
 	}
+
 	#changeMdP
 	{
 		bottom:-2px;
 		right:64px;
 	}
+
 	#bandeau::after
 	{
 		border-bottom:75px white solid;
@@ -929,6 +944,7 @@ footer::after
 	{
 		top:175px;
 	}
+
 	.retourListeChap
 	{
 		top:215px;
@@ -941,12 +957,18 @@ footer::after
 		margin-top:50px;
 		margin-left:;
 	}
+
 	#resumeTxt
 	{
 		width:670px;
 		margin-left:0;
 		padding:10px 15px 55px 15px;
 		margin-top:50px;
+	}
+
+	#biographie
+	{
+		top:-70px;
 	}
 
 	/*Admin Accueil*/
@@ -1023,20 +1045,23 @@ footer::after
 	}
 }
 
-@media(max-width:800px){/*IPad*/
+@media(max-width:800px){
 	*
 	{
 		box-sizing: content-box; ;
 	}
+
 	main
 	{
 		min-height:68vh;
 	}
+
 	#bandeau::after
 	{
 		border-bottom:55px white solid;
 		border-left:460px solid transparent;
 	}
+
 	h1
 	{
 		bottom:32px;
@@ -1045,15 +1070,20 @@ footer::after
 
 	.retourAccueil
 	{
-		top:165px;
-		right:80%;
+		position:relative;
+		top:15px;
+		right:0;
+		left:20px;
 	}
 
 	.retourListeChap
 	{
-		top:165px;
-		right:20px;
+		position:relative;
+		top:15px;
+		right:0;
+		left:20px;
 	}
+
 	#accesBlog
 	{
 		width:20px;
@@ -1062,9 +1092,26 @@ footer::after
 	}
 
 	/*Admin Accueil*/
+	#identification
+	{
+		display:flex;
+		position: relative;
+		justify-content: space-around;
+	}
+
+	#changeMdP
+	{
+		margin:0;
+	}
+
 	.submitAccueil
 	{
 		margin-left:55%;
+	}
+
+	#biographie
+	{
+		top:-55px;
 	}
 
 	footer::after
@@ -1103,11 +1150,12 @@ footer::after
 		height:50px;
 	}
 
-	#editChap
+	.editChap
 	{
 		width:75px;
 	}
-	#deleteChap
+
+	.deleteChap
 	{
 		width:75px;
 	}
@@ -1199,19 +1247,22 @@ footer::after
 	}
 }
 
-@media(max-width:600px){/*IPhoneX*/
+@media(max-width:600px)
+{
 	main
 	{
 		min-height:75vh;
 	}
+
 	#bandeau::after
 	{
 		border-bottom:30px white solid;
 		border-left:230px solid transparent;
 	}
+
 	h1
 	{
-		font-size:1.5em;
+		font-size:1em;
 		bottom:20px;
 	}
 
@@ -1219,6 +1270,7 @@ footer::after
 	{
 		margin-top:20px;
 	}
+
 	h4
 	{
 		position:relative;
@@ -1231,30 +1283,25 @@ footer::after
 	{
 		margin:20px 20px 0px 20px;
 	}
+
 	#changeMdP
 	{
-		bottom:0;
+		top:25px;
 		right:0;
-		margin-right:10%;
-	}
-	.retourAccueil
-	{
-		top:135px;
+		bottom:0;
+		position:relative;
 	}
 
-	.retourListeChap
-	{
-		top:135px;
-		right:20px;
-	}
 	.smallTxtAdmin + .tox-tinymce
 	{
 		height:500px !important;
 	}
+
 	#logo
 	{
 		width:20%;
 	}
+
 	#biographie
 	{
 		width:350px;
@@ -1283,6 +1330,7 @@ footer::after
 	{
 		margin-left:40%;
 	}
+
 	footer::after
 	{
 		border-right: 255px solid transparent;
@@ -1294,6 +1342,7 @@ footer::after
 		right:15px;
 		bottom:10px;
 	}
+
 	.button
 	{
 		font-size:0.8em;
@@ -1304,11 +1353,13 @@ footer::after
 		bottom:25px;
 		left:4px;
 	}
+
 	#mailContact
 	{
 		bottom:4px;
 		left:4px;
 	}
+
 	.mail
 	{
 		left:8px;
@@ -1326,16 +1377,18 @@ footer::after
 	{
 		top:140px;
 	}
+
 	.txtEpisodes::before
 	{
 		height:50px;
 	}
 
-	#editChap
+	.editChap
 	{
 		width:75px;
 	}
-	#deleteChap
+
+	.deleteChap
 	{
 		width:75px;
 	}
@@ -1405,6 +1458,7 @@ footer::after
 	{
 		flex-wrap:wrap;
 	}
+
 	.commentAuthor
 	{
 		padding-top:45px;
@@ -1453,7 +1507,6 @@ footer::after
 	#deconnectAccueil
 	{
 		right:27%;
-
 	}
 
 	/*mentions légales*/
@@ -1467,20 +1520,21 @@ footer::after
 	{
 		width:75%;
 	}
+
 	.submitNewPassword
 	{
 		margin-left:32%;
 	}
-
-
 }
 
-@media(max-width:350px){
+@media(max-width:350px)
+{
 	#bandeau::after
 	{
 		border-bottom:25px white solid;
 		border-left:180px solid transparent;
 	}
+
 	h1
 	{
 		bottom:15px;
@@ -1491,29 +1545,21 @@ footer::after
 		margin-top:20px;
 	}
 
-	.retourAccueil
-	{
-		top:90px;
-		right:240px;
-	}
-
-	.retourListeChap
-	{
-		top:90px;
-		right:20px;
-	}
 	#changeMdP
 	{
 		margin-right:5%;
 	}
+
 	#biographie
 	{
 		width:300px;
 	}
+
 	#editResume
 	{
 		right:10px;
 	}
+
 	#connexion
 	{
 		bottom:25px;
@@ -1544,18 +1590,17 @@ footer::after
 		margin-top:70px;
 	}
 
-	#editChap
+	.editChap
 	{
 		left:8px;
 	}
 
-	#deleteChap
+	.deleteChap
 	{
 		left:106px;
 	}
 
 	/*Chapitres*/
-
 	#titreChapitre::after
 	{
 		left:34%;
@@ -1595,5 +1640,4 @@ footer::after
 	{
 		top:380px;
 	}
-
 }

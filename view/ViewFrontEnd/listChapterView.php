@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/alaska.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="Billet simple pour l'Alaska. Liste des chapitres disponibles">
 	</head>
 	
 	<body>
@@ -31,13 +32,13 @@
 					while($data = $listChap->fetch())
 					{
 				?>
-						<article class="episodes" id=articleChap>
+						<article class="episodes">
 							<a class="lienChapitre" href="chapitre-<?= htmlspecialchars($data['numChapter']); ?>">
-								<h2 id="decoChap">
+								<h2 class="decoChap">
 									CHAPITRE
 									<?= htmlspecialchars($data['numChapter']); ?>
 								</h2>
-								<h3 id="decoTitre">
+								<h3 class="decoTitre">
 									<?= htmlspecialchars($data['title']); ?>
 								</h3>
 								<p class="txtEpisodes">
@@ -51,8 +52,8 @@
 							<?php
 								if (isset($_SESSION['auth'])) {
 							?>
-									<a class="editButton" id="editChap" href="administration-chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Mise à jour</a>
-									<a class="editButton" id="deleteChap" href="suppression-chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Supprimer</a>
+									<a class="editButton editChap" href="administration-chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Mise à jour</a>
+									<a class="editButton deleteChap" href="suppression-chapitre-<?= htmlspecialchars($data['numChapter']); ?>">Supprimer</a>
 							<?php
 								}
 							?>

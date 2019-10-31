@@ -10,9 +10,9 @@ class Users extends DataBase
 	public function modifPassword($login,$newPassword)
 	{
 		$db = $this->dbConnect();
-		$passwordHach = password_hash($newPassword,PASSWORD_DEFAULT);
-		$req = $db->prepare('UPDATE users SET password= "'.$passwordHach.'" WHERE login = "'.$login.'"');
-		$passwordMaj = $req->execute(array($login));
+		$passwordHash = password_hash($newPassword,PASSWORD_DEFAULT);
+		$req = $db->prepare('UPDATE users SET password= ? WHERE login = ?');
+		$passwordMaj = $req->execute(array($passwordHash, $login));
 		return $passwordMaj;
 	}
 

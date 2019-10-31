@@ -57,7 +57,7 @@ class Comments extends DataBase
 	public function updateComment($id,$alertComment)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE comments SET alert="1" WHERE id = ?');
+		$req = $db->prepare('UPDATE comments SET alert=1 WHERE id = ?');
 		$comAlert = $req->execute(array($id));
 		return $comAlert;
 	}

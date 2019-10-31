@@ -50,8 +50,8 @@ class Chapter extends DataBase
 	public function modifChapter($chapterNum, $titleChap, $txtChap)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE chapter SET numChapter= "'.$chapterNum.'", title= "'.$titleChap.'", texte= "'.$txtChap.'" WHERE numChapter = ?');
-		$chapMaj = $req->execute(array($chapterNum));
+		$req = $db->prepare('UPDATE chapter SET numChapter= ?, title= ?, texte= ? WHERE numChapter = ?');
+		$chapMaj = $req->execute(array($chapterNum, $titleChap, $txtChap, $chapterNum));
 		return $chapMaj;
 	}
 

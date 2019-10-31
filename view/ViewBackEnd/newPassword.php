@@ -6,6 +6,7 @@
 		<link rel="shortcut icon" href="public/Illustrations/favicon.ico"/>
 		<link rel="stylesheet" href="public/alaska.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="Modification du mot de passe de l'administrateur">
 	</head>
 
 	<body>
@@ -27,7 +28,7 @@
 					<form id="formMdP" method="post">
 						<div class="saisieMdP" id="saisieNewMdP">
 							<label for="login"> Identifiant</label>
-							<input type="text" name="login"/><br/><br/>
+							<input type="text" name="login" id="login"/><br/><br/>
 							<label for="oldPassword">Mot de passe </label>
 							<input id="oldPassword" type="password" name="password" /><br/><br/>
 							<label for="newPassword">Nouveau mot de passe </label>
@@ -58,10 +59,8 @@
 		<footer>
 			<?php include("public/footer.php");?>
 		</footer>
+		<!--Fichier Javascript-->
+		<script src="public/gestionUsers.js"></script>
 
 	</body>
-
-	<!--Fichier Javascript-->
-	<script src="public/gestionUsers.js"> </script>
-	
 </html>	
