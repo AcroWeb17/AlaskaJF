@@ -525,18 +525,23 @@ header
 	margin:20px 20px 20px 50px;
 }
 
+#titreChapitre
+{
+	position:relative;
+}
+
 #titreChapitre::before
 {
 	content:'*';
 	position:absolute;
-	top:160px;
+	top:35px;
 	left:49%;
 }
 
 #titreChapitre::after
 {
 	content:'';
-	top:168px;
+	top:43px;
 	width:110px;
 	left:46%;
 	position:absolute;
@@ -552,6 +557,7 @@ header
 {
 	left:55px;
 	top:10px;
+	position:relative;
 }
 
 /*Modification d'un chapitre*/
@@ -955,7 +961,6 @@ footer::after
 	{
 		justify-content: center;
 		margin-top:50px;
-		margin-left:;
 	}
 
 	#resumeTxt
@@ -1163,12 +1168,12 @@ footer::after
 	/*Chapitres*/
 	#titreChapitre::before
 	{
-		left:48%;
+		left:49%;
 	}
 
 	#titreChapitre::after
 	{
-		left:38%;
+		left:42%;
 	}
 
 	/*Chapitre Admin*/
@@ -1176,12 +1181,6 @@ footer::after
 	{
 		display: flex;
 		flex-wrap: wrap;
-	}
-
-	#updateChap
-	{
-		left:222px;
-		top:70px;
 	}
 
 	/*Nouveau chapitre*/

@@ -21,9 +21,9 @@
 			<form id="formConnexion"  method="post">
 				<div class="saisieMdP" id="connectMdP">
 					<label for="loginUser"> Identifiant</label>
-					<input type="text" name="login" id="loginUser"/><br/><br/>
+					<input type="text" name="login" id="loginUser" required /><br/><br/>
 					<label for="passwordUser">Mot de passe </label>
-					<input id="passwordUser" type="password" name="password" /><br/>
+					<input id="passwordUser" type="password" name="password" required /><br/>
 				</div>
 				<button class="button" id="connectButton" type="submit" value="Se connecter">Se connecter</button>
 				<a class="button" id="connectRetourAccueil" href="accueil">Retour à la page d'accueil</a>

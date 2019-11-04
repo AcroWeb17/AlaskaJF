@@ -264,6 +264,10 @@ try {
 		else if ($_GET['action'] == 'mentionsLegales'){
 			require 'view/ViewFrontEnd/mentionsLegales.php';
 		}
+
+		else if ($_GET['action'] == 'erreur404'){
+			require 'view/ViewFrontEnd/error404View.php';
+		}
 	}
 
 	//affichage de la page d'accueil

@@ -27,7 +27,9 @@ RewriteRule ^suppression-commentaire-([0-9]+)$ index.php?action=confirmDeleteCom
 RewriteRule ^signalement-commentaire-([0-9]+)$ index.php?action=signalComment&id=$1 [L]
 RewriteRule ^confirmation-suppression-commentaire$ index.php?action=confirmDeleteCom [L]
 
-
+#redirection de la page erreur 404
+RewriteRule ^page-introuvable$ index.php?action=erreur404 [L]
+ErrorDocument 404 http://acroweb.alwaysdata.net/billetsimplealaska/page-introuvable
 
 
 

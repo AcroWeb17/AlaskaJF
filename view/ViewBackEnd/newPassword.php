@@ -28,13 +28,13 @@
 					<form id="formMdP" method="post">
 						<div class="saisieMdP" id="saisieNewMdP">
 							<label for="login"> Identifiant</label>
-							<input type="text" name="login" id="login"/><br/><br/>
+							<input type="text" name="login" id="login" required /><br/><br/>
 							<label for="oldPassword">Mot de passe </label>
-							<input id="oldPassword" type="password" name="password" /><br/><br/>
+							<input id="oldPassword" type="password" name="password" required /><br/><br/>
 							<label for="newPassword">Nouveau mot de passe </label>
-							<input id="newPassword" type="password" name="newPassword" /><br/><br/>
+							<input id="newPassword" type="password" name="newPassword" required /><br/><br/>
 							<label for="confirmNewPassword">Confirmer le nouveau mot de passe </label>
-							<input id="confirmNewPassword" type="password" name="confirmNewPassword" /><br/>
+							<input id="confirmNewPassword" type="password" name="confirmNewPassword" required /><br/>
 						</div>
 						<div class="submitNewPassword">
 							<a class="submit" href="accueil">Annuler</a>

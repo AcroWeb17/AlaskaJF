@@ -72,9 +72,13 @@ class ChapterAdminControl
 	{
 		$chapterManager = new Chapter();
 		$chap= $chapterManager->getContentChapter($_GET['numChapter']);//récupère le number_chapter dans l'url
-		require('view/ViewBackEnd/updateChapterView.php');
+		if ($chap === false){
+			throw new \Exception('Ce chapitre n\'existe pas!');		
+		}
+		else {
+			require('view/ViewBackEnd/updateChapterView.php');
+		}
 	}
-
 }
 
 

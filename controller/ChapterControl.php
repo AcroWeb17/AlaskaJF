@@ -20,7 +20,12 @@ class ChapterControl
 		$commentManager = new Comments();
 		$chap= $chapterManager->getContentChapter($_GET['numChapter']);//récupère le number_chapter dans l'url
 		$comments = $commentManager->getComment($_GET['numChapter']);
-		require('view/ViewFrontEnd/chapterView.php');
+		if ($chap === false){
+			throw new \Exception('Ce chapitre n\'existe pas!');		
+		}
+		else {
+			require('view/ViewFrontEnd/chapterView.php');
+		}	
 	}
 
 }
